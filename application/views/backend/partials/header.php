@@ -1,5 +1,5 @@
 <header class="header">
-<?php echo anchor(base_url(), 'OES Pro', "class='logo'");  ?>
+<?php echo anchor(base_url(), 'mathMOOC', "class='logo'");  ?>
 <!-- Header Navbar: style can be found in header.less -->
 <nav class="navbar navbar-static-top" role="navigation">
     <!-- Sidebar toggle button-->
@@ -19,11 +19,6 @@
                     <span><?php echo $user->username; ?><i class="caret"></i></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <!-- User image -->
-                    <?php $img = ($user->photo != '')  ? site_url(PROFILEPHOTOSTHUMBS.$user->photo) : site_url('assets/img/avatar3.png'); ?>
-                    <li class="user-header bg-light-blue">
-                         <img src="<?php echo $img;?>" class="img-circle" alt="User Image" />
-                    </li>
                     <!-- Menu Footer-->
                     <li class="user-footer">
                         <div class="pull-left">

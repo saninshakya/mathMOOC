@@ -1,15 +1,4 @@
 <div class="container middlecontent" style="background:#fff">
-        <h4><strong>Get Certification</strong></h4>
-        <hr>
-        <p>We have a range of exams from different categories which allow you to certify your skills. On passing each exam, a special certificate will be generated for you. This will highlight your abilities and will help you stand out from the rest!</p>
-        <hr>
-        <h4> <strong> Search Exam  </strong></h4>
-        <p>
-        <form id="live-search" action="" class="styled" method="post">
-            <input type="text" class="form-control" id="filter" placeholder="Search for an exam try typing PHP or HTML" />
-            <span id="filter-count"></span>
-        </form>  
-        </p>
         <?php 
         if(!empty($categories)){
         foreach ($categories as $category) {
@@ -28,8 +17,8 @@
                             <thead>
                                 <tr>
                                     <th width="50%">Exam</th>
-                                    <th width="15%">Cost</th>
-                                    <th width="20%"></th>
+                                    <th width="15%">#Attempt</th>
+                                    <th width="20%">Action</th>
                                     <th width="15%">Result</th>
                                 </tr>
                             </thead>
@@ -38,7 +27,7 @@
                                 foreach ($category->exam as $exam) { ?>
                                 <tr>
                                     <td><?php echo $exam->name;?></td>
-                                    <td><label class="btn btn-sm <?php echo ($exam->type == 'paid') ? 'btn-danger' : 'btn-success'; ?> "><?php echo ($exam->type == 'paid') ? format_amount($exam->cost) : 'FREE' ;?></label></td>
+                                    <td>???</td>
                                     <td><a class="btn btn-success <?php echo (!$this->ion_auth->logged_in()) ? 'toggle-modal' : ''; ?>" href="<?php echo site_url('exams/takeexam/'.$exam->id); ?>">Take Exam</a></td>
                                     <td></td>
                                 </tr>

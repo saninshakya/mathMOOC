@@ -1,19 +1,6 @@
 <div id="footerwrap" class="navbar-fixed-bottom">
 	<div class="container">
- 	 			<?php $settings =  Setting::first(); ?>
- 				<?php if($settings->facebook_url != '') { ?>
- 				<a href="<?php echo $settings->facebook_url; ?>" target="_blank"><i class="fa fa-facebook"></i></a>
- 				<?php } ?>
- 				<?php if($settings->twitter_url != '') { ?>
- 				<a href="<?php echo $settings->twitter_url; ?>" target="_blank"><i class="fa fa-twitter"></i></a>
- 				<?php } ?>
- 				<?php if($settings->instagram_url != '') { ?>
- 				<a href="<?php echo $settings->instagram_url; ?>" target="_blank"><i class="fa fa-instagram"></i></a>
- 				<?php } ?>
- 				<?php if($settings->tumblr_url != '') {?>
- 					<a href="<?php echo $settings->tumblr_url; ?>" target="_blank"><i class="fa fa-tumblr"></i></a>
- 				<?php } ?>
- 			<span class="pull-right">&copy; Online Exam System - 2014</span>
+ 			<span class="pull-right">&copy; mathMOOC - 2016</span>
  </div>
 
 </div>

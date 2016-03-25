@@ -5,14 +5,10 @@
     <section class="sidebar">
         <!-- Sidebar user panel -->
         <div class="user-panel">
-            <div class="pull-left image">
-                <?php $img = ($user->photo != '')  ? site_url(PROFILEPHOTOSTHUMBS.$user->photo) : site_url('assets/img/avatar3.png'); ?>
-                <img src="<?php echo $img;?>" class="img-circle" alt="User Image" />
-            </div>
             <div class="pull-left info">
                 <p>Hello, <?php echo $user->username; ?></p>
 
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <a href="#"><i class="fa fa-circle text-success"></i>Available</a>
             </div>
         </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -54,28 +50,6 @@
                     <li><a href="<?php echo site_url('admin/users'); ?>"><i class="fa fa-angle-double-right"></i> View Users</a></li>
                 </ul>
             </li>
-            <li class="treeview <?php echo (isset($activemenu) && $activemenu == 'subscriptions') ?  'active' : ''; ?>">
-                <a href="#">
-                    <i class="fa fa-edit"></i> <span>Subscriptions</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo site_url('admin/subscriptions/create'); ?>"><i class="fa fa-angle-double-right"></i> Add Subscription</a></li>
-                    <li><a href="<?php echo site_url('admin/subscriptions'); ?>"><i class="fa fa-angle-double-right"></i> View Subscriptions</a></li>                              
-                </ul>
-            </li>
-            <li>
-                <a href="<?php echo site_url('admin/payments'); ?>">
-                    <i class="fa fa-usd"></i> <span>Payment History</span>
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo site_url('admin/settings'); ?>">
-                    <i class="fa fa-cog"></i> <span>Settings</span>
-                </a>
-            </li>
-            
-            
         </ul>
     </section>
     <!-- /.sidebar -->
