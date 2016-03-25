@@ -9,6 +9,7 @@ class Main extends Frontend_Controller {
 	}                              
 	public function index()
 	{
+        $data['topics'] = Topic::find('all', array('order'=>'id DESC'));
 		$data['exams'] = Exam::find('all', array('order'=>'id DESC',  'limit'=>4));
 		$data['menu'] = 'main';
 		$this->template->title('Home')
