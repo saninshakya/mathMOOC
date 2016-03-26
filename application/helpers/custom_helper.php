@@ -36,6 +36,9 @@ function success_msg($msg){
                 </div>';
 	return $display;
 }
+function newdbug($data) {
+   echo '<pre>' . print_r($data, 1) . '</pre>';
+}
 
 function error_msg($msg){
 	$display = '<div class="alert alert-danger alert-dismissable"><i class="fa fa-ban"></i>
