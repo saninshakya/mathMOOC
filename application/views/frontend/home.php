@@ -55,7 +55,7 @@
                         <h4 class="pull-right">$24.99</h4>
                         <h4><a href="#"><?php echo $topic->title; ?></a>
                         </h4>
-                        <p><?php echo $topic->description; ?></p>
+                        <p><?php echo limit_text($topic->description); ?></p>
                     </div>
                     <div class="ratings">
                         <p class="pull-right">15 reviews</p>
