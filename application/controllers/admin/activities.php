@@ -44,6 +44,45 @@ class Activities extends Backend_Controller {
         }
     }
 
+    public function view($id) {
+        $activity = Activity::find($id);
+        $this->template->title('Administrator Panel : view activity')
+                ->set_layout($this->modal_tpl)
+                ->set('page_title', 'View Activity')
+                ->set('activity', $activity)
+                ->build($this->admin_folder . '/activities/view');
+    }
+
+    public function edit($id) {
+        $activity = Activity::find($id);
+        if ($_POST) {
+            $id = $this->input->post('activity_id');
+            unset($_POST['_wysihtml5_mode']);
+            unset($_POST['activity_id']);
+            $activity->update_attributes($_POST);
+            if ($activity->is_invalid()) {
+                $this->session->set_flashdata('error', 'There where errors saving the activity');
+                redirect('admin/activities/edit');
+            }
+            $this->session->set_flashdata('success', 'Activity updated successfuly');
+            redirect('admin/activities');
+        } else {
+            $topics = Topic::find('all', array('order' => 'id DESC'));
+            $this->template->title('Administrator Panel : edit activity')
+                    ->set_layout($this->admin_tpl)
+                    ->set('page_title', 'Edit Activity')
+                    ->set('form_action', 'admin/activities/edit/' . $id)
+                    ->set('activity', $activity)
+                    ->set('topics', $topics)
+                    ->build($this->admin_folder . '/activities/_activities');
+        }
+    }
+
+    public function delete($id) {
+        $exam = Exam::find($id);
+        $exam->destroy();
+    }
+
 }
 
 ?>

@@ -26,9 +26,9 @@
                                 <td><?php echo limit_text($activity->description); ?></td>
                                 <!--<td><?php //echo $activity->questions; ?> <a href="<?php// echo site_url('admin/questions/manage/' . $exam->id); ?>" class="btn btn-xs bg-maroon"> Manage</a></td>-->
                                 <td>
-                                    <?php echo view_btn('admin/exams/view/' . $activity->id); ?>
-                                    <?php echo edit_btn('admin/exams/edit/' . $activity->id); ?>
-                                    <?php echo delete_btn('admin/exams/delete/' . $activity->id); ?>
+                                    <?php echo view_btn('admin/activities/view/' . $activity->id); ?>
+                                    <?php echo edit_btn('admin/activities/edit/' . $activity->id); ?>
+                                    <?php echo delete_btn('admin/activities/delete/' . $activity->id); ?>
                                 </td>
                             </tr>
                             <?php

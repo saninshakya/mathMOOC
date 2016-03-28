@@ -17,12 +17,12 @@
                         <div class="form-group col-xs-12">
                             <label>Topic</label>
                             <select class="form-control required" name="topic_id">
-                                <option value="">Select</option>
-                                <?php foreach ($topics as $topic) { ?>
-                                    <option value="<?php echo $topic->id; ?>" <?php echo (isset($activities) && $activity->topic_id == $topic->id) ? 'selected' : ''; ?>><?php echo $topic->title; ?></option>
-                                <?php } ?>
-
-                            </select>
+			                	<option value="">Select</option>
+			                	<?php foreach ($topics as $topic) { ?>
+			                		<option value="<?php echo $topic->id; ?>" <?php echo (isset($activity) && $activity->topic_id == $topic->id) ? 'selected' : ''; ?>><?php echo $topic->title; ?></option>
+			                	<?php } ?>
+			                	
+			                </select>
                         </div>
                         <div class="form-group col-xs-12">
                             <label>Name</label>

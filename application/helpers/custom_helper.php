@@ -88,6 +88,15 @@ function exam_status($status){
 	return $label;
 }
 
+function _status($status) {
+    if ($status == '1') :
+        $label = '<span class="label label-success"> Active </span>';
+    elseif ($status == '0') :
+        $label = '<span class="label label-danger"> Inactive </span>';
+    endif;
+    return $label;
+}
+
 function status_label($status){
 	if($status == '1') : 
 		$label = '<span class="label label-success"> Active </span>';
