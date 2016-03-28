@@ -7,7 +7,7 @@
         <div class="box box-primary">
             <?php echo form_open($form_action); ?>
             <?php
-            if (isset($exam)) {
+            if (isset($activity)) {
                 echo form_hidden('activity_id', $activity->id);
             }
             ?>
@@ -42,13 +42,13 @@
 
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="active" id="yes" value="1" <?php echo (isset($exam) && $exam->active == 1) ? 'checked' : ''; ?>>
+                                    <input type="radio" name="active" id="yes" value="1" <?php echo (isset($activity) && $activity->active == 1) ? 'checked' : ''; ?>>
                                     <small class="badge bg-green">Active</small>
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="active" id="no" value="0" <?php echo (isset($exam) && $exam->active == 0) ? 'checked' : ''; ?>>
+                                    <input type="radio" name="active" id="no" value="0" <?php echo (isset($activity) && $activity->active == 0) ? 'checked' : ''; ?>>
                                     <small class="badge bg-red">Inactive</small>
                                 </label>
                             </div>

@@ -44,21 +44,19 @@
         </div>
     </div>
 
-
     <div class="row">
         <?php
         foreach ($topics as $topic) {
             ?>
             <div class="col-sm-4 col-lg-4 col-md-4">
                 <div class="thumbnail">
+                    <img src="http://placehold.it/320x150" alt="">
                     <div class="caption">
-                        <h4 class="pull-right">$24.99</h4>
-                        <h4><a href="#"><?php echo $topic->title; ?></a>
-                        </h4>
+                        <h4><?php echo $topic->title; ?></h4>
                         <p><?php echo limit_text($topic->description); ?></p>
                     </div>
                     <div class="ratings">
-                        <p class="pull-right">15 reviews</p>
+                        <p class="pull-right"><a href = "#"><?php echo ($topic->total_activity) ?> activities >></a></p>
                         <p>
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
