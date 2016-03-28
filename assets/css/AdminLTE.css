@@ -2635,3 +2635,7 @@ Component: timeline
     background-size: 200px 20px;
   }
 }
+.col-xs-6 h3 a{
+    margin-left: 15px;
+    text-align: left;
+}

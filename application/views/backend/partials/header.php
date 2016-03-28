@@ -12,7 +12,10 @@
     <?php  $user =  $this->ion_auth->user()->row(); ?>
     <div class="navbar-right">
         <ul class="nav navbar-nav">
-            <!-- User Account: style can be found in dropdown.less -->
+            <li><a href="<?php echo site_url('main'); ?>" ><i class="fa fa-home"></i> HOME</a></li>
+
+            
+            
             <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="glyphicon glyphicon-user"></i>
