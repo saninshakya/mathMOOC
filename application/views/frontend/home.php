@@ -1,7 +1,7 @@
 <div class="col-md-2">
     <?php foreach ($exams as $exam) { ?>
         <div class="list-group">
-            <div class="box box-solid bg-yellow">
+            <div class="box box-solid">
                 <div class="box-header">
                     <h3 class="box-title"><?php echo $exam->name; ?></h3>
                 </div>

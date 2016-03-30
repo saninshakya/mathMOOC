@@ -9,6 +9,7 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li><a href="<?php echo site_url('main'); ?>" <?php echo ($menu == 'main') ? 'class="active"' : ''; ?>><i class="fa fa-home"></i> HOME</a></li>
                     <li><a href="<?php echo site_url('exams'); ?>"  <?php echo ($menu == 'exams') ? 'class="active"' : ''; ?>><i class="fa fa-folder"></i> QUIZ</a></li>
+                    <li><a href="<?php echo site_url('activities'); ?>"  <?php echo ($menu == 'activities') ? 'class="active"' : ''; ?>><i class="fa fa-folder"></i> ACTIVITY</a></li>
                     <li><a href="<?php echo site_url('main/contact'); ?>"  <?php echo ($menu == 'contact') ? 'class="active"' : ''; ?>><i class="fa fa-envelope"></i> CONTACT</a></li>
 
                 </ul>

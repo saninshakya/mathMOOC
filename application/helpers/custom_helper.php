@@ -36,7 +36,7 @@ function success_msg($msg){
                 </div>';
 	return $display;
 }
-function newdbug($data) {
+function pretty($data) {
    echo '<pre>' . print_r($data, 1) . '</pre>';
 }
 
