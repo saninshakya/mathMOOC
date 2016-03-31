@@ -18,16 +18,6 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li  class="treeview <?php echo (isset($activemenu) && $activemenu == 'exams') ? 'active' : ''; ?>">
-                <a href="#">
-                    <i class="fa fa-th"></i> <span>Exams</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo site_url('admin/exams/create'); ?>"><i class="fa fa-angle-double-right"></i> Add Exam</a></li>
-                    <li><a href="<?php echo site_url('admin/exams'); ?>"><i class="fa fa-angle-double-right"></i> View Exams</a></li>
-                </ul>
-            </li>
             <li class="treeview <?php echo (isset($activemenu) && $activemenu == 'categories') ? 'active' : ''; ?>">
                 <a href="#">
                     <i class="fa fa-bar-chart-o"></i>
@@ -39,6 +29,18 @@
                     <li><a href="<?php echo site_url('admin/categories'); ?>"><i class="fa fa-angle-double-right"></i> View Categories</a></li>
                 </ul>
             </li>
+            
+            <li  class="treeview <?php echo (isset($activemenu) && $activemenu == 'exams') ? 'active' : ''; ?>">
+                <a href="#">
+                    <i class="fa fa-th"></i> <span>Exams</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo site_url('admin/exams/create'); ?>"><i class="fa fa-angle-double-right"></i> Add Exam</a></li>
+                    <li><a href="<?php echo site_url('admin/exams'); ?>"><i class="fa fa-angle-double-right"></i> View Exams</a></li>
+                </ul>
+            </li>
+            
 
             <li class="treeview <?php echo (isset($activemenu) && $activemenu == 'users') ? 'active' : ''; ?>">
                 <a href="#">

@@ -10,7 +10,8 @@
                         <tr>
                             <th style="width: 2%">#</th>
                             <th style="width: 15%">Name</th>
-                            <th style="width: 40%">Description</th>
+                            <th style="width: 25%">Description</th>
+                            <th style="width: 10%">Last Updated Datetime</th>
                             <th style="width: 15%">Action</th>
                         </tr>
                     </thead>
@@ -23,6 +24,7 @@
                                 <td><?php echo $count; ?>.</td>
                                 <td><?php echo $topic->title; ?></td>
                                 <td><?php echo limit_text($topic->description, 200); ?></td>
+                                <td><?php echo date ("Y-m-d h:ia",strtotime( $topic->updated_datetime)); ?></td>
                                 <td>
                                     <?php echo view_btn('admin/topics/view/' . $topic->id); ?>
                                     <?php echo edit_btn('admin/topics/edit/' . $topic->id); ?>

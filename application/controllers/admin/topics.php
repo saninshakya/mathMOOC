@@ -22,7 +22,14 @@ class Topics extends Backend_Controller {
     public function create() {
         if ($_POST) {
             unset($_POST['_wysihtml5_mode']);
-            $topic = Topic::create($_POST);
+            $additional_data = array(
+                'created_datetime' => date_time_zone(),
+                'updated_datetime' => date_time_zone(),
+                'created_by' => $this->ion_auth->get_user_id(),
+                'updated_by' => $this->ion_auth->get_user_id(),
+            );
+            $data = array_merge($_POST,$additional_data);
+            $topic = Topic::create($data);
             if ($topic->is_invalid()) {
                 $this->session->set_flashdata('error', 'There where errors saving the topic');
                 redirect('admin/topics/create');
@@ -54,7 +61,13 @@ class Topics extends Backend_Controller {
             $id = $this->input->post('topic_id');
             unset($_POST['_wysihtml5_mode']);
             unset($_POST['topic_id']);
-            $topic->update_attributes($_POST);
+            
+            $additional_data = array(
+                'updated_datetime' => date_time_zone(),
+                'updated_by' => $this->ion_auth->get_user_id(),
+            );
+            $data = array_merge($_POST,$additional_data);
+            $topic->update_attributes($data);
             if ($topic->is_invalid()) {
                 $this->session->set_flashdata('error', 'There where errors saving the topic');
                 redirect('admin/topics/edit');

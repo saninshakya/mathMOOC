@@ -9,7 +9,7 @@
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion"  href="#cat-<?php echo $topic->id; ?>">
-            <?php echo $topic->title; ?>
+                                    <?php echo $topic->title; ?>
                                 </a>
                             </h4>
                         </div>
@@ -27,8 +27,9 @@
                                     <?php foreach ($topic->activity as $activity) { ?>
                                         <tr>
                                             <td><?php echo $activity->activity_name; ?></td>
-                                            <td>???</td>
-                                            <!--<td><a class="btn btn-success <?php echo (!$this->ion_auth->logged_in()) ? 'toggle-modal' : ''; ?>" href="<?php echo site_url('exams/takeexam/' . $exam->id); ?>">Take Exam</a></td>-->
+                                            <td>2</td>
+                                            <td><a class="btn btn-success <?php echo (!$this->ion_auth->logged_in()) ? 'toggle-modal' : ''; ?>" href="<?php echo site_url('activities/practice/' . $activity->id); ?>">Start</a></td>
+
                                             <td></td>
                                         </tr>
                                     <?php } ?>
@@ -38,14 +39,16 @@
                         </div>
                     </div>
                 </div>
-            <?php }
+                <?php
+            }
         }
-    } else { ?>
+    } else {
+        ?>
 
         <div class="callout callout-info">
             <h4>No exams have been added at the moment !</h4>
         </div>
-<?php } ?>
+    <?php } ?>
 </div>
 
 

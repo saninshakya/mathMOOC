@@ -29,6 +29,10 @@ function date_format_select($selected = ''){
 	$select = form_dropdown('date_format', $formats, $selected,  'class="form-control" name="date_format"');
 	return $select;
 }
+function date_time_zone() {
+    $date = new DateTime(null, new DateTimeZone('Asia/Bangkok'));
+    return $date->format('Y-m-d H:i:s');
+}
 function success_msg($msg){
 	$display = '<div class="alert alert-success alert-dismissable"><i class="fa fa-check"></i>
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
