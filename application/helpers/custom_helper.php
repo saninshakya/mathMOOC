@@ -40,8 +40,8 @@ function success_msg($msg){
                 </div>';
 	return $display;
 }
-function pretty($data) {
-   echo '<pre>' . print_r($data, 1) . '</pre>';
+function pretty($myarray) {
+   echo "<pre>", htmlspecialchars(print_r($myarray, true)), "</pre>";
 }
 
 function error_msg($msg){

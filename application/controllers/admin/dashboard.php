@@ -14,6 +14,7 @@ class Dashboard extends Backend_Controller {
 		$data['questions'] 		= Question::count();
 		$data['recent_subscriptions'] 	= Subscription::all(array('order'=>'id desc', 'limit' => 5));
 		$data['payments'] 	= Subscription::all(array('order'=>'id desc', 'limit' => 5));
+        $data['activities'] = Activity::count();
 
 		$this->template->title('Administrator Panel')
         ->set_layout($this->admin_tpl)

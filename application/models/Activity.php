@@ -5,9 +5,8 @@ if (!defined('BASEPATH'))
 
 class Activity extends ActiveRecord\Model {
 
-    static $has_many = array(
-        array('question'),
-    );
     static $belongs_to = array(array('topic'));
-
+    
+    static $has_many = array(array('activities_question'));
+   
 }
