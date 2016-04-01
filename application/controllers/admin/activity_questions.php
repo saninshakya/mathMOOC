@@ -53,7 +53,7 @@ class Activity_questions extends Backend_Controller {
                 //saving the answer
                 for ($count = 1; $count <= 4; $count++) {
                     $answer = new ActivitiesAnswer();
-                    $answer->question_id = $question->id;
+                    $answer->activities_question_id = $question->id;
                     $answer->answer = $this->remove_empty_tags_recursive($_POST['answer-' . $count]);
                     $answer->correct = $_POST['correct-' . $count];
                     $answer->created_datetime = date_time_zone();
@@ -86,8 +86,57 @@ class Activity_questions extends Backend_Controller {
     }
 
     public function edit($id) {
-        $question = ActivitiesQuestion::find($id, array('include' => array('answer')));
-        pretty($question);
+        $activity = ActivitiesQuestion::find($id, array('include' => array('activities_answer')));
+        if ($_POST) {
+            $id = $this->input->post('activity_id');
+            //upload question image if any
+            $config['upload_path'] = QUEIMGS;
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['width'] = '300';
+
+            $this->load->library('upload', $config);
+            $image = '';
+            if (!$this->upload->do_upload('que_img')) {
+                $error = $this->upload->display_errors('', ' ');
+                if ($error != "You did not select a file to upload.") {
+                    //$this->session->set_flashdata('error', $error);
+                } else {
+                    $this->session->set_flashdata('error', $error);
+                }
+            } else {
+                if ($activity->image != '') {
+                    unlink($activity->image);
+                }
+                $data = array('upload_data' => $this->upload->data());
+                $image = QUEIMGS . $data['upload_data']['file_name'];
+            }
+
+            $attributes = array('question' => $_POST['question'],
+                'marks' => $_POST['marks']
+            );
+            if ($image != '') {
+                $attributes['image'] = $image;
+            }
+            $activity->update_attributes($attributes);
+
+            //saving the answer
+            for ($count = 1; $count <= 4; $count++) {
+                $answer = ActivitiesAnswer::find($_POST['answer_id-' . $count]);
+                $answer_attributes = array('answer' => $this->remove_empty_tags_recursive($_POST['answer-' . $count]),
+                    'correct' => $_POST['correct-' . $count],
+                );
+                $answer->update_attributes($answer_attributes);
+            }
+            $this->session->set_flashdata('success', 'Question updated successfuly');
+            redirect('admin/activity_questions/manage/' . $activity->activity_id);
+        } else {
+            $this->template->title('Administrator Panel : edit question')
+                    ->set_layout($this->admin_tpl)
+                    ->set('page_title', 'Edit Question')
+                    ->set('form_action', 'admin/activity_questions/edit/' . $id)
+                    ->set('activity', $activity)
+                    ->build($this->admin_folder . '/activity_questions/edit');
+        }
     }
 
 }
