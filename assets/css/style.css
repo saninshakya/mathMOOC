@@ -169,3 +169,6 @@ body, html {
     min-height: 850px;
     padding: 50px;
 }
+.extra_space{
+    margin-top: 30px;
+}
