@@ -13,12 +13,11 @@ class Main extends Frontend_Controller {
     public function index() {
         $this->db->select('t.title, t.description, a.activity_name, a.description as activity_description, a.active, count(a.topic_id) as total_activity')
                 ->from('topics as t')
-                ->join('activities as a', 't.id=a.topic_id', 'LEFT')
+                ->join('activities as a', 't.id=a.topic_id', 'INNER')
+                ->where("a.active !=",'0')
                 ->group_by('a.topic_id')
                 ->order_by("t.id", "desc");
         $query = $this->db->get();
-        $query->result();
-        
         $data['topics'] = $query->result();
         $data['exams'] = Exam::find('all', array('order' => 'id DESC', 'limit' => 4));
         $data['menu'] = 'main';
