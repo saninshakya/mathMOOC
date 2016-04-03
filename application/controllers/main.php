@@ -78,6 +78,13 @@ class Main extends Frontend_Controller {
                 ->build($this->user_folder . '/login_modal');
     }
 
+    public function home_parent() {
+        $this->template->title('Parent Panel')
+                ->set_layout($this->modal_tpl)
+                ->set('page_title', 'home')
+                ->build($this->user_folder . '/home_parent');
+    }
+
     public function register() {
         $this->form_validation->set_rules('first_name', 'first name', 'required|xss_clean');
         $this->form_validation->set_rules('last_name', 'last name', 'required|xss_clean');

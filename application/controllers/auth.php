@@ -70,11 +70,20 @@ class Auth extends MY_Controller {
                         
 			if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
 			{
+				//binita
+				if ($this->ion_auth->in_group('parent')){
+					$this->data['is_parent'] = true;
+				}
+				else{
+					$this->data['is_parent'] = false;
+				}
+				
 				//if the login is successful
 				//redirect them back to the home page
 				$this->data['message'] = $this->ion_auth->messages();
 				$this->data['loggedin'] = true;
 				echo json_encode($this->data);
+
 			}
 			else
 			{
@@ -95,6 +104,11 @@ class Auth extends MY_Controller {
 
 			//$this->_render_page('auth/login', $this->data);
 		}
+
+		// $user = $this->ion_auth->get_user(); 
+		// if ($user == 'parent'){
+		// 	redirect(site_url('main/home_parent'), 'refresh');
+		// }
 
 	}
 

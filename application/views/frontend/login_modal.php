@@ -104,10 +104,18 @@
                 data: "identity=" + username + "&password=" + password,
                 success: function(data) {
                     var response = JSON.parse(data);
+                    // console.log(data);
+                    // return;
                     if (response.loggedin)
                     {
                         $("#msg").html("<div class='alert alert-success'><b>Login Successful! Welcome back</b></div>");
-                        window.location.reload();
+                        // window.location.reload();
+                        if (response.is_parent == true){
+                            window.location="main/home_parent";
+                        }
+                        else{
+                            window.location.reload();
+                        }
                     }
                     else
                     {
