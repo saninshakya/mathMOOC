@@ -6,7 +6,7 @@
     <form action="<?php echo site_url('admin/auth/'); ?>" method="post">
         <div class="body bg-gray">
             <div class="form-group">
-                <input type="text" name="email" class="form-control" placeholder="Email"/>
+                <input type="text" name="username" class="form-control" placeholder="Username"/>
             </div>
             <div class="form-group">
                 <input type="password" name="password" class="form-control" placeholder="Password"/>

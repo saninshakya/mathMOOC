@@ -15,7 +15,7 @@ class Auth extends Backend_Controller {
 
 	public function index(){
 		//validate form input
-		$this->form_validation->set_rules('email', 'email', 'required|valid_email');
+		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		if ($this->form_validation->run() == true)
@@ -24,7 +24,7 @@ class Auth extends Backend_Controller {
 			//check for "remember me"
 			$remember = (bool) $this->input->post('remember');
 
-			if ($this->ion_auth->login($this->input->post('email'), $this->input->post('password'), $remember))
+			if ($this->ion_auth->login($this->input->post('username'), $this->input->post('password'), $remember))
 			{
 				//if the login is successful
 				if($this->ion_auth->is_admin()) {
