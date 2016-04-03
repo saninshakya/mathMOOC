@@ -3,11 +3,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Activities extends Frontend_Controller {
-    
+
     public function __construct() {
         parent::__construct();
     }
-    public function test(){
+
+    public function test() {
+        
     }
 
     public function index() {
@@ -43,6 +45,53 @@ class Activities extends Frontend_Controller {
                 ->set_layout($this->front_tpl)
                 ->set('page_title', 'Practice Activity')
                 ->build($this->user_folder . '/activities/dopractice', $data);
+    }
+
+    public function get_user_exam_data() {
+        if ($this->ion_auth->logged_in()) {
+            $user = $this->ion_auth->user()->row();
+            $activityId = $_POST['activityId'];
+            $activitydata = Activity::find($activityId, array('include' => array('activities_question')));
+
+            $activity = array();
+            $activity['questions'] = array();
+
+            if (!empty($activitydata)) {
+                $activity['id'] = $activitydata->id;
+                $activity['name'] = $activitydata->activity_name;
+
+                foreach ($activitydata->activities_question as $count => $question) {
+                    $activity['questions'][$count]['question_id'] = $question->id;
+                    $activity['questions'][$count]['text'] = $question->question;
+                    $activity['questions'][$count]['image'] = ($question->image != '') ? '<img src="' . base_url() . $question->image . '" />' : '';
+                    $answers = array();
+                    foreach ($question->activities_answer as $answer_count => $answer) {
+                        $answer_data = array('id' => $answer->id, 'text' => trim($answer->answer));
+                        array_push($answers, $answer_data);
+                    }
+                    $activity['questions'][$count]['answers'] = $answers;
+                }
+//                $this->recordexam_start($activityId, $user->id);
+            }
+        }
+        echo json_encode($activity);
+    }
+
+    public function recordexam_start($examid, $user) {
+        pretty($examid);
+        echo $user;
+        echo "herer";
+        die;
+        $user_exam = Userexam::find_by_user_id_and_exam_id($user, $examid);
+        if ($user_exam) {
+            $user_exam->delete();
+        }
+        $exam_start = new Userexam();
+        $exam_start->start = date('Y-m-d H:i:s');
+        $exam_start->user_id = $user;
+        $exam_start->exam_id = $examid;
+        $exam_start->status = "inprogress";
+        $exam_start->save();
     }
 
 }
