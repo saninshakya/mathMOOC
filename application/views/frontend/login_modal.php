@@ -109,18 +109,12 @@
                     if (response.loggedin)
                     {
                         $("#msg").html("<div class='alert alert-success'><b>Login Successful! Welcome back</b></div>");
-<<<<<<< HEAD
-                        // window.location.reload();
                         if (response.is_parent == true){
                             window.location="main/home_parent";
                         }
                         else{
                             window.location.reload();
                         }
-=======
-                        window.location.reload();
-                        window.location.origin.activities;
->>>>>>> 25ec0c33bfd559402ea9f2f785b2e33fb25c116a
                     }
                     else
                     {
