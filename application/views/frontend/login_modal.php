@@ -108,6 +108,7 @@
                     {
                         $("#msg").html("<div class='alert alert-success'><b>Login Successful! Welcome back</b></div>");
                         window.location.reload();
+                        window.location.origin.activities;
                     }
                     else
                     {
