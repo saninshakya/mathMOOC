@@ -59,7 +59,7 @@ class Auth extends MY_Controller {
 		$this->data['title'] = "Login";
 
 		//validate form input
-		$this->form_validation->set_rules('identity', 'Username', 'required|valid_email');
+		$this->form_validation->set_rules('identity', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		if ($this->form_validation->run() == true)
@@ -67,7 +67,7 @@ class Auth extends MY_Controller {
 			//check to see if the user is logging in
 			//check for "remember me"
 			$remember = (bool) $this->input->post('remember');
-
+                        
 			if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
 			{
 				//if the login is successful
@@ -95,6 +95,7 @@ class Auth extends MY_Controller {
 
 			//$this->_render_page('auth/login', $this->data);
 		}
+
 	}
 
 	//log the user out

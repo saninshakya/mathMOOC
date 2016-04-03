@@ -10,9 +10,9 @@
                 <fieldset> <legend></legend>
                     <div id="msg"></div>
                     <div class="control-group">
-                        <label for="identity" class="control-label">Email</label>
+                        <label for="identity" class="control-label">Username</label>
                         <div class="controls">
-                            <input type="email" class="form-control" id="identity" name="identity" placeholder="Enter email">
+                            <input type="email" class="form-control" id="identity" name="identity" placeholder="Enter username">
                         </div>
                     </div>
                     <div class="control-group">
