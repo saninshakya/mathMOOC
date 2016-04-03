@@ -4,17 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Auth extends Backend_Controller {
 
-<<<<<<< HEAD
     protected $auth_folder = 'auth';
     protected $styles = 'auth/partials/css';
     protected $footer = 'auth/partials/footer';
     protected $auth_tpl = 'auth_tpl';
-=======
-	public function index(){
-		//validate form input
-		$this->form_validation->set_rules('username', 'Username', 'required');
-		$this->form_validation->set_rules('password', 'Password', 'required');
->>>>>>> 9c2ab085cb3789791f728ec074fa677932cdaf7e
 
     public function __construct() {
         parent::__construct();
@@ -22,55 +15,17 @@ class Auth extends Backend_Controller {
         $this->load->library('ion_auth');
     }
 
-<<<<<<< HEAD
     public function index() {
         //validate form input
-        $this->form_validation->set_rules('email', 'email', 'required|valid_email');
+        $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
-=======
-			if ($this->ion_auth->login($this->input->post('username'), $this->input->post('password'), $remember))
-			{
-				//if the login is successful
-				if($this->ion_auth->is_admin()) {
-					$this->session->set_flashdata('message', $this->ion_auth->messages());
-					redirect('admin/dashboard');
-				}
-				else{
-					redirect('', 'refresh');
-				}
-				//redirect them back to the home page
-				
-			}
-			else
-			{
-				//if the login was un-successful
-				//redirect them back to the login page
-				$this->session->set_flashdata('error', $this->ion_auth->errors());
-				redirect('admin/auth'); //use redirects instead of loading views for compatibility with MY_Controller libraries
-			}
-		}
-		else
-		{
-			//the user is not logging in so display the login page
-			//set the flash data error message if there is one
-			$this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-			//set any errors and display the form
-			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-			$this->template->title('Online Exam System | Administrator Login ')
-	        ->set_layout($this->auth_tpl)
-	        ->set('page_title', 'Forgot Password')
-	        ->build($this->auth_folder.'/login', $this->data);
-		}
-		//setup the input
-	}
->>>>>>> 9c2ab085cb3789791f728ec074fa677932cdaf7e
 
         if ($this->form_validation->run() == true) {
             //check to see if the user is logging in
             //check for "remember me"
             $remember = (bool) $this->input->post('remember');
 
-            if ($this->ion_auth->login($this->input->post('email'), $this->input->post('password'), $remember)) {
+            if ($this->ion_auth->login($this->input->post('username'), $this->input->post('password'), $remember)) {
                 //if the login is successful
                 if ($this->ion_auth->is_admin()) {
                     $this->session->set_flashdata('message', $this->ion_auth->messages());
