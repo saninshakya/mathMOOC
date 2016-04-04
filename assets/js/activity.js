@@ -152,16 +152,36 @@ function loadQuestion(index) {
     currentQuestionIndex = index;
 
     var question = examQuestions[currentQuestionIndex];
+    var iq;
 
     // Set some info in the ui
     jQuery('#question-index').text((currentQuestionIndex + 1));
     jQuery('#topic-name').html(question.topic);
-    if (question.image != '') {
-        jQuery('#question-image').html(question.image);
-    } else {
-        jQuery('#question-image').html('');
-    }
+    String.prototype.regex_question = function (regexp) {
+        var matches = [];
+        this.replace(regexp, function () {
+            var arr = ([]).slice.call(arguments, 0);
+            var extras = arr.splice(-2);
+            arr.index = extras[0];
+            arr.input = extras[1];
+            matches.push(arr);
+        });
+        return matches.length ? matches : null;
+    };
+    var imgQues = question.text.regex_question(/[^\w\s]/gi);
+    var res = question.text.split(imgQues);
     jQuery('#question-text').html(question.text);
+    if (question.image != '') {
+        for (iq = 1; iq <= res[0]; iq++) {
+            jQuery('.first-question-image' + "" + iq).html(question.image);
+        }
+        for (iq = 1; iq <= res[1]; iq++) {
+            jQuery('.s-question-image' + "" + iq).html(question.image);
+        }
+    } else {
+        jQuery('.first-question-image' + "" + iq).html('');
+        jQuery('.s-question-image' + "" + iq).html('');
+    }
     jQuery('#question-id').val(question.question_id);
 
     // Add the questions

@@ -172,3 +172,19 @@ body, html {
 .extra_space{
     margin-top: 30px;
 }
+.sanin{
+    float: left;
+}
+
+.clear_both_head{
+    clear:both;
+}
+.clear_both_body{
+    clear:both;
+    margin-top: 30px;
+    padding-top: 30px;
+}
+#question-text{
+    font-size: 24px;
+    font-weight: bold;
+}

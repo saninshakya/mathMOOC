@@ -40,6 +40,15 @@ class Activities extends Frontend_Controller {
 
     public function dopractice($id) {
         $data['activity'] = Activity::find($id);
+        $activitydata = Activity::find($id, array('include' => array('activities_question')));
+        $activity = array();
+
+        foreach ($activitydata->activities_question as $count => $question) {
+            $activity = $question->question;
+        }
+        $result = _getQuestions($activity);
+
+        $data['img_quests'] = $result;
         $data['menu'] = 'activities';
         $this->template->title('Practice Activity')
                 ->set_layout($this->front_tpl)
