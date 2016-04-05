@@ -176,15 +176,18 @@ body, html {
     float: left;
 }
 
-.clear_both_head{
-    clear:both;
-}
 .clear_both_body{
     clear:both;
-    margin-top: 30px;
-    padding-top: 30px;
 }
 #question-text{
     font-size: 24px;
     font-weight: bold;
+}
+#question-image{
+    width: 700px;
+    background-color: red;
+    /*margin-top: 10px;*/
+}
+#question-image img{
+    float:left;
 }

@@ -171,17 +171,26 @@ function loadQuestion(index) {
     var imgQues = question.text.regex_question(/[^\w\s]/gi);
     var res = question.text.split(imgQues);
     jQuery('#question-text').html(question.text);
+    
+    
+    var imgContainer = jQuery("#question-image");
+    imgContainer.html(""); // Clear contents
     if (question.image != '') {
-        for (iq = 1; iq <= res[0]; iq++) {
-            jQuery('.first-question-image' + "" + iq).html(question.image);
+        for (var i = 0; i < res[0]; i++) {
+            var newImage = jQuery("<div class=\"question-image\"></div>");
+            newImage.html(question.image);
+            imgContainer.append(newImage);
         }
-        for (iq = 1; iq <= res[1]; iq++) {
-            jQuery('.s-question-image' + "" + iq).html(question.image);
-        }
-    } else {
-        jQuery('.first-question-image' + "" + iq).html('');
-        jQuery('.s-question-image' + "" + iq).html('');
     }
+    
+//    if (question.image != '') {
+//        jQuery('#sanin div').html('');
+//        for (var i = 0; i < res[0]; i++) {
+//            jQuery('#question-image' + "" + i).html(question.image);
+//        }
+//    } else {
+//        jQuery('#question-image').html('');
+//    }
     jQuery('#question-id').val(question.question_id);
 
     // Add the questions

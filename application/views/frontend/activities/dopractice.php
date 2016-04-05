@@ -25,23 +25,8 @@
                                             <br>
                                             <form>
                                                 <fieldset id="exam-question">
-                                                    <div id="question-text" style="float:left;"></div>
-                                                    <div class="clear_both_body"></div>
-                                                    <?php
-                                                    for ($i = 1; $i <= $img_quests[0]; $i++) {
-                                                        ?>
-                                                        <div class="first-question-image<?php echo $i; ?>" style="float:left; "></div>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                    <div class="clear_both_body"></div>
-                                                    <?php
-                                                    for ($i = 1; $i <= $img_quests[1]; $i++) {
-                                                        ?>
-                                                        <div class="s-question-image<?php echo $i; ?>" style="float:left; "></div>
-                                                        <?php
-                                                    }
-                                                    ?>
+                                                    <div id="question-text" style="margin-bottom:10px; "></div>
+                                                    <div id="question-image"></div>
                                                     <div class="clear_both_body"></div>
                                                     <div><ul id="answers" class="unstyled" /></div>
                                                 </fieldset>
