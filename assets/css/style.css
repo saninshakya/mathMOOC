@@ -178,6 +178,7 @@ body, html {
 
 .clear_both_body{
     clear:both;
+    padding: 0px 0px 20px 0px; 
 }
 #question-text{
     font-size: 24px;
@@ -185,9 +186,15 @@ body, html {
 }
 #question-image{
     width: 700px;
-    background-color: red;
     /*margin-top: 10px;*/
 }
 #question-image img{
+    float:left;
+}
+
+#second-question-image{
+    width: 700px;
+}
+#second-question-image img{
     float:left;
 }

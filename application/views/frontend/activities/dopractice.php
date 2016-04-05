@@ -28,6 +28,8 @@
                                                     <div id="question-text" style="margin-bottom:10px; "></div>
                                                     <div id="question-image"></div>
                                                     <div class="clear_both_body"></div>
+                                                    <div id ="second-question-image"></div>
+                                                    <div class="clear_both_body"></div>
                                                     <div><ul id="answers" class="unstyled" /></div>
                                                 </fieldset>
                                                 <br>

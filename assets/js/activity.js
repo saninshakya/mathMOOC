@@ -19,7 +19,6 @@ jQuery(function () {
             success: function (response)
             {
                 var data = $.parseJSON(response);
-                
                 activityId = data.id;
                 examName = data.name;
                 examQuestions = data.questions;
@@ -152,8 +151,6 @@ function loadQuestion(index) {
     currentQuestionIndex = index;
 
     var question = examQuestions[currentQuestionIndex];
-    var iq;
-
     // Set some info in the ui
     jQuery('#question-index').text((currentQuestionIndex + 1));
     jQuery('#topic-name').html(question.topic);
@@ -171,15 +168,25 @@ function loadQuestion(index) {
     var imgQues = question.text.regex_question(/[^\w\s]/gi);
     var res = question.text.split(imgQues);
     jQuery('#question-text').html(question.text);
+    console.log(res);
     
     
     var imgContainer = jQuery("#question-image");
     imgContainer.html(""); // Clear contents
+    
+    var imgContainer1 = jQuery("#second-question-image");
+    imgContainer1.html(""); // Clear contents2
+    
     if (question.image != '') {
         for (var i = 0; i < res[0]; i++) {
             var newImage = jQuery("<div class=\"question-image\"></div>");
             newImage.html(question.image);
             imgContainer.append(newImage);
+        }
+        for (var j = 0; j < res[1]; j++) {
+            var newImage1 = jQuery("<div class=\"second-question-image\"></div>");
+            newImage1.html(question.image1);
+            imgContainer1.append(newImage1);
         }
     }
     
