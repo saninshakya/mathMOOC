@@ -27,7 +27,8 @@ class Activity_questions extends Backend_Controller {
             $config['width'] = '300';
 
             $this->load->library('upload', $config);
-            $image = '';
+            $image = ''; $image1 = '';
+//            case I
             if (!$this->upload->do_upload('que_img')) {
                 $error = $this->upload->display_errors('', ' ');
                 if ($error != "You did not select a file to upload.") {
@@ -39,12 +40,25 @@ class Activity_questions extends Backend_Controller {
                 $data = array('upload_data' => $this->upload->data());
                 $image = QUEIMGS . $data['upload_data']['file_name'];
             }
+//            case II
+            if (!$this->upload->do_upload('que_img_1')) {
+                $error = $this->upload->display_errors('', ' ');
+                if ($error != "You did not select a file to upload.") {
+                    //$this->session->set_flashdata('error', $error);
+                } else {
+                    $this->session->set_flashdata('error', $error);
+                }
+            } else {
+                $data = array('upload_data' => $this->upload->data());
+                $image1 = QUEIMGS . $data['upload_data']['file_name'];
+            }
 
             try {
                 $question = new ActivitiesQuestion(
                         array('activity_id' => $activity_id,
                     'question' => $_POST['question'],
                     'image' => $image,
+                    'image1' => $image1,
                     'created_datetime' => date_time_zone(),
                     'updated_datetime' => date_time_zone(),
                     'marks' => $_POST['marks']));

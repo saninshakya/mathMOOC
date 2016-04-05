@@ -63,8 +63,12 @@
                                             <input type="text" class="form-control required digits" name="marks" value="" />
                                         </div>
                                         <div class="form-group col-xs-6">
-                                            <label>Image</label>
+                                            <label>First Image</label>
                                             <input type="file" class="form-control" name="que_img" />
+                                        </div>
+                                        <div class="form-group col-xs-6">
+                                            <label>Second Image</label>
+                                            <input type="file" class="form-control" name="que_img_1" />
                                         </div>
                                     </div>
                                     <h4>Answers</h4><hr>
