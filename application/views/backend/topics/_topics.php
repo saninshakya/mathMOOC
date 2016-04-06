@@ -24,8 +24,9 @@
                             <textarea class="form-control editor" rows="10" name="description"><?php echo (isset($topic)) ? $topic->description : ''; ?></textarea>
                         </div>
                         <div class="form-group col-xs-6">
-                            <label>First Image</label>
+                            <label>Cover Image</label>
                             <input type="file" class="form-control" name="que_img" />
+                            <?php echo ($topic->image!='') ? "<img src='../../../$topic->image' alt='MathMOOC' height='150' />" : ''; ?>
                         </div>
                     </div>
                 </div>
