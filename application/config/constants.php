@@ -41,7 +41,6 @@ define('QUEIMGS',						'files/queimgs/');
 define('COVERIMGS',						'files/coverimgs/');
 define('PROFILEPHOTOS',					'files/profilephotos/');
 define('PROFILEPHOTOSTHUMBS',			'files/profilephotos/thumbs/');
-define('COVERIMGS',						'files/coverimgs/');
 
 define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
 
