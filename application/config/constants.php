@@ -38,6 +38,7 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 define('MEDIAFOLDER',					'files/media/');
 define('QUEIMGS',						'files/queimgs/');
+define('COVERIMGS',						'files/coverimgs/');
 define('PROFILEPHOTOS',					'files/profilephotos/');
 define('PROFILEPHOTOSTHUMBS',			'files/profilephotos/thumbs/');
 define('COVERIMGS',						'files/coverimgs/');
