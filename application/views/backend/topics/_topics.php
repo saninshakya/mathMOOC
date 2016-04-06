@@ -6,7 +6,7 @@
         <?php echo ($this->session->flashdata('success')) ? success_msg($this->session->flashdata('success')) : ''; ?>
         <div class="box box-primary">
 
-            <?php echo form_open($form_action); ?>
+            <?php echo form_open_multipart($form_action); ?>
             <?php
             if (isset($topic)) {
                 echo form_hidden('topic_id', $topic->id);
@@ -23,6 +23,10 @@
                             <label>Description</label>
                             <textarea class="form-control editor" rows="10" name="description"><?php echo (isset($topic)) ? $topic->description : ''; ?></textarea>
                         </div>
+                        <div class="form-group col-xs-6">
+                            <label>First Image</label>
+                            <input type="file" class="form-control" name="que_img" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -31,7 +35,7 @@
                     <button type="submit" class="btn btn-primary  pull-right">Submit</button>
                 </div>
             </div>
-<?php echo form_close(); ?>
+            <?php echo form_close(); ?>
         </div>
     </div>
 </div>

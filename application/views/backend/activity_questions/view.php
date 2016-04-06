@@ -1,6 +1,6 @@
 <div class="row">
         <div class="col-xs-12">
-            <label>Queestion</label>
+            <label>Question</label>
             <div class="text-muted well well-sm" style="margin-top: 10px;">
                <?php echo (isset($question)) ? $question->question : ''; ?>
             </div>
