@@ -1,4 +1,4 @@
-<div id="footerwrap" class="navbar-fixed-bottom">
+<div id="footerwrap">
 	<div class="container">
  			<span class="pull-right">&copy; mathMOOC - 2016</span>
  </div>

@@ -11,11 +11,11 @@ class Main extends Frontend_Controller {
     }
 
     public function index() {
-        $this->db->select('t.title, t.description, a.activity_name, a.description as activity_description, a.active, count(a.topic_id) as total_activity')
+        $this->db->select('t.title, t.description, a.activity_name, t.image, a.description as activity_description, a.active')
                 ->from('topics as t')
-                ->join('activities as a', 't.id=a.topic_id', 'INNER')
+                ->join('activities as a', 't.id=a.topic_id', 'LEFT')
                 ->where("a.active !=",'0')
-                ->group_by('a.topic_id')
+                ->or_where("a.active IS NULL")
                 ->order_by("t.id", "desc");
         $query = $this->db->get();
         $data['topics'] = $query->result();
