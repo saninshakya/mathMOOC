@@ -26,7 +26,7 @@
                                 <span>My Account <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu" id="user_menu">
-                                <li><a href="<?php echo site_url('users/exams'); ?>"><i class="fa fa-folder"></i> <strong>My Exams</strong></a></li>
+                                <li><a href="<?php echo site_url('users/exams'); ?>">My Exams</a></li>
                             </ul>
                         </li>
                         <!-- User Account: style can be found in dropdown.less -->
