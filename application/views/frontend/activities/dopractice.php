@@ -30,7 +30,14 @@
                                                     <div class="clear_both_body"></div>
                                                     <div id ="second-question-image"></div>
                                                     <div class="clear_both_body"></div>
-                                                    <div><ul id="answers" class="unstyled" /></div>
+                                                    <div>
+                                                        <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                                                               <ul id="answers" class="unstyled" />
+                                                        </div>
+                
+                                                        
+                                                        
+                                                    </div>
                                                 </fieldset>
                                                 <br>
                                                 <table class="no-border">

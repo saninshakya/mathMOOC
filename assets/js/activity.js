@@ -207,8 +207,9 @@ function loadQuestion(index) {
         var answer = question.answers[i];
 
         var li = jQuery('<li />');
-        var radio = jQuery("<input type='radio' name='answer' id='" + 'answer_' + i + "' />");
+        var radio = jQuery("<label class=\"btn\"><input type=\"radio\" name='answer' id='" + 'answer_' + i + "' /><i class=\"fa fa-circle-o fa-2x\"></i><i class=\"fa fa-check-circle-o fa-2x\"></i></label>");
         radio.val(answer.id);
+
 
         if (currentAnswers[currentQuestionIndex] && currentAnswers[currentQuestionIndex] == answer.id) {
             radio.attr('checked', 'checked');
