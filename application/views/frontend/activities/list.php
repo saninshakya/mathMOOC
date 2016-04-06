@@ -51,16 +51,16 @@
     <?php } ?>
 </div>
 
-
 <script type="text/javascript">
-    $(document).ready(function() {
-        $("#filter").keyup(function() {
+    $(document).ready(function () {
+        $('.c3').addClass('active');
+        $("#filter").keyup(function () {
 
             // Retrieve the input field text and reset the count to zero
             var filter = $(this).val(), count = 0;
 
             // Loop through the comment list
-            $(".panel-group tr").each(function() {
+            $(".panel-group tr").each(function () {
 
                 // If the list item does not contain the text phrase fade it out
                 if ($(this).text().search(new RegExp(filter, "i")) < 0) {

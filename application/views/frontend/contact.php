@@ -58,3 +58,8 @@
 	</div>
 </div><!--/row -->
 </div><!--/container -->
+<script type="text/javascript">
+    $(document).ready(function () {
+    $('.c4').addClass('active');
+    });
+</script>

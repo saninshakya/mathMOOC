@@ -176,3 +176,6 @@ function _getQuestions($question) {
         return explode($matches[0], $temp);
     }
 }
+function array_to_object($array) {
+    return (object) $array;
+}

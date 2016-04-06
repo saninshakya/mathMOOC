@@ -4,6 +4,8 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class Main extends Frontend_Controller {
+    
+    protected $activemenu = 'home';
 
     public function __construct() {
         parent::__construct();
@@ -11,7 +13,7 @@ class Main extends Frontend_Controller {
     }
 
     public function index() {
-        $this->db->select('t.title, t.description, a.activity_name, t.image, a.description as activity_description, a.active')
+        $this->db->select('t.id, t.title, t.description, a.activity_name, t.image, a.description as activity_description, a.active')
                 ->from('topics as t')
                 ->join('activities as a', 't.id=a.topic_id', 'LEFT')
                 ->where("a.active !=",'0')

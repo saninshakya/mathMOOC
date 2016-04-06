@@ -10,7 +10,7 @@
 
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-right mainNav">
-                    <li class="c1 active"><a href="<?php echo site_url('main'); ?>" <?php echo ($menu == 'main') ? 'class="active"' : ''; ?>>HOME</a></li>
+                    <li class="c1"><a href="<?php echo site_url('main'); ?>" <?php echo ($menu == 'main') ? 'class="active"' : ''; ?>>HOME</a></li>
                     <li class="c2"><a href="<?php echo site_url('exams'); ?>"  <?php echo ($menu == 'exams') ? 'class="active"' : ''; ?>>QUIZ</a></li>
                     <li class="c3"><a href="<?php echo site_url('activities'); ?>"  <?php echo ($menu == 'activities') ? 'class="active"' : ''; ?>>ACTIVITY</a></li>
                     <li class="c4"><a href="<?php echo site_url('main/contact'); ?>"  <?php echo ($menu == 'contact') ? 'class="active"' : ''; ?>>CONTACT</a></li>

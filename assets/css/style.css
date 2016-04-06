@@ -197,7 +197,7 @@ body, html {
 /*radio button*/
 
 label.btn span {
-  font-size: 1.5em ;
+    font-size: 1.5em ;
 }
 
 label input[type="radio"] ~ i.fa.fa-circle-o{
@@ -213,7 +213,7 @@ label input[type="radio"]:checked ~ i.fa.fa-check-circle-o{
     color: #5EC64D;    display: inline;
 }
 label:hover input[type="radio"] ~ i.fa {
-color: #7AA3CC;
+    color: #7AA3CC;
 }
 
 div[data-toggle="buttons"] label.active{
@@ -221,34 +221,34 @@ div[data-toggle="buttons"] label.active{
 }
 
 div[data-toggle="buttons"] label {
-display: inline-block;
-padding: 6px 12px;
-margin-bottom: 0;
-font-size: 18px;
-font-weight: normal;
-line-height: 2em;
-text-align: left;
-white-space: nowrap;
-vertical-align: top;
-cursor: pointer;
-background-color: none;
-border: 0px solid #973CB6;
-border-radius: 3px;
-color: #973CB6;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
--o-user-select: none;
-user-select: none;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 2em;
+    text-align: left;
+    white-space: nowrap;
+    vertical-align: top;
+    cursor: pointer;
+    background-color: none;
+    border: 0px solid #973CB6;
+    border-radius: 3px;
+    color: #973CB6;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 div[data-toggle="buttons"] label:hover {
-color: #7AA3CC;
+    color: #7AA3CC;
 }
 
 div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
--webkit-box-shadow: none;
-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 #answers input[type="radio"]{
@@ -310,53 +310,53 @@ box-shadow: none;
     border:none;
 }
 .navbar-inverse .navbar-nav > li.c1 a{
-color: #F55;
+    color: #F55;
 }
 .navbar-inverse .navbar-nav > li.c2 a{
-color: #973CB6;
+    color: #973CB6;
 }
 .navbar-inverse .navbar-nav > li.c3 a{
-color: #5EC64D;
+    color: #5EC64D;
 }
 .navbar-inverse .navbar-nav > li.c4 a{
-color: #29AAE2;
+    color: #29AAE2;
 }
 .navbar-inverse .navbar-nav > li.c5 a{
-color: #FFC225;
+    color: #FFC225;
 }
 .navbar-inverse .navbar-nav > li.c6 a{
-color: #ED47C5;
+    color: #ED47C5;
 }
 .navbar-inverse .navbar-nav > li.c7 a{
-color: #BD69FF;
+    color: #BD69FF;
 }
 .navbar-inverse .navbar-nav > li.c1 a:hover, .navbar-inverse .navbar-nav > li.c1.active a{
-color:#fff;
-background: #F55;
+    color:#fff;
+    background: #F55;
 }
 .navbar-inverse .navbar-nav > li.c2 a:hover, .navbar-inverse .navbar-nav > li.c2.active a{
-color: #fff;
-background:#973CB6;
+    color: #fff;
+    background:#973CB6;
 }
 .navbar-inverse .navbar-nav > li.c3 a:hover, .navbar-inverse .navbar-nav > li.c3.active a{
-color: #fff;
-background:#5EC64D;
+    color: #fff;
+    background:#5EC64D;
 }
 .navbar-inverse .navbar-nav > li.c4 a:hover, .navbar-inverse .navbar-nav > li.c4.active a{
-color: #fff;
-background: #29AAE2;
+    color: #fff;
+    background: #29AAE2;
 }
 .navbar-inverse .navbar-nav > li.c5 a:hover, .navbar-inverse .navbar-nav > li.c5.active a{
-color: #fff;
-background:#FFC225;
+    color: #fff;
+    background:#FFC225;
 }
 .navbar-inverse .navbar-nav > li.c6 a:hover, .navbar-inverse .navbar-nav > li.c6.active a{
-color: #fff;
-background:#ED47C5;
+    color: #fff;
+    background:#ED47C5;
 }
 .navbar-inverse .navbar-nav > li.c7 a:hover, .navbar-inverse .navbar-nav > li.c7.active a{
-color: #fff;
-background:#BD69FF;
+    color: #fff;
+    background:#BD69FF;
 }
 
 /*carousel*/
@@ -413,3 +413,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     padding-bottom: 5px;
     border-bottom: 1px solid #3CA9DF;
 }
+.thumbnail img:hover{
+    opacity: 0.5;
+}
+
+/*topic cover picture hover*/

@@ -7,7 +7,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="<?php echo site_url('assets/img/bg_header.jpg'); ?>" alt="First slide">
+                    <img src="<?php echo site_url('assets/img/banner_01.png'); ?>" alt="First slide">
                 </div>
                 <div class="item">
                     <img src="<?php echo site_url('assets/img/doctype-hi-res.jpg'); ?>" alt="First slide">
@@ -39,36 +39,43 @@
                     </div>
                 </div>
             </div>
-         <?php
+            <?php
         }
         ?>
     </div>
-       
-        
+
+
     <div class="row">
         <?php
         foreach ($topics as $topic) {
             ?>
             <div class="col-xs-6 col-sm-4">
-                    <div class="thumbnail">
-                        <?php
-                            @$image = $topic->image;
-                            if (!empty($image)) {
-                                echo "<img src='$image' >";
-                            } else {
-                                ?>
-                                <img src = "assets/img/default.jpg" alt = "MathMOOC">
-                                <?php
-                            }
+                <div class="thumbnail">
+                    <?php
+                    @$image = $topic->image;
+                    if (!empty($image)) {
                         ?>
-                        <div class="caption">
-                            <h4><a href = "#"><?php echo $topic->title; ?></a></h4>
-                            <p><?php echo limit_text($topic->description,200); ?></p>
-                        </div>
+                        <a href="<?php echo site_url('activities/activity/' . $topic->id); ?>"><?php echo "<img src='$image' >"; ?></a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="<?php echo site_url('activities/activity/' . $topic->id); ?>"><img src = "assets/img/default.jpg" alt = "MathMOOC"></a>
+                        <?php
+                    }
+                    ?>
+                    <div class="caption">
+                        <h4><a href = "<?php echo site_url('activities/activity/' . $topic->id); ?>"><?php echo $topic->title; ?></a></h4>
+                        <p><?php echo limit_text($topic->description, 200); ?></p>
                     </div>
+                </div>
             </div>
             <?php
         }
         ?>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.c1').addClass('active');
+    })
+</script>
