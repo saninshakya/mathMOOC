@@ -169,6 +169,7 @@ function loadQuestion(index) {
     // console.log(question.text);
     var res = question.text.split(imgQues);
     jQuery('#question-text').html(question.text);
+<<<<<<< HEAD
     // Displaying digits in box
     var digitContainer = jQuery(".digit1");
     digitContainer.html(""); // Clear contents
@@ -186,6 +187,8 @@ function loadQuestion(index) {
     digitContainer1.html(res[1]);
     digitContainer1.append(digitContainer1);
     
+=======
+>>>>>>> 3943481661c2742bff7c4d755796894c7f0a66b6
     
     var imgContainer = jQuery(".part1");
     imgContainer.html(""); // Clear contents
@@ -231,7 +234,10 @@ function loadQuestion(index) {
         if (currentAnswers[currentQuestionIndex] && currentAnswers[currentQuestionIndex] == answer.id) {
             radio.attr('checked', 'checked');
         }
+<<<<<<< HEAD
         // console.log(answer.text);
+=======
+>>>>>>> 3943481661c2742bff7c4d755796894c7f0a66b6
 
         var label = jQuery('<label />');
         label.attr('for', 'answer_' + i);
