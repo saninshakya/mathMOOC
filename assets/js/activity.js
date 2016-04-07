@@ -205,23 +205,31 @@ function loadQuestion(index) {
     for (var i = 0; i < question.answers.length; i++) {
 
         var answer = question.answers[i];
-
+        
         var li = jQuery('<li />');
         var radio = jQuery("<label class=\"btn\"><input type=\"radio\" name='answer' id='" + 'answer_' + i + "' /><i class=\"fa fa-circle-o fa-2x\"></i><i class=\"fa fa-check-circle-o fa-2x\"></i></label>");
+        
         radio.val(answer.id);
 
 
         if (currentAnswers[currentQuestionIndex] && currentAnswers[currentQuestionIndex] == answer.id) {
             radio.attr('checked', 'checked');
         }
+        console.log(answer.text);
 
         var label = jQuery('<label />');
         label.attr('for', 'answer_' + i);
         label.html(answer.text);
         label.attr('class', 'question_choice');
-
+        
+        var span = jQuery('<span />');
+        span.attr('for', 'answer_' + i);
+        span.html(toWords(answer.text));
+        span.attr('class', 'question_choice');
+        
         li.append(radio);
         li.append(label);
+        li.append(span);
         jQuery('#answers').append(li);
     }
     jQuery('#answers').append('</ul>');

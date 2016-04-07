@@ -18,6 +18,7 @@ class Main extends Frontend_Controller {
                 ->join('activities as a', 't.id=a.topic_id', 'LEFT')
                 ->where("a.active !=",'0')
                 ->or_where("a.active IS NULL")
+                ->group_by("t.id")
                 ->order_by("t.id", "desc");
         $query = $this->db->get();
         $data['topics'] = $query->result();

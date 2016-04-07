@@ -4,6 +4,7 @@
     var EXAM_REQUEST_ID = '<?php echo $activity->id; ?>';
 </script>
 <script src="<?php echo base_url(); ?>assets/js/activity.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/js/toword.js" type="text/javascript"></script>
 <div id="service">
     <div class="container middlecontent">
         <div class="row">
@@ -34,9 +35,6 @@
                                                         <div class="btn-group btn-group-vertical" data-toggle="buttons">
                                                             <ul id="answers" class="unstyled" />
                                                         </div>
-
-
-
                                                     </div>
                                                 </fieldset>
                                                 <br>
