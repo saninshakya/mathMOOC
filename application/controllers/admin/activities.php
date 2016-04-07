@@ -26,7 +26,15 @@ class Activities extends Backend_Controller {
     public function create() {
         if ($_POST) {
             unset($_POST['_wysihtml5_mode']);
-            $activity = Activity::create($_POST);
+            $video_url = $_POST['video_explanation'];
+            $video_url = explode('=', $video_url);
+            $video_url = $video_url['1'];
+
+            $additional_data = array(
+                'video_explanation' => $video_url,
+            );
+            $data = array_merge($_POST, $additional_data);
+            $activity = Activity::create($data);
             if ($activity->is_invalid()) {
                 $this->session->set_flashdata('error', 'There where errors saving the activity');
                 redirect('admin/activities/create');

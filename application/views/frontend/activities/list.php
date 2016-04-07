@@ -26,7 +26,8 @@ if (@empty($check)) {
                             <table class="table table-condensed table-striped">
                                 <thead>
                                     <tr>
-                                        <th width="50%">Activity</th>
+                                        <th width="20%">Activity</th>
+                                        <th width="35%">Description</th>
                                         <th width="15%">#Attempt</th>
                                         <th width="20%">Action</th>
                                         <th width="15%">Result</th>
@@ -36,6 +37,7 @@ if (@empty($check)) {
                                     <?php foreach ($topic->activity as $activity) { ?>
                                         <tr>
                                             <td><?php echo $activity->activity_name; ?></td>
+                                            <td><?php echo $activity->description; ?></td>
                                             <td>2</td>
                                             <td><a class="btn btn-success <?php echo (!$this->ion_auth->logged_in()) ? 'toggle-modal' : ''; ?>" href="<?php echo site_url('activities/practice/' . $activity->id); ?>">Start</a></td>
 

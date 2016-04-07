@@ -17,12 +17,12 @@
                         <div class="form-group col-xs-12">
                             <label>Topic</label>
                             <select class="form-control required" name="topic_id">
-			                	<option value="">Select</option>
-			                	<?php foreach ($topics as $topic) { ?>
-			                		<option value="<?php echo $topic->id; ?>" <?php echo (isset($activity) && $activity->topic_id == $topic->id) ? 'selected' : ''; ?>><?php echo $topic->title; ?></option>
-			                	<?php } ?>
-			                	
-			                </select>
+                                <option value="">Select</option>
+                                <?php foreach ($topics as $topic) { ?>
+                                    <option value="<?php echo $topic->id; ?>" <?php echo (isset($activity) && $activity->topic_id == $topic->id) ? 'selected' : ''; ?>><?php echo $topic->title; ?></option>
+                                <?php } ?>
+
+                            </select>
                         </div>
                         <div class="form-group col-xs-12">
                             <label>Name</label>
@@ -37,6 +37,10 @@
 
                     </div>
                     <div class="col-xs-6">
+                        <div class="form-group col-xs-12">
+                            <label>Video Url</label>
+                            <input type="text" class="form-control required" name="video_explanation" value="<?php echo (isset($activity)) ? $activity->video_explanation : ''; ?>" />
+                        </div>
                         <div class="form-group col-xs-12">
                             <label>Status</label>
 

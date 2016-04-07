@@ -32,11 +32,11 @@
                                                     <div class="clear_both_body"></div>
                                                     <div>
                                                         <div class="btn-group btn-group-vertical" data-toggle="buttons">
-                                                               <ul id="answers" class="unstyled" />
+                                                            <ul id="answers" class="unstyled" />
                                                         </div>
-                
-                                                        
-                                                        
+
+
+
                                                     </div>
                                                 </fieldset>
                                                 <br>
@@ -73,3 +73,8 @@
                 </div></div>
         </div></div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.c3').addClass('active');
+    });
+</script>
