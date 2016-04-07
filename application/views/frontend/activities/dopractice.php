@@ -66,29 +66,18 @@
                                                             <div class="solutionbox fleft">
                                                                 <div class="sol solution-one" style="border-color:#D93600;color:#D93600">
                                                                     <big>
-                                                                        5
+                                                                    <div class="digit1"></div>
                                                                     </big>
-                                                                    <small>
-                                                                        five
-                                                                    </small>
                                                                 </div>
                                                             </div>
                                                             <div class="solutionbox fleft">
                                                                 <div class="sol solution-two" style="border-color:#85B200;color:#85B200">
                                                                     <big>
-                                                                        3
+                                                                    <div class="digit2"></div>
                                                                     </big>
-                                                                    <small>three</small>
                                                                 </div>
                                                             </div>
-                                                            <div class="solutionbox fleft">
-                                                                <div class="sol solution-three" style="border-color:#FF7272;color:#FF7272">
-                                                                    <big>
-                                                                        2
-                                                                    </big>
-                                                                    <small>two</small>
-                                                                </div>
-                                                            </div>
+                                                            
                                                         </div>
                                                     </div>
 

@@ -166,10 +166,25 @@ function loadQuestion(index) {
         return matches.length ? matches : null;
     };
     var imgQues = question.text.regex_question(/[^\w\s]/gi);
-    console.log(question.text);
+    // console.log(question.text);
     var res = question.text.split(imgQues);
     jQuery('#question-text').html(question.text);
-    console.log(res);
+    // Displaying digits in box
+    var digitContainer = jQuery(".digit1");
+    digitContainer.html(""); // Clear contents
+    // For first digit
+    var digit = jQuery("");
+    digitContainer.html(res[0]);
+    digitContainer.append(digitContainer);
+
+    
+    // For second digit
+    var digitContainer1 = jQuery(".digit2");
+    digitContainer1.html(""); // Clear contents
+    // For second digit
+    var digit1 = jQuery("");
+    digitContainer1.html(res[1]);
+    digitContainer1.append(digitContainer1);
     
     
     var imgContainer = jQuery(".part1");
@@ -216,7 +231,7 @@ function loadQuestion(index) {
         if (currentAnswers[currentQuestionIndex] && currentAnswers[currentQuestionIndex] == answer.id) {
             radio.attr('checked', 'checked');
         }
-        console.log(answer.text);
+        // console.log(answer.text);
 
         var label = jQuery('<label />');
         label.attr('for', 'answer_' + i);

@@ -470,7 +470,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
             .solutionbox{
                 width: 33.33%;
                 float:left;
-                padding:20px;
+                padding:20px 40px 20px 20px;
 
             }
             .sol{
