@@ -166,25 +166,26 @@ function loadQuestion(index) {
         return matches.length ? matches : null;
     };
     var imgQues = question.text.regex_question(/[^\w\s]/gi);
+    console.log(question.text);
     var res = question.text.split(imgQues);
     jQuery('#question-text').html(question.text);
     console.log(res);
     
     
-    var imgContainer = jQuery("#question-image");
+    var imgContainer = jQuery(".part1");
     imgContainer.html(""); // Clear contents
     
-    var imgContainer1 = jQuery("#second-question-image");
+    var imgContainer1 = jQuery(".part2");
     imgContainer1.html(""); // Clear contents2
     
     if (question.image != '') {
         for (var i = 0; i < res[0]; i++) {
-            var newImage = jQuery("<div class=\"question-image\"></div>");
+            var newImage = jQuery("<div class=\"imgHolder tableCelled\"></div>");
             newImage.html(question.image);
             imgContainer.append(newImage);
         }
         for (var j = 0; j < res[1]; j++) {
-            var newImage1 = jQuery("<div class=\"second-question-image\"></div>");
+            var newImage1 = jQuery("<div class=\"imgHolder tableCelled\"></div>");
             newImage1.html(question.image1);
             imgContainer1.append(newImage1);
         }
@@ -222,7 +223,7 @@ function loadQuestion(index) {
         label.html(answer.text);
         label.attr('class', 'question_choice');
         
-        var span = jQuery('<span />');
+        var span = jQuery('<label />');
         span.attr('for', 'answer_' + i);
         span.html(toWords(answer.text));
         span.attr('class', 'question_choice');
