@@ -1,3 +1,12 @@
+<?php
+if (@$check == 'activities') {
+    $topics = array($topics);
+}
+if (@empty($check)) {
+    $topics;
+}
+?>
+
 <div class="container middlecontent" style="background:#fff">
     <?php
     if (!empty($topics)) {

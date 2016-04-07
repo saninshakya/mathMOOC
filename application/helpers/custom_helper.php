@@ -176,6 +176,13 @@ function _getQuestions($question) {
         return explode($matches[0], $temp);
     }
 }
-function array_to_object($array) {
-    return (object) $array;
+
+function object_to_array($obj) {
+    return (array) $obj;
+}
+
+function is_multi($a) {
+    $rv = array_filter($a,'is_array');
+    if(count($rv)>0) return true;
+    return false;
 }

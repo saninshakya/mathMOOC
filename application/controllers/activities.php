@@ -15,15 +15,16 @@ class Activities extends Frontend_Controller {
     public function index() {
         $data['topics'] = Topic::find('all', array('include' => 'activity'));
         $data['menu'] = 'activities';
+        $data['check'] = '';
         $this->template->title('Available Activities')
                 ->set_layout($this->front_tpl)
                 ->set('page_title', 'Activities')
                 ->build($this->user_folder . '/activities/list', $data);
     }
     public function activity($id) {
-        $datas['topics'] = Topic::find_by_pk($id,array('include'=>'activity'));
-        $datas['menu'] = 'activities';
-        $data = array_to_object($datas);
+        $data['topics'] = Topic::find($id,array('include'=>'activity'));
+        $data['menu'] = 'activities';
+        $data['check'] = 'activities';
         $this->template->title('Available Activities')
                 ->set_layout($this->front_tpl)
                 ->set('page_title', 'Activities')
