@@ -27,10 +27,71 @@
                                             <form>
                                                 <fieldset id="exam-question">
                                                     <div id="question-text" style="margin-bottom:10px; "></div>
-                                                    <div id="question-image"></div>
-                                                    <div class="clear_both_body"></div>
-                                                    <div id ="second-question-image"></div>
-                                                    <div class="clear_both_body"></div>
+                                                    <!-- Binita -->
+                                                    <div class="bigWrapper">
+                                                        <div class="problem">
+                                                            <div class="fleft part1wrapper">
+                                                                <div class="part1 tableBased">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="plussign fleft">
+                                                                <div class="tableBased">
+                                                                    <div class="imgHolder tableCelled">
+                                                                        <img src="/mathmooc/assets/img/plus-sign.png" alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="fleft part2wrapper">
+                                                                <div class="part2 tableBased">
+                                                                </div>
+                                                            </div>
+                                                            <div class="equalto fleft">
+                                                                <div class="tableBased">
+                                                                    <div class="imgHolder tableCelled">
+                                                                        <img src="/mathmooc/assets/img/equal-to.png" alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sum fleft">
+                                                                <div class="tableBased">
+                                                                    <div class="imgHolder tableCelled">
+                                                                        <img src="/mathmooc/assets/img/question-mark.png" alt="star" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="solutions">
+                                                            <div class="solutionbox fleft">
+                                                                <div class="sol solution-one" style="border-color:#D93600;color:#D93600">
+                                                                    <big>
+                                                                        5
+                                                                    </big>
+                                                                    <small>
+                                                                        five
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="solutionbox fleft">
+                                                                <div class="sol solution-two" style="border-color:#85B200;color:#85B200">
+                                                                    <big>
+                                                                        3
+                                                                    </big>
+                                                                    <small>three</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="solutionbox fleft">
+                                                                <div class="sol solution-three" style="border-color:#FF7272;color:#FF7272">
+                                                                    <big>
+                                                                        2
+                                                                    </big>
+                                                                    <small>two</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                     <div>
                                                         <div class="btn-group btn-group-vertical" data-toggle="buttons">
                                                             <ul id="answers" class="unstyled" />
@@ -72,7 +133,7 @@
         </div></div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('.c3').addClass('active');
     });
 </script>
