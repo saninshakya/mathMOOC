@@ -13,6 +13,7 @@ class Activities extends Frontend_Controller {
     }
 
     public function index() {
+        /* access only from activity page */
         $data['topics'] = Topic::find('all', array('include' => 'activity'));
         $data['menu'] = 'activities';
         $data['check'] = '';
@@ -21,8 +22,10 @@ class Activities extends Frontend_Controller {
                 ->set('page_title', 'Activities')
                 ->build($this->user_folder . '/activities/list', $data);
     }
+
     public function activity($id) {
-        $data['topics'] = Topic::find($id,array('include'=>'activity'));
+        /* access only from  main page */
+        $data['topics'] = Topic::find($id, array('include' => 'activity'));
         $data['menu'] = 'activities';
         $data['check'] = 'activities';
         $this->template->title('Available Activities')
@@ -51,7 +54,7 @@ class Activities extends Frontend_Controller {
     public function dopractice($id) {
         $data['activity'] = Activity::find($id);
         $activitydata = Activity::find($id, array('include' => array('activities_question')));
-        
+
         $data['menu'] = 'activities';
         $this->template->title('Practice Activity')
                 ->set_layout($this->front_tpl)
@@ -84,27 +87,23 @@ class Activities extends Frontend_Controller {
                     }
                     $activity['questions'][$count]['answers'] = $answers;
                 }
-//                $this->recordexam_start($activityId, $user->id);
+                $this->recordexam_start($activityId, $user->id);
             }
         }
         echo json_encode($activity);
     }
 
-    public function recordexam_start($examid, $user) {
-        pretty($examid);
-        echo $user;
-        echo "herer";
-        die;
-        $user_exam = Userexam::find_by_user_id_and_exam_id($user, $examid);
-        if ($user_exam) {
-            $user_exam->delete();
+    public function recordexam_start($activityid, $user) {
+        $user_activity = UserActivity::find_by_user_id_and_activity_id($user, $activityid);
+        if ($user_activity) {
+            $user_activity->delete();
         }
-        $exam_start = new Userexam();
-        $exam_start->start = date('Y-m-d H:i:s');
-        $exam_start->user_id = $user;
-        $exam_start->exam_id = $examid;
-        $exam_start->status = "inprogress";
-        $exam_start->save();
+        $activity_start = new UserActivity();
+        $activity_start->start = date_time_zone();
+        $activity_start->user_id = $user;
+        $activity_start->activity_id = $activityid;
+        $activity_start->status = "inprogress";
+        $activity_start->save();
     }
 
 }
