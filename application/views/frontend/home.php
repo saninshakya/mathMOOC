@@ -10,7 +10,7 @@
                     <img src="<?php echo site_url('assets/img/banner_01.png'); ?>" alt="First slide">
                 </div>
                 <div class="item">
-                    <img src="<?php echo site_url('assets/img/doctype-hi-res.jpg'); ?>" alt="First slide">
+                    <img src="<?php echo site_url('assets/img/banner_02.png'); ?>" alt="First slide">
                 </div>
             </div>
             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
