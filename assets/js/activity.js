@@ -168,8 +168,6 @@ function loadQuestion(index) {
     var imgQues = question.text.regex_question(/[^\w\s]/gi);
     var res = question.text.split(imgQues);
     jQuery('#question-text').html(question.text);
-    console.log(res);
-    
     
     var imgContainer = jQuery("#question-image");
     imgContainer.html(""); // Clear contents
@@ -215,7 +213,6 @@ function loadQuestion(index) {
         if (currentAnswers[currentQuestionIndex] && currentAnswers[currentQuestionIndex] == answer.id) {
             radio.attr('checked', 'checked');
         }
-        console.log(answer.text);
 
         var label = jQuery('<label />');
         label.attr('for', 'answer_' + i);
