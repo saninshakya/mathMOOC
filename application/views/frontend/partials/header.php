@@ -13,6 +13,7 @@
                     <li class="c1"><a href="<?php echo site_url('main'); ?>" <?php echo ($menu == 'main') ? 'class="active"' : ''; ?>>HOME</a></li>
                     <li class="c2"><a href="<?php echo site_url('exams'); ?>"  <?php echo ($menu == 'exams') ? 'class="active"' : ''; ?>>QUIZ</a></li>
                     <li class="c3"><a href="<?php echo site_url('activities'); ?>"  <?php echo ($menu == 'activities') ? 'class="active"' : ''; ?>>ACTIVITY</a></li>
+                    <li class="c6"><a href="<?php echo site_url('worksheets'); ?>"  <?php echo ($menu == 'worksheets') ? 'class="active"' : ''; ?>>WORKSHEET</a></li>
                     <li class="c4"><a href="<?php echo site_url('main/contact'); ?>"  <?php echo ($menu == 'contact') ? 'class="active"' : ''; ?>>CONTACT</a></li>
 
                     <?php if (!$this->ion_auth->logged_in()) { ?>
