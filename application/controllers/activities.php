@@ -110,8 +110,6 @@ class Activities extends Frontend_Controller {
         if ($this->ion_auth->logged_in()) {
             $user = $this->ion_auth->user()->row();
             $p_data = (object) $_POST;
-            pretty($p_data);
-            die;
             $answer_record = UserActivitiesQuestion::find_by_user_id_and_question_id($user->id, $p_data->q);
             if ($answer_record)
                 $answer_record->delete();

@@ -135,6 +135,7 @@ function hideExamUI() {
 
 function deactiveQuestion(index) {
     // Color the active question
+    console.log("index", index);
     jQuery('#question_nav_' + index).removeClass('active_question');
 }
 
@@ -305,15 +306,15 @@ function recordAnswer() {
             arr = ques.split(split),
             sum = parseInt(arr[0]) + parseInt(arr[1]);
     checkedElement = jQuery("#answers input[type='radio']:checked");
-    //find the value of checked element
-    var chkval = checkedElement.closest("label.btn.active").next("label.question_choice");
-    if (sum == chkval.text()) {
-        JSalert('Congratulation! You are correct',null);
-    } else {
-        JSalert('You made a mistake',sum);
-    }
-    return;
+
     if (checkedElement.length) {
+        //find the value of checked element
+        var chkval = checkedElement.closest("label.btn.active").next("label.question_choice");
+        if (sum == chkval.text()) {
+            JSalert('Congratulation! You are correct', null);
+        } else {
+            JSalert('You made a mistake', sum);
+        }
         var answerId = checkedElement.val();
         currentAnswers[currentQuestionIndex] = answerId;
         jQuery.ajax({
@@ -330,8 +331,8 @@ function recordAnswer() {
                         showError(data);
                     }
                 } else {
+                    console.log("second");
                     clearFeedback();
-
                     deactiveQuestion(currentQuestionIndex);
                     // Navigate to the next question
                     loadQuestion(currentQuestionIndex + 1);
@@ -340,7 +341,7 @@ function recordAnswer() {
         });
         updateQuestionStates();
     } else {
-        alert('Please select an answer');
+        JSalert('Please choose an answer first', null);
     }
 
 }
@@ -398,10 +399,8 @@ function finishExam() {
 }
 
 function showError(m) {
-
     jQuery('#error-text').text(m);
     jQuery('#error-message').show();
-
 }
 
 function updateExamTimer() {
@@ -467,7 +466,8 @@ function JSalert($msg, $response) {
     if ($response == null) {
         swal($msg);
     } else {
-        $msg= "Sorry, Correct answer is"+' '+$response;
+        $msg = "Sorry, Correct answer is" + ' ' + $response;
         swal($msg);
     }
+    return;
 }
