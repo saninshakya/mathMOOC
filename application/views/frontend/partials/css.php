@@ -1,4 +1,4 @@
-<?php echo link_tag('assets/css/bootstrap.min.css', 'stylesheet', 'text/css'); ?>
+<?php echo link_tag('assets/css/bootstrap.css', 'stylesheet', 'text/css'); ?>
 <!-- font Awesome -->
 <?php echo link_tag('assets/css/font-awesome.min.css', 'stylesheet', 'text/css'); ?>
 <!-- Ionicons -->
@@ -13,6 +13,8 @@
 <?php echo link_tag('assets/css/datatables/dataTables.bootstrap.css', 'stylesheet', 'text/css'); ?>
 
 <?php echo link_tag('assets/css/style.css', 'stylesheet', 'text/css'); ?>
+<?php echo link_tag('assets/dist/css/formValidation.css', 'stylesheet', 'text/css'); ?>
+
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>

@@ -5,6 +5,9 @@
 </script>
 <script src="<?php echo base_url(); ?>assets/js/activity.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/js/toword.js" type="text/javascript"></script>
+<!--alertify-->
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/sweetalert-dev.js"></script>
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/sweetalert.css"/>
 <div id="service">
     <div class="container middlecontent">
         <div class="row">
@@ -27,12 +30,10 @@
                                             <form>
                                                 <fieldset id="exam-question">
                                                     <div id="question-text" style="margin-bottom:10px; "></div>
-                                                    <!-- Binita -->
                                                     <div class="bigWrapper">
                                                         <div class="problem">
                                                             <div class="fleft part1wrapper">
                                                                 <div class="part1 tableBased">
-
                                                                 </div>
                                                             </div>
                                                             <div class="plussign fleft">

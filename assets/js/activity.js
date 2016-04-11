@@ -93,7 +93,6 @@ function displayExamUI() {
 
         navQuestions.append(navList);
     }
-
     // Add click event to the buttons
     jQuery('#skip-button').click(function () {
         skipQuestion();
@@ -177,7 +176,7 @@ function loadQuestion(index) {
     digitContainer.html(res[0]);
     digitContainer.append(digitContainer);
 
-    
+
     // For second digit
     var digitContainer1 = jQuery(".digit2");
     digitContainer1.html(""); // Clear contents
@@ -185,13 +184,13 @@ function loadQuestion(index) {
     var digit1 = jQuery("");
     digitContainer1.html(res[1]);
     digitContainer1.append(digitContainer1);
-    
+
     var imgContainer = jQuery(".part1");
     imgContainer.html(""); // Clear contents
-    
+
     var imgContainer1 = jQuery(".part2");
     imgContainer1.html(""); // Clear contents2
-    
+
     if (question.image != '') {
         for (var i = 0; i < res[0]; i++) {
             var newImage = jQuery("<div class=\"imgHolder tableCelled\"></div>");
@@ -204,7 +203,7 @@ function loadQuestion(index) {
             imgContainer1.append(newImage1);
         }
     }
-    
+
 //    if (question.image != '') {
 //        jQuery('#sanin div').html('');
 //        for (var i = 0; i < res[0]; i++) {
@@ -220,10 +219,10 @@ function loadQuestion(index) {
     for (var i = 0; i < question.answers.length; i++) {
 
         var answer = question.answers[i];
-        
+
         var li = jQuery('<li />');
         var radio = jQuery("<label class=\"btn\"><input type=\"radio\" name='answer' id='" + 'answer_' + i + "' /><i class=\"fa fa-circle-o fa-2x\"></i><i class=\"fa fa-check-circle-o fa-2x\"></i></label>");
-        
+
         radio.val(answer.id);
 
 
@@ -235,12 +234,12 @@ function loadQuestion(index) {
         label.attr('for', 'answer_' + i);
         label.html(answer.text);
         label.attr('class', 'question_choice');
-        
+
         var span = jQuery('<label />');
         span.attr('for', 'answer_' + i);
         span.html(toWords(answer.text));
         span.attr('class', 'question_choice');
-        
+
         li.append(radio);
         li.append(label);
         li.append(span);
@@ -285,9 +284,35 @@ function navigateToQuestion(caller) {
  * if not, recordAnswer will submit the answer as well as the rating.
  */
 function recordAnswer() {
-
     // Find the checked element
+    var question = jQuery('#question-text').text();
+
+    String.prototype.regex_question = function (regexp) {
+        var matches = [];
+        this.replace(regexp, function () {
+            var arr = ([]).slice.call(arguments, 0);
+            var extras = arr.splice(-2);
+            arr.index = extras[0];
+            arr.input = extras[1];
+            matches.push(arr);
+        });
+        return matches.length ? matches : null;
+    };
+    var imgQues = question.regex_question(/[^\w\s]/gi);
+
+    var ques = imgQues[0].input,
+            split = imgQues[0][0],
+            arr = ques.split(split),
+            sum = parseInt(arr[0]) + parseInt(arr[1]);
     checkedElement = jQuery("#answers input[type='radio']:checked");
+    //find the value of checked element
+    var chkval = checkedElement.closest("label.btn.active").next("label.question_choice");
+    if (sum == chkval.text()) {
+        JSalert('Congratulation! You are correct',null);
+    } else {
+        JSalert('You made a mistake',sum);
+    }
+    return;
     if (checkedElement.length) {
         var answerId = checkedElement.val();
         currentAnswers[currentQuestionIndex] = answerId;
@@ -436,4 +461,13 @@ if (typeof document.onselectstart != 'undefined')
 else {
     document.onmousedown = disableselect;
     document.onmouseup = reEnable;
+}
+
+function JSalert($msg, $response) {
+    if ($response == null) {
+        swal($msg);
+    } else {
+        $msg= "Sorry, Correct answer is"+' '+$response;
+        swal($msg);
+    }
 }
