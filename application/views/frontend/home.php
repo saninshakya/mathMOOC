@@ -34,7 +34,7 @@
                         </div>
                         <div class="box-body">
                             <p><?php echo limit_text($exam->description); ?></p>
-                            <p><a href="<?php echo site_url('exams/takeexam/' . $exam->id); ?>" class="btn btn-info toggle-modal">Take Exam</a></p>
+                            <p><a href="<?php echo site_url('exams/takeexam/' . $exam->id); ?>" class="btn btn-info toggle-modal ">Take Exam<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></p>
                         </div><!-- /.box-body -->
                     </div>
                 </div>
