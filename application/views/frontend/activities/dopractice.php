@@ -8,12 +8,15 @@
 <!--alertify-->
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/sweetalert-dev.js"></script>
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/sweetalert.css"/>
+
 <div id="service">
-    <div class="container middlecontent">
+    <div class="container">
+
         <div class="row">
 
             <div class="panel panel-default" style="background:#f2f8fb;min-height: 500px;">
                 <div class="panel-body">
+
                     <!-- OLD DATA -->
                     <table cellspacing="20" cellpadding="10" style="width:100%">
                         <tr>
@@ -67,18 +70,18 @@
                                                             <div class="solutionbox fleft">
                                                                 <div class="sol solution-one" style="border-color:#D93600;color:#D93600">
                                                                     <big>
-                                                                    <div class="digit1"></div>
+                                                                        <div class="digit1"></div>
                                                                     </big>
                                                                 </div>
                                                             </div>
                                                             <div class="solutionbox fleft">
                                                                 <div class="sol solution-two" style="border-color:#85B200;color:#85B200">
                                                                     <big>
-                                                                    <div class="digit2"></div>
+                                                                        <div class="digit2"></div>
                                                                     </big>
                                                                 </div>
                                                             </div>
-                                                            
+
                                                         </div>
                                                     </div>
 
@@ -95,6 +98,7 @@
                                                             <td id="submit-answer"><input type="button" value="Submit" id="record-answer-button" class="btn btn-primary" /></td>                  
                                                             <td style="padding-left: 145px;"><input type="button" value="Skip Question" id="skip-button" class="btn"/></td>
                                                             <td style="padding-left: 22px;" id="complete-exam"><input type="button" value="Finish Exam" id="finish-exam-button" class="btn"/></td>
+                                                            <td style="padding-left: 22px;" id="explanation"><input type="button" value="Explanation" id="explanation-button" class="btn"/></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -120,10 +124,14 @@
                         </tr>
                     </table> 
                 </div></div>
+
         </div></div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('.c3').addClass('active');
+        $('#explanation').click(function(){
+           window.location.href='http://localhost/mathMOOC/worksheets';
+        });
     });
 </script>
