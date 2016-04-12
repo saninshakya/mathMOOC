@@ -76,17 +76,17 @@
             </form>
     </div>
 
-<!-- Binita -->
+<!-- Binita  Tutorial Addition-->
     <input type="submit" name="play" id="play" value="PLAY">
     <div class="bigWrapper">
         <div class="problem">
         <div class="fleft part1wrapper">
             <div class="part1 tableBased">
-                <div class="imgHolder tableCelled">
-                    <p class="a"><img src="assets/img/star.png" alt="star" /></p>
+                <div class="imgHolder-img">
+                    <p class="a"><img src="assets/img/star.png" alt="star" width="70"/></p>
                 </div>
-                <div class="imgHolder tableCelled">
-                    <p class="a"><img src="assets/img/star.png" alt="star" /></p>
+                <div class="imgHolder-img">
+                    <p class="a"><img src="assets/img/star.png" alt="star" width="70" /></p>
                 </div>
             </div>
             </div>
@@ -99,8 +99,8 @@
             </div>
             <div class="fleft part2wrapper">
             <div class="part2 tableBased">
-                <div class="imgHolder tableCelled">
-                    <p class="c"><img src="assets/img/star.png" alt="star" /></p>
+                <div class="imgHolder-img">
+                    <p class="c"><img src="assets/img/star.png" alt="star" width="70" /></p>
                 </div>
             </div>
             </div>
@@ -113,14 +113,14 @@
             </div>
             <div class="sum fleft">
             <div class="tableBased">
-                <div class="imgHolder tableCelled">
-                    <p class="e"><img src="assets/img/star.png" alt="star" /></p>
+                <div class="imgHolder-img">
+                    <p class="e"><img src="assets/img/star.png" alt="star" width="70" /></p>
                 </div>
-                <div class="imgHolder tableCelled">
-                    <p class="e"><img src="assets/img/star.png" alt="star" /></p>
+                <div class="imgHolder-img">
+                    <p class="e"><img src="assets/img/star.png" alt="star" width="70" /></p>
                 </div>
-                <div class="imgHolder tableCelled">
-                    <p class="e"><img src="assets/img/star.png" alt="star" /></p>
+                <div class="imgHolder-img">
+                    <p class="e"><img src="assets/img/star.png" alt="star" width="70" /></p>
                 </div>
             </div>
             </div>
