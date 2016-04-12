@@ -330,6 +330,9 @@ div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active
 .navbar-inverse .navbar-nav > li.c7 a{
     color: #BD69FF;
 }
+.navbar-inverse .navbar-nav > li.c10 a{
+    color: #9400ff;
+}
 .navbar-inverse .navbar-nav > li.c1 a:hover, .navbar-inverse .navbar-nav > li.c1.active a{
     color:#fff;
     background: #F55;
@@ -357,6 +360,10 @@ div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active
 .navbar-inverse .navbar-nav > li.c7 a:hover, .navbar-inverse .navbar-nav > li.c7.active a{
     color: #fff;
     background:#BD69FF;
+}
+.navbar-inverse .navbar-nav > li.c10 a:hover, .navbar-inverse .navbar-nav > li.c10.active a{
+    color: #fff;
+    background:#9400ff;;
 }
 
 /*carousel*/
@@ -393,9 +400,16 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 .btn.btn-info {
     background-color: #9FC64D;
     border-color: #749C1E;
+    width: 100%;
     font-family: 'Oswald', sans-serif;
 }
-
+.btn.btn-info.toggle-modal span.glyphicon.glyphicon-chevron-right{
+    float:right;
+}
+.question_answered_question{
+    pointer-events: none;
+    cursor: default;
+}
 /*Topic display*/
 .thumbnail>img, .thumbnail a>img{
     width:100%;

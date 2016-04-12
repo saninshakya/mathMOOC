@@ -16,6 +16,10 @@
 <script src="<?php echo base_url(); ?>assets/js/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/js/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/js/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
+
+
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/dist/js/formValidation.js"></script>
+
 <script type="text/javascript">
     $(function() {
     	window.setTimeout(function() { $(".alert-dismissable").hide('slow'); }, 5000);
