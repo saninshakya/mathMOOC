@@ -179,8 +179,8 @@ class Activities extends Frontend_Controller {
 
     public function performance($activity_id, $user) {
         $data = array();
+        $str = array();
         $questions = ActivitiesQuestion::find_all_by_activity_id($activity_id, array('include' => array('activities_answer')));
-
         $exam_marks = 0;
         $user_marks = 0;
         $questions_answered = 0;
@@ -198,9 +198,8 @@ class Activities extends Frontend_Controller {
                     }
                 }
                 $useranswer = UserActivitiesQuestion::find_by_user_id_and_question_id($user, $question->id);
-                
                 if ($useranswer) {
-                    if (in_array($useranswer->answer, $correct_answers)) {
+                    if ($useranswer->answer == '1') {
                         $user_marks += $question->marks;
                         $questions_answered_correct++;
                         array_push($attempted_correct, $question->id);
@@ -212,7 +211,7 @@ class Activities extends Frontend_Controller {
             }
         }
         $performance = ($exam_marks != 0) ? ($user_marks / $exam_marks) * 100 : 0;
-        
+
         $data['exam_marks'] = $exam_marks;
         $data['user_marks'] = $user_marks;
         $data['performance'] = $performance;

@@ -98,7 +98,7 @@ function displayExamUI() {
         skipQuestion();
     });
     jQuery('#record-answer-button').click(function () {
-        recordAnswer();
+        recordAnswer(examQuestions.length);
     });
     jQuery('#finish-exam-button').click(function () {
         confirmAndFinishExam();
@@ -284,10 +284,8 @@ function navigateToQuestion(caller) {
  * recordAnswer: if Submit button is shown, record answer button will only submit the answer of the question
  * if not, recordAnswer will submit the answer as well as the rating.
  */
-function recordAnswer() {
-    // Find the checked element
+function recordAnswer(len) {
     var question = jQuery('#question-text').text();
-
     String.prototype.regex_question = function (regexp) {
         var matches = [];
         this.replace(regexp, function () {
@@ -300,29 +298,32 @@ function recordAnswer() {
         return matches.length ? matches : null;
     };
     var imgQues = question.regex_question(/[^\w\s]/gi);
-
     var ques = imgQues[0].input,
             split = imgQues[0][0],
             arr = ques.split(split),
             sum = parseInt(arr[0]) + parseInt(arr[1]);
-    checkedElement = jQuery("#answers input[type='radio']:checked");
+    
+    // Find the checked element
+    var checkedElement = jQuery("#answers input[type='radio']:checked");
 
     if (checkedElement.length) {
         //find the value of checked element
         var chkval = checkedElement.closest("label.btn.active").next("label.question_choice");
+        var answerId;
         if (sum == chkval.text()) {
             JSalert('Congratulation! You are correct', null);
+            answerId =1;
         } else {
             JSalert('You made a mistake', sum);
+            answerId =0;
         }
-        var answerId = checkedElement.val();
+//        var answerId = checkedElement.val();
         currentAnswers[currentQuestionIndex] = answerId;
         jQuery.ajax({
             type: 'POST',
             url: '../save_answer',
             async: false,
             data: {id: activityId, q: jQuery('#question-id').val(), a: answerId},
-            // data: {id: activityId, q: (currentQuestionIndex + 1), a: answerId},
             success: function (data) {
                 if (data != 'success') {
                     if (data == 'relogin') {
@@ -331,11 +332,12 @@ function recordAnswer() {
                         showError(data);
                     }
                 } else {
-                    console.log("second");
                     clearFeedback();
                     deactiveQuestion(currentQuestionIndex);
-                    // Navigate to the next question
-                    loadQuestion(currentQuestionIndex + 1);
+                    if (currentQuestionIndex + 1 != len) {
+                        // Navigate to the next question
+                        loadQuestion(currentQuestionIndex + 1);
+                    }
                 }
             }
         });
@@ -343,7 +345,6 @@ function recordAnswer() {
     } else {
         JSalert('Please choose an answer first', null);
     }
-
 }
 
 
@@ -469,5 +470,4 @@ function JSalert($msg, $response) {
         $msg = "Sorry, Correct answer is" + ' ' + $response;
         swal($msg);
     }
-    return;
 }

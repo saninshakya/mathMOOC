@@ -221,10 +221,10 @@ function navigateToQuestion(caller) {
 function recordAnswer() {
 
   // Find the checked element
-  checkedElement = jQuery("#answers input[type='radio']:checked");
+  var checkedElement = jQuery("#answers input[type='radio']:checked");
   if (checkedElement.length) {
     var answerId = checkedElement.val();
-    currentAnswers[currentQuestionIndex] = answerId;
+        currentAnswers[currentQuestionIndex] = answerId;
     jQuery.ajax({
       type: 'POST',
       url: '../save_answer',
