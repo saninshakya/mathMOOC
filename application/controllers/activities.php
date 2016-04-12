@@ -179,7 +179,6 @@ class Activities extends Frontend_Controller {
 
     public function performance($activity_id, $user) {
         $data = array();
-        $str = array();
         $questions = ActivitiesQuestion::find_all_by_activity_id($activity_id, array('include' => array('activities_answer')));
         $exam_marks = 0;
         $user_marks = 0;

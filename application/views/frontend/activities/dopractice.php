@@ -96,9 +96,9 @@
                                                     <tbody>
                                                         <tr>
                                                             <td id="submit-answer"><input type="button" value="Submit" id="record-answer-button" class="btn btn-primary" /></td>                  
-                                                            <td style="padding-left: 145px;"><input type="button" value="Skip Question" id="skip-button" class="btn"/></td>
-                                                            <td style="padding-left: 22px;" id="complete-exam"><input type="button" value="Finish Exam" id="finish-exam-button" class="btn"/></td>
-                                                            <td style="padding-left: 22px;" id="explanation"><input type="button" value="Explanation" id="explanation-button" class="btn"/></td>
+                                                            <td style="padding-left: 145px;"><input type="button" value="Skip Question" id="skip-button" class="btn btn-warning"/></td>
+                                                            <td style="padding-left: 22px;" id="complete-exam"><input type="button" value="Finish Exam" id="finish-exam-button" class="btn btn-info"/></td>
+                                                            <td style="padding-left: 22px;" id="explanation"><input type="button" value="Explanation" id="explanation-button" class="btn btn-success"/></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
