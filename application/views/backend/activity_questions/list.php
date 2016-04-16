@@ -39,6 +39,7 @@
                                                     <td>
                                                         <?php echo edit_btn('admin/activity_questions/edit/' . $question->id); ?>
                                                         <?php echo delete_btn('admin/activity_questions/delete/' . $question->id); ?>
+                                                        <?php echo explanation_btn('admin/activity_questions/explanation/' . $question->id); ?>
                                                     </td>
                                                 </tr>
                                                 <?php
@@ -139,4 +140,24 @@
             </div><!-- /.box-body -->
         </div><!-- /.box -->
     </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="explanation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add Explanation</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>

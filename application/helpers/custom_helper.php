@@ -64,6 +64,11 @@ function delete_btn($link = '') {
     return $display;
 }
 
+function explanation_btn($link = '') {
+     $display = '<a href="' . site_url($link) . '" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Explanation</a>';
+    return $display;
+}
+
 function activate_btn($link = '') {
     $display = '<a href="' . site_url($link) . '" class="btn btn-info btn-sm"><i class="fa fa-tick"></i> Activate</a>';
     return $display;

@@ -162,7 +162,7 @@ body, html {
 .middlecontent{
     background:#fff;
     min-height: 850px;
-    padding: 50px;
+    padding: 10px 10px 50px 10px;
 }
 .extra_space{
     margin-top: 30px;
@@ -176,8 +176,8 @@ body, html {
     padding: 0px 0px 20px 0px; 
 }
 #question-text{
-    font-size: 24px;
-    font-weight: bold;
+   height: 0px;
+   overflow: hidden;
 }
 #question-image{
     width: 700px;
@@ -278,7 +278,7 @@ div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active
 }
 
 .header{
-    height:80px;
+    height:70px;
     background-color: white;
 }
 
@@ -307,7 +307,9 @@ div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active
 
 .navbar-inverse{
     background-color: #fff; 
-    border:none;
+    border: none;
+    box-shadow: 2px 1px 5px 1px rgba(230,230,230,1) !important
+
 }
 .navbar-inverse .navbar-nav > li.c1 a{
     color: #F55;
@@ -406,10 +408,35 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 .btn.btn-info.toggle-modal span.glyphicon.glyphicon-chevron-right{
     float:right;
 }
+
 .question_answered_question{
     pointer-events: none;
     cursor: default;
 }
+
+.panel-default{
+    border:none;
+}
+
+.panel-body{
+    padding:0px;
+}
+
+.panel {
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.topic-header h2{
+   background-color: #FF9A55;
+   color: #fff;
+   text-align: center;
+   padding: 30px 0px;
+   margin: 0px;
+}
+
 /*Topic display*/
 .thumbnail>img, .thumbnail a>img{
     width:100%;
@@ -442,9 +469,6 @@ box-sizing: border-box;
 
 }
 
-body {
-    margin: 0;  padding: 0; background:#F8F8F8;
-}
 h1{
     text-align: center;
     font-size: 40px;
@@ -482,7 +506,7 @@ big{
     
 }
 .solutionbox{
-    width: 33.33%;
+    width: 27.33%;
     float:left;
     padding:20px 40px 20px 20px;
 
@@ -490,9 +514,8 @@ big{
 .sol{
     width: 100%; float: left;
     padding: 15px;
-    border-style: solid;
-    border-width: 1px;
 }
+
 small{
     font-size: 20px;
     width: 100%;
@@ -522,6 +545,34 @@ small{
     /*border:1px solid #BBB;*/
 }
 
-.imgHolder-img{
+.imgHolder-img1, .imgHolder-img2 {
     float:left;
+}
+.imgHolder-img1 img, .imgHolder-img2 img{
+    width:100px;
+}
+p.a, p.c {
+    float:left;
+}
+
+#exam-timer h2{
+    width:135px;
+}
+
+#play.btn.btn-lg{
+    width: 100%;
+}
+
+.solutions .plussign, .solutions .equalto{
+    margin-top: 65px;
+}
+.answers-option{
+    background-color: #F9F9F9;
+    width: 100%;
+}
+.answers-option.btn-group.btn-group-vertical h2{
+    margin-left: 65px;
+}
+#record-answer-button{
+    margin-left: 60px;
 }

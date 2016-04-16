@@ -170,7 +170,7 @@ function loadQuestion(index) {
     var res = question.text.split(imgQues);
     jQuery('#question-text').html(question.text);
     // Displaying digits in box
-    var digitContainer = jQuery(".digit1");
+    var digitContainer = jQuery(".digit1 .a");
     digitContainer.html(""); // Clear contents
     // For first digit
     var digit = jQuery("");
@@ -179,27 +179,27 @@ function loadQuestion(index) {
 
 
     // For second digit
-    var digitContainer1 = jQuery(".digit2");
+    var digitContainer1 = jQuery(".digit2 .c");
     digitContainer1.html(""); // Clear contents
     // For second digit
     var digit1 = jQuery("");
     digitContainer1.html(res[1]);
     digitContainer1.append(digitContainer1);
 
-    var imgContainer = jQuery(".part1");
+    var imgContainer = jQuery(".imgHolder-img1");
     imgContainer.html(""); // Clear contents
 
-    var imgContainer1 = jQuery(".part2");
+    var imgContainer1 = jQuery(".imgHolder-img2");
     imgContainer1.html(""); // Clear contents2
 
     if (question.image != '') {
         for (var i = 0; i < res[0]; i++) {
-            var newImage = jQuery("<div class=\"imgHolder tableCelled\"></div>");
+            var newImage = jQuery("<p class=\"a\"></p>");
             newImage.html(question.image);
             imgContainer.append(newImage);
         }
         for (var j = 0; j < res[1]; j++) {
-            var newImage1 = jQuery("<div class=\"imgHolder tableCelled\"></div>");
+            var newImage1 = jQuery("<p class=\"c\"></p>");
             newImage1.html(question.image1);
             imgContainer1.append(newImage1);
         }

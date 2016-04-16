@@ -1,4 +1,4 @@
-<?php echo link_tag('assets/css/bootstrap.css', 'stylesheet', 'text/css'); ?>
+<?php echo link_tag('assets/css/bootstrap.min.css', 'stylesheet', 'text/css'); ?>
 <!-- font Awesome -->
 <?php echo link_tag('assets/css/font-awesome.min.css', 'stylesheet', 'text/css'); ?>
 <!-- Ionicons -->
