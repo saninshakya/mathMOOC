@@ -158,50 +158,52 @@ class Activity_questions extends Backend_Controller {
         }
     }
 
-    public function explanation() {
-        if ($_POST) {
+    public function explanation($id) {
+        $explanation = ActivitiesQuestion::find($id);
+        if($_POST) {
+            // pretty($_POST); die;
             unset($_POST['_wysihtml5_mode']);
-            //upload question image if any
-            $config['upload_path'] = COVERIMGS;
-            $config['allowed_types'] = 'gif|jpg|png';
-            $config['width'] = '300';
+            $question_id = $this->input->post('question_id');
+            $activity_id = $this->input->post('activity_id');
+            // pretty($activity_id); die;
+            try{
+                $exp = new ActivitiesExplanation(
+                    array('activities_questions_id' => $question_id,
+                    'explanation' => $_POST['question1'],
+                    'created_datetime' => date_time_zone(),
+                    'updated_datetime' => date_time_zone(),
+                    'created_by' => $this->ion_auth->get_user_id(),
+                    'updated_by' => $this->ion_auth->get_user_id(),
+                    'answer' => $_POST['answer1']));
 
-            $this->load->library('upload', $config);
-            $image = '';
-            if (!$this->upload->do_upload('que_img')) {
-                $error = $this->upload->display_errors('', ' ');
-                if ($error != "You did not select a file to upload.") {
-                    
-                } else {
-                    $this->session->set_flashdata('error', $error);
-                }
-            } else {
-                $data = array('upload_data' => $this->upload->data());
-                $image = COVERIMGS . $data['upload_data']['file_name'];
-            }
+                $exp->save();
 
-            $additional_data = array(
-                'created_datetime' => date_time_zone(),
-                'updated_datetime' => date_time_zone(),
-                'image' => $image,
-                'created_by' => $this->ion_auth->get_user_id(),
-                'updated_by' => $this->ion_auth->get_user_id(),
-            );
-            $data = array_merge($_POST, $additional_data);
-            $topic = Topic::create($data);
-            if ($topic->is_invalid()) {
-                $this->session->set_flashdata('error', 'There where errors saving the topic');
-                redirect('admin/topics/create');
-            }
-            $this->session->set_flashdata('success', 'Topic added successfuly');
-            redirect('admin/topics');
-        } else {
-            $this->template->title('Administrator Panel : create topic')
+                $exp = new ActivitiesExplanation(
+                    array('activities_questions_id' => $question_id,
+                    'explanation' => $_POST['question2'],
+                    'created_datetime' => date_time_zone(),
+                    'updated_datetime' => date_time_zone(),
+                    'created_by' => $this->ion_auth->get_user_id(),
+                    'updated_by' => $this->ion_auth->get_user_id(),
+                    'answer' => $_POST['answer2']));
+
+                $exp->save();
+            } catch (Exception $e) {
+                $this->session->set_flashdata('error', 'There where errors saving the explanation');
+                redirect('admin/activity_questions/manage/'.$activity_id);
+            }            
+            
+            $this->session->set_flashdata('success', 'Explanation added successfuly');
+            redirect('admin/activity_questions/manage/'.$activity_id);
+        }else{
+            $this->template->title('Administrator Panel : create explanation')
                     ->set_layout($this->admin_tpl)
-                    ->set('page_title', 'Create Topic')
-                    ->set('form_action', 'admin/topics/create')
-                    ->build($this->admin_folder . '/topics/_topics');
+                    ->set('page_title', 'Edit Explanation')
+                    ->set('form_action', 'admin/activity_questions/explanation/' . $id)
+                    ->set('explanation', $explanation)
+                    ->build($this->admin_folder . '/activity_questions/explanation');
         }
+        
     }
 
 

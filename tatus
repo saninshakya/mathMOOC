@@ -1,0 +1,110 @@
+[33mcommit 7befa02d3dbc71276c786dcf1781f08af751de99[m
+Author: binita <binitashakya205@gmail.com>
+Date:   Sat Apr 16 12:49:21 2016 +0700
+
+    [FIXED] css changes in activity
+
+[33mcommit b93d0a7d5a6e54f1ead37a61d439943b8a654fe2[m
+Author: binita <binitashakya205@gmail.com>
+Date:   Thu Apr 14 16:11:46 2016 +0700
+
+    [FIXES] Css fixes
+
+[33mcommit 053f154b77b8500d32f524e59f5741b65ed12171[m
+Author: sanin shakya <saninshakya@gmail.com>
+Date:   Tue Apr 12 21:43:00 2016 +0700
+
+    [FIXED]removed unnecessary comment
+
+[33mcommit 687912aeb934931ef3fd31149f8dae46e67a2067[m
+Author: sanin shakya <saninshakya@gmail.com>
+Date:   Tue Apr 12 16:16:10 2016 +0700
+
+    [FIXED]issue in activity part
+
+[33mcommit f2569e830ef3722d040f296b628f915f2ac249f6[m
+Author: sanin shakya <saninshakya@gmail.com>
+Date:   Tue Apr 12 15:31:12 2016 +0700
+
+    [ADDED]processing after the answer is given
+
+[33mcommit 79fb6b27c778037e084f35f8b051ef0a2041515a[m
+Author: sanin shakya <saninshakya@gmail.com>
+Date:   Tue Apr 12 11:30:14 2016 +0700
+
+    [ADDED]worksheeet combine with activity
+
+[33mcommit 4372571af7e2125dd114533ec19fced9b6f5c652[m
+Author: binita <binitashakya205@gmail.com>
+Date:   Tue Apr 12 08:54:33 2016 +0700
+
+    [Modified] css modification in addition tutorial
+
+[33mcommit 67effda11459c23fbe1647042a9fffe375357ede[m
+Merge: 410d92d 2f52cc3
+Author: binita <binitashakya205@gmail.com>
+Date:   Tue Apr 12 08:09:23 2016 +0700
+
+    [Added] tutorial addition
+
+[33mcommit 410d92d83c298037b0c4093fb34d095efde8c708[m
+Author: binita <binitashakya205@gmail.com>
+Date:   Tue Apr 12 08:00:47 2016 +0700
+
+    [ADDED] Tutorial Addition
+
+[33mcommit 2f52cc3386578130204097660c1feae9088703b0[m
+Author: sanin shakya <saninshakya@gmail.com>
+Date:   Mon Apr 11 23:49:51 2016 +0700
+
+    [FIXED]css
+
+[33mcommit dedb0daca7512966253a80e3d3e6a1cb29b27ea8[m
+Author: sanin shakya <saninshakya@gmail.com>
+Date:   Mon Apr 11 23:09:39 2016 +0700
+
+    [FIXED]activity save
+
+[33mcommit 0ea564258420edc8cf180e42892668f2a672b3da[m
+Author: sanin shakya <saninshakya@gmail.com>
+Date:   Mon Apr 11 22:01:15 2016 +0700
+
+    [ADDED]activity is finalized
+
+[33mcommit 159f01d06e50cf40201ee9c3b5f5636360f1f427[m
+Author: sanin shakya <saninshakya@gmail.com>
+Date:   Fri Apr 8 13:26:12 2016 +0700
+
+    [FIXED]comment removed
+
+[33mcommit f91a11dc7b509fb1cbbdf79e636c688894a24451[m
+Author: sanin shakya <saninshakya@gmail.com>
+Date:   Fri Apr 8 13:23:06 2016 +0700
+
+    [ADDED]worksheet created
+
+[33mcommit b2bc79da83f1c70c5fb087bdc902dde5bd0fa0aa[m
+Author: sanin shakya <saninshakya@gmail.com>
+Date:   Fri Apr 8 00:04:48 2016 +0700
+
+    [FIXED]merge conflicts
+
+[33mcommit a7fcc67d53f90404b2dc7c766211c8083c480402[m
+Merge: af9dcb2 3943481
+Author: binita <binitashakya205@gmail.com>
+Date:   Thu Apr 7 23:40:53 2016 +0700
+
+    [Fixes] Activity question layout
+
+[33mcommit af9dcb219ef05276114bac6da8df26fef52e7dea[m
+Author: binita <binitashakya205@gmail.com>
+Date:   Thu Apr 7 23:35:28 2016 +0700
+
+    [Fixes] activity question layout
+
+[33mcommit 3943481661c2742bff7c4d755796894c7f0a66b6[m
+Merge: 928be4b 696607b
+Author: sanin shakya <saninshakya@gmail.com>
+Date:   Thu Apr 7 22:55:08 2016 +0700
+
+    Merge branch 'master' of https://github.com/saninshakya/mathMOOC
