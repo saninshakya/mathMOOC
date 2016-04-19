@@ -97,6 +97,9 @@ function displayExamUI() {
     jQuery('#skip-button').click(function () {
         skipQuestion();
     });
+    jQuery('#explanation').click(function () {
+        activityExplanation();
+    });
     jQuery('#record-answer-button').click(function () {
         recordAnswer(examQuestions.length);
     });
@@ -334,10 +337,13 @@ function recordAnswer(len) {
                 } else {
                     clearFeedback();
                     deactiveQuestion(currentQuestionIndex);
-                    if (currentQuestionIndex + 1 != len) {
+                    if (answerId ==1){
+                        if (currentQuestionIndex + 1 != len) {
                         // Navigate to the next question
                         loadQuestion(currentQuestionIndex + 1);
                     }
+                    }
+                    
                 }
             }
         });
@@ -467,7 +473,24 @@ function JSalert($msg, $response) {
     if ($response == null) {
         swal($msg);
     } else {
-        $msg = "Sorry, Correct answer is" + ' ' + $response;
+        $msg = "Sorry, Your answer is InCorrect";
         swal($msg);
     }
+}
+
+
+function activityExplanation(){
+    // alert("happy"); return;
+    // console.log(jQuery('#question-id').val()); return;
+    var question_id = jQuery('#question-id').val();
+    // alert(question_id); return;
+    jQuery.ajax({
+            type: 'POST',
+            url: '../explanation',
+            async: false,
+            data: {id: activityId, q: jQuery('#question-id').val()},
+            success: function (data) {
+                document.location.href = "../explanation/" + question_id;
+            }
+        });
 }

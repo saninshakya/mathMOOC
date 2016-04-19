@@ -4,7 +4,6 @@
     var EXAM_REQUEST_ID = '<?php echo $activity->id; ?>';
 </script>
 <!-- For animation -->
-<script src="<?php echo base_url(); ?>assets/js/jquery.runloop.1.0.3.js" type="text/javascript"></script>
 <!-- For controlling activities -->
 <script src="<?php echo base_url(); ?>assets/js/activity.js" type="text/javascript"></script>
 <!-- For converting number to word -->
@@ -41,13 +40,13 @@
                                                 <div class="col-xs-6 col-md-4" style="text-align:right">
                                                     <h2> Question  <span id="question-index"></span> / <span id="question-count"></span></h2>
                                                     <!-- <p><b>Navigation of questions:</b></p> -->
-                                                    <div id="navigation-area"></div>
+                                                   <!--  <div id="navigation-area"></div> -->
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                           <!--  <div class="row">
                                                 <div class="col-md-6 col-md-offset-3"><input type="submit" name="play" id="play" value="CLICK HERE TO START" class="btn btn-primary btn-lg"></div>
-                                            </div>
+                                            </div> -->
 
                                             <form>
                                                 <fieldset id="exam-question">
@@ -161,189 +160,3 @@
         </div></div>
 </div>
 
-<!-- For animation -->
-<script>
-    $(document).ready(function () {
-        $('.c3').addClass('active');
-        $('#explanation').click(function(){
-           window.location.href='http://localhost/mathMOOC/worksheets';
-        });
-        $(".answers-option").hide(); // hide the answer list
-        $("#record-answer-button").hide();
-        $("#skip-button").hide();
-        $("#finish-exam-button").hide();
-        $("#explanation-button").hide();
-        $("#play").click(function () {
-            myRunloop.play(2000, optionalCallback);
-            $("#play").hide();
-            $("#return").show();
-            $(".answers-option").toggle();
-            $("#record-answer-button").toggle();
-            $("#skip-button").toggle();
-            $("#finish-exam-button").toggle();
-            $("#explanation-button").toggle();
-        });
-        $("#return").click(function(){
-            window.location.href='http://localhost/mathMOOC/activities/dopractice/11';
-        });
-
-        // JavaScript enabled; initiate some of the CSS for this
-        $("#intro h1").css({
-            bottom: '-1.5em',
-            opacity: 1
-        });
-        $("#box").css({
-            background: '#22346F',
-            'border-color': '#333',
-            height: 0,
-            width: 0
-        });
-        $("p").css({
-            opacity: 0,
-            position: 'relative',
-            left: '-3em'
-        });
-        $("p.b, p.copyright").css({
-            left: '3em'
-        });
-
-
-        // Make a new runloop. Probably best not to attach it to the window object, but it's useful for this demo
-        // as it allows you to inspect the myRunloop object using Firebug/Web Inspector.
-        window.myRunloop = jQuery.runloop();
-
-        // You add keyframes with addKey(); the first parameter is the percentage into the overall runloop duration,
-        // the second is the function to execute at that keyframe point.
-        myRunloop.addKey('10%', function () {
-            $("#box").animate({width: '35.6em', paddingLeft: '2em', paddingRight: '2em'}, {duration: 1000, queue: false})
-        });
-
-        // But you don't have to do individual addKey() calls; use addMap() to add multiple keyframes at once:
-        myRunloop.addMap({
-            '55%': function () {
-                $("p.a").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-            },
-            '65%': function () {
-                $("p.b").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-            },
-            '75%': function () {
-                $("p.c").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-            },
-            '85%': function () {
-                $("p.d").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-            },
-            '95%': function () {
-                $("p.e").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-            }
-            // '100%': function(){ $("p.copyright").animate( { opacity:1, left:0 }, { duration:650, queue:false } ); }
-        });
-
-        // You can add a callback to the end of the runloop, but note: it's the same as this: addKey('100%', func);
-        function optionalCallback() {
-        }
-        ;
-
-        // Start playing the runloop, in this case with a duration of 10s.
-        // If the duration is omitted and no runloop was playing, it'll default to 500ms.
-        // myRunloop.play(10000, optionalCallback);
-        function randomNumber(min, max) {
-            return Math.floor(Math.random() * (max - min + 1) + min);
-        }
-        ;
-        $('#captchaOperation').html([randomNumber(1, 5), '+', randomNumber(1, 5), '='].join(' '));
-        $('#captchaOperation1').html([randomNumber(1, 5), '+', randomNumber(1, 5), '='].join(' '));
-        $('#captchaOperation2').html([randomNumber(1, 5), '+', randomNumber(1, 5), '='].join(' '));
-        $('#captchaOperation3').html([randomNumber(1, 5), '+', randomNumber(1, 5), '='].join(' '));
-        $('#captchaOperation4').html([randomNumber(1, 5), '+', randomNumber(1, 5), '='].join(' '));
-        $('#captchaOperation5').html([randomNumber(1, 5), '+', randomNumber(1, 5), '='].join(' '));
-
-        $('#defaultForm').formValidation({
-            message: 'This value is not valid',
-            icon: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-            fields: {
-                captcha: {
-                    validators: {
-                        callback: {
-                            message: 'Wrong answer',
-                            callback: function (value, validator, $field) {
-                                var items = $('#captchaOperation').html().split(' '), sum = parseInt(items[0]) + parseInt(items[2]);
-                                return value == sum;
-                            }
-                        }
-                    }
-                },
-                captcha1: {
-                    validators: {
-                        callback: {
-                            message: 'Wrong answer',
-                            callback: function (value, validator, $field) {
-                                var items = $('#captchaOperation1').html().split(' '), sum = parseInt(items[0]) + parseInt(items[2]);
-                                return value == sum;
-                            }
-                        }
-                    }
-                },
-                captcha2: {
-                    validators: {
-                        callback: {
-                            message: 'Wrong answer',
-                            callback: function (value, validator, $field) {
-                                var items = $('#captchaOperation2').html().split(' '), sum = parseInt(items[0]) + parseInt(items[2]);
-                                return value == sum;
-                            }
-                        }
-                    }
-                },
-                captcha3: {
-                    validators: {
-                        callback: {
-                            message: 'Wrong answer',
-                            callback: function (value, validator, $field) {
-                                var items = $('#captchaOperation3').html().split(' '), sum = parseInt(items[0]) + parseInt(items[2]);
-                                return value == sum;
-                            }
-                        }
-                    }
-                },
-                captcha4: {
-                    validators: {
-                        callback: {
-                            message: 'Wrong answer',
-                            callback: function (value, validator, $field) {
-                                var items = $('#captchaOperation4').html().split(' '), sum = parseInt(items[0]) + parseInt(items[2]);
-                                return value == sum;
-                            }
-                        }
-                    }
-                },
-                captcha5: {
-                    validators: {
-                        callback: {
-                            message: 'Wrong answer',
-                            callback: function (value, validator, $field) {
-                                var items = $('#captchaOperation5').html().split(' '), sum = parseInt(items[0]) + parseInt(items[2]);
-                                return value == sum;
-                            }
-                        }
-                    }
-                },
-            }
-        });
-    });
-
-    var _gaq = [['_setAccount', 'UA-3764464-3'], ['_setDomainName', '.farukat.es'], ['_trackPageview']];
-    (function (d, t) {
-        var g = d.createElement(t),
-                s = d.getElementsByTagName(t)[0];
-        g.async = true;
-        g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g, s);
-    })(document, 'script');
-
-
-</script> 
-<!-- end animation-->

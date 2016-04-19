@@ -551,7 +551,7 @@ small{
 .imgHolder-img1 img, .imgHolder-img2 img{
     width:100px;
 }
-p.a, p.c {
+p.a, p.c , p.e{
     float:left;
 }
 
@@ -575,4 +575,13 @@ p.a, p.c {
 }
 #record-answer-button{
     margin-left: 60px;
+}
+
+#return-question{
+    float:left;
+    margin-right: 20px;
+}
+
+#next{
+    float:left;
 }
