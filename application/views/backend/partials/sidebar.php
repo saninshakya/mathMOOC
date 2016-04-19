@@ -49,8 +49,9 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo site_url('admin/users/create'); ?>"><i class="fa fa-angle-double-right"></i> Add User</a></li>
-                    <li><a href="<?php echo site_url('admin/users'); ?>"><i class="fa fa-angle-double-right"></i> View Users</a></li>
+                    <li><a href="<?php echo site_url('admin/users/create'); ?>"><i class="fa fa-angle-double-right"></i> Add Student</a></li>
+                    <li><a href="<?php echo site_url('admin/users'); ?>"><i class="fa fa-angle-double-right"></i> View Students</a></li>
+                    <li><a href="<?php echo site_url('admin/users/create_parent'); ?>"><i class="fa fa-angle-double-right"></i> Add Parent</a></li>
                 </ul>
             </li>
             <!-- Topic View -->

@@ -13,8 +13,19 @@
                 <div class="row">
                     <div class="col-xs-6">  
                         <h3>
-                            <a href="#">Student Details</a>
+                            <a href="#">Parent Details</a>
                         </h3>
+                        <div class="form-group col-xs-12">
+                            <label>List of student</label>
+                            <select name="student_id" class="form-control required">
+                                <?php
+                                foreach ($students as $student):
+                                    $student = (array) $student;
+                                    ?>
+                                    <option value="<?php echo $student['user_id']; ?>"><?php echo htmlspecialchars($student['full_name'], ENT_QUOTES, 'UTF-8'); ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
                         <div class="form-group col-xs-12">
                             <label>First Name</label>
                             <?php echo form_input($first_name); ?>
@@ -54,6 +65,7 @@
                                 <?php endforeach ?>
                             </select>
                         </div>
+
                         <div class="form-group col-xs-12">
                             <label>Password</label>
                             <?php echo form_input($password); ?>
