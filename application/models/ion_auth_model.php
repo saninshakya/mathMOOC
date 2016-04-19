@@ -937,19 +937,19 @@ class Ion_auth_model extends CI_Model
 		$id = $this->db->insert_id();
 		
 		//add in groups array if it doesn't exits and stop adding into default group if default group ids are set
-		if( isset($default_group->id) && empty($groups) ) 
-		{
-			$groups[] = $default_group->id;			
-		}
-
-		if (!empty($groups))
-		{
-			//add to groups
-			foreach ($groups as $group)
-			{
-				$this->add_to_group($group, $id);
-			}
-		}
+//		if( isset($default_group->id) && empty($groups) ) 
+//		{
+//			$groups[] = $default_group->id;			
+//		}
+//
+//		if (!empty($groups))
+//		{
+//			//add to groups
+//			foreach ($groups as $group)
+//			{
+//				$this->add_to_group($group, $id);
+//			}
+//		}
 
 		$this->trigger_events('post_register');
 
