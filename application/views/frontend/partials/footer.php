@@ -1,3 +1,11 @@
+<style type="text/css">
+ .bottomleft{
+   position:fixed;
+   left:0;
+   bottom: 0;
+  }
+</style>
+<div class="bottomleft"><img src="<?php echo base_url(); ?>assets/img/boy.png" width="100"></div>
 <div id="footerwrap">
 	<div class="container">
  			<span class="pull-right">&copy; mathMOOC - 2016</span>
