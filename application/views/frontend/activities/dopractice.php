@@ -1,3 +1,12 @@
+<?php
+if($operator[0]=='*'){
+    $ret = "/mathmooc/assets/img/mul.png";
+}
+if($operator[0]=='+'){
+    $ret = "/mathmooc/assets/img/plus-sign.png";
+}
+
+?>
 <?php echo link_tag('assets/css/exam.css', 'stylesheet', 'text/css'); ?>
 <script type="text/javascript">
     var EXAM_TIME_LEFT = '<?php echo $activity->active * 1; ?>';
@@ -63,7 +72,7 @@
                                                             <div class="plussign fleft">
                                                                 <div class="tableBased">
                                                                     <div class="imgHolder tableCelled">
-                                                                         <p class="b"><img src="/mathmooc/assets/img/plus-sign.png" alt=""></p>
+                                                                         <p class="b"><img src=<?php echo $ret; ?> alt=""></p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -101,7 +110,7 @@
                                                             <div class="plussign fleft">
                                                                 <div class="tableBased">
                                                                     <div class="imgHolder tableCelled">
-                                                                         <p class="b"><img src="/mathmooc/assets/img/plus-sign.png" alt=""></p>
+                                                                         <p class="b"><img src=<?php echo $ret; ?> alt=""></p>
                                                                     </div>
                                                                 </div>
                                                             </div>
