@@ -32,7 +32,8 @@ class Activity_questions extends Backend_Controller {
             $config['width'] = '300';
 
             $this->load->library('upload', $config);
-            $image = ''; $image1 = '';
+            $image = '';
+            $image1 = '';
 //            case I
             if (!$this->upload->do_upload('que_img')) {
                 $error = $this->upload->display_errors('', ' ');
@@ -160,42 +161,32 @@ class Activity_questions extends Backend_Controller {
 
     public function explanation($id) {
         $explanation = ActivitiesQuestion::find($id);
-        if($_POST) {
-            // pretty($_POST); die;
+        if ($_POST) {
+            $total_size_array = sizeof($_POST['question']);
             unset($_POST['_wysihtml5_mode']);
             $question_id = $this->input->post('question_id');
             $activity_id = $this->input->post('activity_id');
             // pretty($activity_id); die;
-            try{
-                $exp = new ActivitiesExplanation(
-                    array('activities_questions_id' => $question_id,
-                    'explanation' => $_POST['question1'],
-                    'created_datetime' => date_time_zone(),
-                    'updated_datetime' => date_time_zone(),
-                    'created_by' => $this->ion_auth->get_user_id(),
-                    'updated_by' => $this->ion_auth->get_user_id(),
-                    'answer' => $_POST['answer1']));
-
-                $exp->save();
-
-                $exp = new ActivitiesExplanation(
-                    array('activities_questions_id' => $question_id,
-                    'explanation' => $_POST['question2'],
-                    'created_datetime' => date_time_zone(),
-                    'updated_datetime' => date_time_zone(),
-                    'created_by' => $this->ion_auth->get_user_id(),
-                    'updated_by' => $this->ion_auth->get_user_id(),
-                    'answer' => $_POST['answer2']));
-
-                $exp->save();
+            try {
+                for ($j = 0; $j < $total_size_array; $j++) {
+                    $exp = new ActivitiesExplanation(
+                            array('activities_questions_id' => $question_id,
+                        'explanation' => $_POST['question'][$j],
+                        'created_datetime' => date_time_zone(),
+                        'updated_datetime' => date_time_zone(),
+                        'created_by' => $this->ion_auth->get_user_id(),
+                        'updated_by' => $this->ion_auth->get_user_id(),
+                        'answer' => $_POST['answer'][$j]));
+                    $exp->save();
+                }
             } catch (Exception $e) {
                 $this->session->set_flashdata('error', 'There where errors saving the explanation');
-                redirect('admin/activity_questions/manage/'.$activity_id);
-            }            
-            
+                redirect('admin/activity_questions/manage/' . $activity_id);
+            }
+
             $this->session->set_flashdata('success', 'Explanation added successfuly');
-            redirect('admin/activity_questions/manage/'.$activity_id);
-        }else{
+            redirect('admin/activity_questions/manage/' . $activity_id);
+        } else {
             $this->template->title('Administrator Panel : create explanation')
                     ->set_layout($this->admin_tpl)
                     ->set('page_title', 'Edit Explanation')
@@ -203,9 +194,7 @@ class Activity_questions extends Backend_Controller {
                     ->set('explanation', $explanation)
                     ->build($this->admin_folder . '/activity_questions/explanation');
         }
-        
     }
-
 
 }
 
