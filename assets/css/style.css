@@ -499,21 +499,24 @@ img{
     width: 100%;
 }
 big{
-    font-size: 100px;
+    font-size: 50px;
+    font-weight: bold;
     width: 100%;
     float: left;
     text-align: center;
     
 }
 .solutionbox{
-    width: 27.33%;
+    /*width: 27.33%;*/
+    width: auto;
     float:left;
     padding:20px 40px 20px 20px;
 
 }
 .sol{
     width: 100%; float: left;
-    padding: 15px;
+    /*padding: 15px;*/
+    padding:50px 15px;
 }
 
 small{
@@ -528,7 +531,10 @@ small{
     
 }
 .part1wrapper, .part2wrapper, .sum{
-    width: 27%;
+    /*width: 27%;*/
+    width: auto;
+    /*border: 1px solid #FF9A55;
+    padding: 0 10px;*/
 }
 .plussign, .equalto{
     width: 9.5%;
@@ -537,19 +543,20 @@ small{
     position: relative;
 }
 .plussign img, .sum img, .equalto img{
-    /*max-width: 30px;*/
+    max-width: 30px;
 }
 
 .part1, .part2, .sum{
     /*background: #CCC;*/
-    /*border:1px solid #BBB;*/
+    border:1px solid #FF9A55;
 }
 
 .imgHolder-img1, .imgHolder-img2 {
     float:left;
+    padding:10px;
 }
 .imgHolder-img1 img, .imgHolder-img2 img{
-    width:100px;
+    width:50px;
 }
 p.a, p.c , p.e{
     float:left;
@@ -584,4 +591,12 @@ p.a, p.c , p.e{
 
 #next{
     float:left;
+}
+
+#exp-counter{
+    margin-top:20px; 
+    font-size:25px;
+    border-bottom: 1px solid #FF9A55;
+    width: 100%;
+    color: #FF9A55;
 }

@@ -138,7 +138,7 @@ function hideExamUI() {
 
 function deactiveQuestion(index) {
     // Color the active question
-    console.log("index", index);
+    // console.log("index", index);
     jQuery('#question_nav_' + index).removeClass('active_question');
 }
 
@@ -318,7 +318,9 @@ function recordAnswer(len) {
             answerId =1;
         } else {
             JSalert('You made a mistake', sum);
+            // var msg = 'Incorrect';
             answerId =0;
+            // activityExplanation(msg);
         }
 //        var answerId = checkedElement.val();
         currentAnswers[currentQuestionIndex] = answerId;
@@ -341,7 +343,7 @@ function recordAnswer(len) {
                         if (currentQuestionIndex + 1 != len) {
                         // Navigate to the next question
                         loadQuestion(currentQuestionIndex + 1);
-                    }
+                        }
                     }
                     
                 }
@@ -388,7 +390,6 @@ function finishExam() {
         async: false,
         data: {id: activityId},
         success: function (data) {
-
             if (data == 'success') {
                 document.location.href = '../viewresults/' + activityId;
             } else {
@@ -473,24 +474,24 @@ function JSalert($msg, $response) {
     if ($response == null) {
         swal($msg);
     } else {
-        $msg = "Sorry, Your answer is InCorrect";
+        $msg = "Sorry, Your answer is InCorrect. Please go to Explanation.";
         swal($msg);
     }
 }
 
 
 function activityExplanation(){
-    // alert("happy"); return;
-    // console.log(jQuery('#question-id').val()); return;
     var question_id = jQuery('#question-id').val();
-    // alert(question_id); return;
-    jQuery.ajax({
+    $.ajax({
             type: 'POST',
             url: '../explanation',
             async: false,
             data: {id: activityId, q: jQuery('#question-id').val()},
             success: function (data) {
-                document.location.href = "../explanation/" + question_id;
+                // console.log("return",data);
+                // if (data == 'success') {
+                    document.location.href = "../explanation/" + question_id;
+                // }
             }
         });
 }

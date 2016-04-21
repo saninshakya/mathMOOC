@@ -233,35 +233,5 @@ class Activities extends Frontend_Controller {
                 ->build($this->user_folder . '/activities/explanation', $data);
     }
 
-    public function get_explanation_data() {
-        if ($this->ion_auth->logged_in()) {
-            $user = $this->ion_auth->user()->row();
-            pretty($_POST); die;
-            $questionId = $_POST['questionId'];
-
-            $activity = array();
-            $activity['questions'] = array();
-
-            if (!empty($activitydata)) {
-                $activity['id'] = $activitydata->id;
-                $activity['name'] = $activitydata->activity_name;
-
-                foreach ($activitydata->activities_question as $count => $question) {
-                    $activity['questions'][$count]['question_id'] = $question->id;
-                    $activity['questions'][$count]['text'] = $question->question;
-                    $activity['questions'][$count]['image'] = ($question->image != '') ? '<img src="' . base_url() . $question->image . '" />' : '';
-                    $activity['questions'][$count]['image1'] = ($question->image1 != '') ? '<img src="' . base_url() . $question->image1 . '" />' : '';
-                    $answers = array();
-                    foreach ($question->activities_answer as $answer_count => $answer) {
-                        $answer_data = array('id' => $answer->id, 'text' => trim($answer->answer));
-                        array_push($answers, $answer_data);
-                    }
-                    $activity['questions'][$count]['answers'] = $answers;
-                }
-                $this->recordexam_start($activityId, $user->id);
-            }
-        }
-        echo json_encode($activity);
-    }
-
+  
 }

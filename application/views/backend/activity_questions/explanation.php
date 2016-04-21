@@ -11,9 +11,11 @@
 			<div class="box-body">
 	            <div class="row">
 		            <div class="form-group col-xs-7">
+		            	<div style="font-size:20px; font-weight:bold; margin-bottom:20px;">
 		            	<?php
-		            	echo $explanation->question;
+		            	echo ("Question: ". $explanation->question);
 		            	?>
+			            </div>
 		                <div class="panel panel-default">
 							<div class="panel-heading">Option 1</div>
 							<div class="panel-body">
@@ -26,6 +28,12 @@
 	                        		<div class="col-xs-5">
 										<label>Answer</label>
 			                            <input type="text" class="form-control required" name="answer1" value="" />
+	                        		</div>
+	                        	</div>
+	                        	<div class="row">
+	                        		<div class="col-xs-12">
+	                        			<label>Explanation</label>
+	                        			<textarea class="form-control" rows="3" name="description1"></textarea>
 	                        		</div>
 	                        	</div>
                             </div>
@@ -43,6 +51,12 @@
 	                        		<div class="col-xs-5">
 										<label>Answer</label>
 			                            <input type="text" class="form-control required" name="answer2" value="" />
+	                        		</div>
+	                        	</div>
+	                        	<div class="row">
+	                        		<div class="col-xs-12">
+	                        			<label>Explanation</label>
+	                        			<textarea class="form-control" rows="3" name="description2"></textarea>
 	                        		</div>
 	                        	</div>
                             </div>

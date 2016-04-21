@@ -170,6 +170,7 @@ class Activity_questions extends Backend_Controller {
                 $exp = new ActivitiesExplanation(
                     array('activities_questions_id' => $question_id,
                     'explanation' => $_POST['question1'],
+                    'description' => $_POST['description1'],
                     'created_datetime' => date_time_zone(),
                     'updated_datetime' => date_time_zone(),
                     'created_by' => $this->ion_auth->get_user_id(),
@@ -181,6 +182,7 @@ class Activity_questions extends Backend_Controller {
                 $exp = new ActivitiesExplanation(
                     array('activities_questions_id' => $question_id,
                     'explanation' => $_POST['question2'],
+                    'description' => $_POST['description2'],
                     'created_datetime' => date_time_zone(),
                     'updated_datetime' => date_time_zone(),
                     'created_by' => $this->ion_auth->get_user_id(),

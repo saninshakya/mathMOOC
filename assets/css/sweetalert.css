@@ -12,7 +12,8 @@ body.stop-scrolling {
   z-index: 10000; }
 
 .sweet-alert {
-  background-color: rgb(252, 192, 187);
+  background-color: rgb(234, 234, 234);
+  border: 1px solid #D0BABA;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   width: 478px;
   padding: 17px;
@@ -165,7 +166,7 @@ body.stop-scrolling {
     opacity: 0;
     visibility: hidden; }
   .sweet-alert button {
-    background-color: #8CD4F5;
+    background-color: #3279A2 !important;
     color: white;
     border: none;
     box-shadow: none;

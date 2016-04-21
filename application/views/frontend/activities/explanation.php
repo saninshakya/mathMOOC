@@ -27,24 +27,32 @@ echo link_tag('assets/css/exam.css', 'stylesheet', 'text/css'); ?>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <!-- OLD DATA -->
-                    <table cellspacing="20" cellpadding="10" >
+                    <table cellspacing="20" cellpadding="10" style="width:100%; min-height:400px; >
                         <tr>
                             <td>
                                 <div class="row">
                                     <div id="explanation-ui" class="col-xs-12">
                                         <div class="exam_content_area">
                                             <div class="topic-header"><h2 id="exam-name">Explanation</h2></div>
-                                            
                                             <div class="row">
-                                                <div class="col-md-6 col-md-offset-3" style="margin-top:50px;"><input type="submit" name="play" id="play" value="CLICK HERE TO START" class="btn btn-primary btn-lg"></div>
+                                                <div class="col-md-6 col-md-offset-3" style="margin-top:50px;"><input type="submit" name="play" id="play" value="CLICK HERE TO START EXPLANATION" class="btn btn-primary btn-lg"></div>
                                             </div>
                                             <?php
+                                            $counter=1;
                                             foreach ($explanations as $explanation) {
                                                 $no = explode("+",$explanation->explanation);
                                                 $firstno = $no[0];
                                                 $secondno = $no[1];
-                                                ?>
-                                                 <fieldset id="exam-question">
+                                                $description = $explanation->description;
+                                            ?>
+                                            <div class="main-part">
+                                                <div class="row">
+                                                    <div class="col-md-8" id="exp-counter"><?php echo('Explanation: '. $counter); ?></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-8" id="description" style="margin-top:20px; font-size:25px;"><?php echo($description); ?></div>
+                                                </div>
+                                                <fieldset id="exam-question">
                                                     <div id="question-text"></div>
                                                     <div class="bigWrapper">
                                                         <div class="problem">
@@ -134,25 +142,26 @@ echo link_tag('assets/css/exam.css', 'stylesheet', 'text/css'); ?>
                                                         </div>
                                                     </div>
                                                 </fieldset>
-                                         
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-md-6 col-md-offset-5">
-                                                        <div id="return-question"><input type="button" value="GO BACK" id="return" class="btn btn-primary" /></div>
-                                                        <div id="next"><input type="button" value="NEXT" id="next" class="btn btn-primary" /></div>
-                                                    </div>
-                                                </div>
-                                                            
-                                                </table>
-                                            <input id="question-id" name="question_id" value="" type="hidden" />
+                                             
+                                                <input id="question-id" name="question_id" value="" type="hidden" />
+                                            </div><!--end main-part div -->
                                         </div>
-                                        <?php   }?>
+                                        <?php $counter++;  }?>
+                                        <div class="row">
+                                            <div class="col-md-6 col-md-offset-5">
+                                                <div id="return-question"><input type="button" value="GO BACK" id="return" class="btn btn-primary" /></div>
+                                                <!-- <div id="next"><input type="button" value="NEXT" id="next" class="btn btn-primary" /></div> -->
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            </td>
                         </tr>
                     </table> 
-                </div></div>
-        </div></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- For animation -->
@@ -161,12 +170,20 @@ echo link_tag('assets/css/exam.css', 'stylesheet', 'text/css'); ?>
         $('.c3').addClass('active');
         $("#return").hide();
         $("#next").hide();
+        $(".main-part").hide();
+        // $("#description").hide();
+        // $(".imgHolder-img1").hide();
+        // $(".imgHolder-img2").hide();
         
         $("#play").click(function () {
             myRunloop.play(2000, optionalCallback);
             $("#play").hide();
             $("#return").show();
-            $("#next").show();
+            // $("#next").show();
+            $(".main-part").show();
+            // $("#description").show();
+            //  $(".imgHolder-img1").show();
+            //  $(".imgHolder-img2").show();
         });
         $("#return").click(function(){
             window.location.href='http://localhost/mathMOOC/activities/dopractice/'+ <?php echo($questions->activity_id); ?>

@@ -19,7 +19,7 @@
                 <div class="panel-body">
 
                     <!-- OLD DATA -->
-                    <table cellspacing="20" cellpadding="10" >
+                    <table cellspacing="20" cellpadding="10" style="width:100%;" >
                         <tr>
                             <td>
                                 <div id="loading"><h1  style="font-size:1.2em">Please wait while your exam is being loaded...</h1></div>
