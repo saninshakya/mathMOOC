@@ -19,17 +19,15 @@ echo link_tag('assets/css/exam.css', 'stylesheet', 'text/css'); ?>
 <!-- For animation -->
 <script src="<?php echo base_url(); ?>assets/js/jquery.runloop.1.0.3.js" type="text/javascript"></script>
 
-
-
 <div id="service">
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <!-- OLD DATA -->
-                    <table cellspacing="20" cellpadding="10" style="width:100%; min-height:400px; >
+                    <table cellspacing="20" cellpadding="10" style="width:100%; min-height:600px;" >
                         <tr>
-                            <td>
+                            <td valign="top">
                                 <div class="row">
                                     <div id="explanation-ui" class="col-xs-12">
                                         <div class="exam_content_area">
@@ -50,7 +48,7 @@ echo link_tag('assets/css/exam.css', 'stylesheet', 'text/css'); ?>
                                                     <div class="col-md-8" id="exp-counter"><?php echo('Explanation: '. $counter); ?></div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-8" id="description" style="margin-top:20px; font-size:25px;"><?php echo($description); ?></div>
+                                                    <div class="col-md-8" id="description" style="margin-top:10px; font-size:16px;"><?php echo($description); ?></div>
                                                 </div>
                                                 <fieldset id="exam-question">
                                                     <div id="question-text"></div>
@@ -171,19 +169,12 @@ echo link_tag('assets/css/exam.css', 'stylesheet', 'text/css'); ?>
         $("#return").hide();
         $("#next").hide();
         $(".main-part").hide();
-        // $("#description").hide();
-        // $(".imgHolder-img1").hide();
-        // $(".imgHolder-img2").hide();
         
         $("#play").click(function () {
             myRunloop.play(2000, optionalCallback);
             $("#play").hide();
             $("#return").show();
-            // $("#next").show();
             $(".main-part").show();
-            // $("#description").show();
-            //  $(".imgHolder-img1").show();
-            //  $(".imgHolder-img2").show();
         });
         $("#return").click(function(){
             window.location.href='http://localhost/mathMOOC/activities/dopractice/'+ <?php echo($questions->activity_id); ?>
@@ -255,10 +246,8 @@ echo link_tag('assets/css/exam.css', 'stylesheet', 'text/css'); ?>
         s.parentNode.insertBefore(g, s);
     })(document, 'script');
 
-
 </script> 
 <!-- end animation-->
-
 <?php
 }
 ?>

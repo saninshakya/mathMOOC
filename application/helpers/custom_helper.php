@@ -178,6 +178,7 @@ function _getQuestions($question) {
     if (@!empty($question)) {
         $temp = $question;
         preg_match('/[^A-Za-z0-9]/', $question, $matches);
-        return explode($matches[0], $temp);
+        return $matches;
+//        return explode($matches[0], $temp);
     }
 }
