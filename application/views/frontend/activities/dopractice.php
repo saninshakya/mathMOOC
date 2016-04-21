@@ -1,11 +1,10 @@
 <?php
-if($operator[0]=='*'){
+if ($operator[0] == '*') {
     $ret = "/mathmooc/assets/img/mul.png";
 }
-if($operator[0]=='+'){
+if ($operator[0] == '+') {
     $ret = "/mathmooc/assets/img/plus-sign.png";
 }
-
 ?>
 <?php echo link_tag('assets/css/exam.css', 'stylesheet', 'text/css'); ?>
 <script type="text/javascript">

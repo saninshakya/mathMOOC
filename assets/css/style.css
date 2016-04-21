@@ -605,3 +605,8 @@ p span{
     width: 100%;
     color: #FF9A55;
 }
+
+.explanation_for_question{
+    text-align: left;
+    font-size: -webkit-xxx-large;
+}

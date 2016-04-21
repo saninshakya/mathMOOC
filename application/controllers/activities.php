@@ -226,6 +226,7 @@ class Activities extends Frontend_Controller {
         $data['explanations'] = ActivitiesExplanation::find_all_by_activities_questions_id($questionid);
         // to get image from the question
         $data['questions'] = ActivitiesQuestion::find($questionid);
+        $data['question_list'] = _getQuestionNumbers($data['questions']->question);
         $data['menu'] = 'activities';
         $this->template->title('Activity Explanantion')
                 ->set_layout($this->front_tpl)

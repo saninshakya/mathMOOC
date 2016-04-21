@@ -65,7 +65,7 @@ function delete_btn($link = '') {
 }
 
 function explanation_btn($link = '') {
-     $display = '<a href="' . site_url($link) . '" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Explanation</a>';
+    $display = '<a href="' . site_url($link) . '" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Explanation</a>';
     return $display;
 }
 
@@ -180,5 +180,13 @@ function _getQuestions($question) {
         preg_match('/[^A-Za-z0-9]/', $question, $matches);
         return $matches;
 //        return explode($matches[0], $temp);
+    }
+}
+
+function _getQuestionNumbers($question) {
+    if (@!empty($question)) {
+        $temp = $question;
+        preg_match('/[^A-Za-z0-9]/', $question, $matches);
+        return array(explode($matches[0], $temp), $matches);
     }
 }
