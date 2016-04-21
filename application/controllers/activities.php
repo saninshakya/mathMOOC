@@ -224,7 +224,6 @@ class Activities extends Frontend_Controller {
 
     public function explanation($questionid) {
         $data['explanations'] = ActivitiesExplanation::find_all_by_activities_questions_id($questionid);
-        // pretty($data); die;
         // to get image from the question
         $data['questions'] = ActivitiesQuestion::find($questionid);
         $data['menu'] = 'activities';
@@ -233,6 +232,4 @@ class Activities extends Frontend_Controller {
                 ->set('page_title', 'Activity Explanantion')
                 ->build($this->user_folder . '/activities/explanation', $data);
     }
-
-  
 }

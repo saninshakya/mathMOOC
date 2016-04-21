@@ -479,7 +479,6 @@ function JSalert($msg, $response) {
     }
 }
 
-
 function activityExplanation(){
     var question_id = jQuery('#question-id').val();
     $.ajax({

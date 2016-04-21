@@ -11,9 +11,6 @@ $(document).ready(function () {
             $(wrapper).append('<div class="panel panel-default"><div class="panel-heading">Option 1</div><div class="panel-body"><div class="row"><div class="col-xs-6"><label>Question</label><input type="text" class="form-control required" name="question[]" value="" /></div><div class="col-xs-1" style="padding-top:30px;">=</div><div class="col-xs-5"><label>Answer</label><input type="text" class="form-control required" name="answer[]" value="" /></div></div></div><a href="#" class="remove_field">Remove</a></div>'); //add input box
         }
     });
-    
-    
-
     $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
         e.preventDefault();
         $(this).parent('div').remove();

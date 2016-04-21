@@ -26,7 +26,10 @@
                         <div class="form-group col-xs-6">
                             <label>Cover Image</label>
                             <input type="file" class="form-control" name="que_img" />
-                            <?php echo ($topic->image!='') ? "<img src='../../../$topic->image' alt='MathMOOC' height='150' />" : ''; ?>
+                            <?php
+                            if (@!empty($topic))
+                                echo ($topic->image != '') ? "<img src='../../../$topic->image' alt='MathMOOC' height='150' />" : '';
+                            ?>
                         </div>
                     </div>
                 </div>

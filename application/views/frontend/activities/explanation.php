@@ -150,7 +150,8 @@ if ($explanations == NULL) {
                                                         <input id="question-id" name="question_id" value="" type="hidden" />
                                                     </div><!--end main-part div -->
                                                 </div>
-                                                <?php $counter++;
+                                                <?php
+                                                $counter++;
                                             }
                                             ?>
                                             <div class="row">
