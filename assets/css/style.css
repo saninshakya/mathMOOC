@@ -557,8 +557,14 @@ small{
 .imgHolder-img1 img, .imgHolder-img2 img{
     width:50px;
 }
-p.a, p.c , p.e{
+p.a, p.c , p.e, p.numberigin{
     float:left;
+}
+p span{
+    position: absolute;
+    top: 54px;
+    right: 23px;
+    color:black;
 }
 
 #exam-timer h2{

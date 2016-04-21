@@ -60,7 +60,7 @@ if ($explanations == NULL) {
                                                                             <div class="imgHolder-img1">
                                                                                 <?php for ($i = 1; $i <= $firstno; $i++) { ?>
                                                                                     <p class="a">
-                                                                                        <?php echo $i; ?>
+                                                                                        <span><?php echo $i; ?></span>
                                                                                         <img src="<?php echo("/mathmooc/" . $questions->image); ?>">
                                                                                     </p>
                                                                                 <?php } ?>
@@ -79,7 +79,7 @@ if ($explanations == NULL) {
                                                                             <div class="imgHolder-img2">
                                                                                 <?php for ($j = 1; $j <= $secondno; $j++) { ?>
                                                                                     <p class="c">
-                                                                                        <?php echo $i - 1 + $j; ?>
+                                                                                        <span><?php echo $i - 1 + $j; ?></span>
                                                                                         <img src="<?php echo("/mathmooc/" . $questions->image1); ?>">
                                                                                     <?php } ?>
                                                                                 </p>
