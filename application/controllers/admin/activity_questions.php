@@ -166,33 +166,6 @@ class Activity_questions extends Backend_Controller {
             unset($_POST['_wysihtml5_mode']);
             $question_id = $this->input->post('question_id');
             $activity_id = $this->input->post('activity_id');
-            // pretty($activity_id); die;
-<<<<<<< HEAD
-            try{
-                $exp = new ActivitiesExplanation(
-                    array('activities_questions_id' => $question_id,
-                    'explanation' => $_POST['question1'],
-                    'description' => $_POST['description1'],
-                    'created_datetime' => date_time_zone(),
-                    'updated_datetime' => date_time_zone(),
-                    'created_by' => $this->ion_auth->get_user_id(),
-                    'updated_by' => $this->ion_auth->get_user_id(),
-                    'answer' => $_POST['answer1']));
-
-                $exp->save();
-
-                $exp = new ActivitiesExplanation(
-                    array('activities_questions_id' => $question_id,
-                    'explanation' => $_POST['question2'],
-                    'description' => $_POST['description2'],
-                    'created_datetime' => date_time_zone(),
-                    'updated_datetime' => date_time_zone(),
-                    'created_by' => $this->ion_auth->get_user_id(),
-                    'updated_by' => $this->ion_auth->get_user_id(),
-                    'answer' => $_POST['answer2']));
-
-                $exp->save();
-=======
             try {
                 for ($j = 0; $j < $total_size_array; $j++) {
                     $exp = new ActivitiesExplanation(
@@ -205,7 +178,6 @@ class Activity_questions extends Backend_Controller {
                         'answer' => $_POST['answer'][$j]));
                     $exp->save();
                 }
->>>>>>> f82fc0e21a7ef7aa1c717ba7e00397898ceb1820
             } catch (Exception $e) {
                 $this->session->set_flashdata('error', 'There where errors saving the explanation');
                 redirect('admin/activity_questions/manage/' . $activity_id);

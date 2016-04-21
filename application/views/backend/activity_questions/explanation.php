@@ -9,60 +9,6 @@
         echo form_hidden('activity_id', $explanation->activity_id);
         ?>
         <div class="box box-primary">
-
-<<<<<<< HEAD
-			<div class="box-body">
-	            <div class="row">
-		            <div class="form-group col-xs-7">
-		            	<div style="font-size:20px; font-weight:bold; margin-bottom:20px;">
-		            	<?php
-		            	echo ("Question: ". $explanation->question);
-		            	?>
-			            </div>
-		                <div class="panel panel-default">
-							<div class="panel-heading">Option 1</div>
-							<div class="panel-body">
-	                        	<div class="row">
-	                        		<div class="col-xs-6">
-	                        			<label>Question</label>
-			                            <input type="text" class="form-control required" name="question1" value="" />
-	                        		</div>
-									<div class="col-xs-1" style="padding-top:30px;">=</div>
-	                        		<div class="col-xs-5">
-										<label>Answer</label>
-			                            <input type="text" class="form-control required" name="answer1" value="" />
-	                        		</div>
-	                        	</div>
-	                        	<div class="row">
-	                        		<div class="col-xs-12">
-	                        			<label>Explanation</label>
-	                        			<textarea class="form-control" rows="3" name="description1"></textarea>
-	                        		</div>
-	                        	</div>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-							<div class="panel-heading">Option 2</div>
-							<div class="panel-body">
-	                        	<div class="row">
-	                        		<div class="col-xs-6">
-	                        			<label>Question</label>
-			                            <input type="text" class="form-control required" name="question2" value="" />
-	                        		</div>
-									<div class="col-xs-1" style="padding-top:30px;">=</div>
-	                        		<div class="col-xs-5">
-										<label>Answer</label>
-			                            <input type="text" class="form-control required" name="answer2" value="" />
-	                        		</div>
-	                        	</div>
-	                        	<div class="row">
-	                        		<div class="col-xs-12">
-	                        			<label>Explanation</label>
-	                        			<textarea class="form-control" rows="3" name="description2"></textarea>
-	                        		</div>
-	                        	</div>
-=======
             <div class="box-body">
                 <div class="row">
                     <div class="form-group col-xs-7">
@@ -83,7 +29,6 @@
                                         <input type="text" class="form-control required" name="answer[]" value="" />
                                     </div>
                                 </div>
->>>>>>> f82fc0e21a7ef7aa1c717ba7e00397898ceb1820
                             </div>
                         </div>
                     </div>
