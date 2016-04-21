@@ -5,7 +5,6 @@
     <script src="<?php echo base_url(); ?>assets/dist/js/bootstrap.js" type="text/javascript"></script>
     <link src="<?php echo base_url(); ?>assets/dist/css/formValidation.css" rel="stylesheet"></script>
     <link src="<?php echo base_url(); ?>assets/dist/css/bootstrap.css" rel="stylesheet"></script>
-
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-inverse" role="navigation" style="height:auto">
         <div class="container">

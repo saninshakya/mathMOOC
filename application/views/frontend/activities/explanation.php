@@ -79,7 +79,7 @@ if ($explanations == NULL) {
                                                                             <div class="imgHolder-img2">
                                                                                 <?php for ($j = 1; $j <= $secondno; $j++) { ?>
                                                                                     <p class="c">
-                                                                                        <?php echo $i-1+$j; ?>
+                                                                                        <?php echo $i - 1 + $j; ?>
                                                                                         <img src="<?php echo("/mathmooc/" . $questions->image1); ?>">
                                                                                     <?php } ?>
                                                                                 </p>
@@ -151,7 +151,8 @@ if ($explanations == NULL) {
                                                     </div><!--end main-part div -->
                                                 </div>
                                                 <?php $counter++;
-                                            } ?>
+                                            }
+                                            ?>
                                             <div class="row">
                                                 <div class="col-md-6 col-md-offset-5">
                                                     <div id="return-question"><input type="button" value="GO BACK" id="return" class="btn btn-primary" /></div>
@@ -176,12 +177,14 @@ if ($explanations == NULL) {
             $("#return").hide();
             $("#next").hide();
             $(".main-part").hide();
+            $('#description').hide();
 
             $("#play").click(function () {
                 myRunloop.play(2000, optionalCallback);
                 $("#play").hide();
                 $("#return").show();
                 $(".main-part").show();
+                $('#description').fadeIn(4500);
             });
             $("#return").click(function () {
                 window.location.href = 'http://localhost/mathMOOC/activities/dopractice/' + <?php echo($questions->activity_id); ?>

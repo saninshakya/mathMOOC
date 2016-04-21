@@ -1,107 +1,18 @@
-<style>
-    .form-horizontal .form-group{
-        margin-top:15px;
-        margin-left: 10px;
-        padding:10px;
-    }
+<div class="container middlecontent">
+    <section class="content">
 
-    .has-feedback{
-        border: 1px solid #ddd;
-        font-size: 24px;
-    }
-</style>
-<script src="assets/dist/js/formValidation.js" type="text/javascript"></script>
-<script src="assets/dist/js/bootstrap.js" type="text/javascript"></script>
-<link src="assets/dist/css/formValidation.css" rel="stylesheet" type="text/css"></script>
-<link src="assets/dist/css/bootstrap.css" rel="stylesheet" type="text/css"></script>
-<div class="container">
-
-    <!-- Binita  Tutorial Addition-->
-    <input type="submit" name="play" id="play" value="PLAY">
-    <input type="submit" name="return" id="return" value="RETURN" style="display: none;">
-    <div class="bigWrapper">
-        <div class="problem">
-            <div class="fleft part1wrapper">
-                <div class="part1 tableBased">
-                    <div class="imgHolder-img">
-                        <p class="a"><img src="assets/img/star.png" alt="star" width="70"/></p>
-                    </div>
-                    <div class="imgHolder-img">
-                        <p class="a"><img src="assets/img/star.png" alt="star" width="70" /></p>
-                    </div>
-                </div>
+        <div id="lfx_intro" class="section container">
+            <div class="jumbotron">
+                <p class="tagline">A jQuery plugin to apply animated, visual effects to letters, words or other text patterns.</p>
+                <p class="visible-lg visible-md">
+                    <code class="source-code">Demo:</code>
+                </p>
+                <button class="btn btn-default" data-letterfx="custom[0]">1</button>
+                <button class="btn btn-default" data-letterfx="custom[2]">3</button>
             </div>
-            <div class="plussign fleft">
-                <div class="tableBased">
-                    <div class="imgHolder tableCelled">
-                        <p class="b"><img src="assets/img/plus-sign.png" alt=""></p>
-                    </div>
-                </div>
-            </div>
-            <div class="fleft part2wrapper">
-                <div class="part2 tableBased">
-                    <div class="imgHolder-img">
-                        <p class="c"><img src="assets/img/star.png" alt="star" width="70" /></p>
-                    </div>
-                </div>
-            </div>
-            <div class="equalto fleft">
-                <div class="tableBased">
-                    <div class="imgHolder tableCelled">
-                        <p class="d"><img src="assets/img/equal-to.png" alt=""></p>
-                    </div>
-                </div>
-            </div>
-            <div class="sum fleft">
-                <div class="tableBased">
-                    <div class="imgHolder-img">
-                        <p class="e"><img src="assets/img/star.png" alt="star" width="70" /></p>
-                    </div>
-                    <div class="imgHolder-img">
-                        <p class="e"><img src="assets/img/star.png" alt="star" width="70" /></p>
-                    </div>
-                    <div class="imgHolder-img">
-                        <p class="e"><img src="assets/img/star.png" alt="star" width="70" /></p>
-                    </div>
-                </div>
-            </div>
+            <a class="btn btn-primary btn-large pull-right" href="http://tuxsudo.com/code/project/letterfx">Learn More</a>
         </div>
-
-        <div class="solutions">
-            <div class="solutionbox fleft">
-                <div class="sol solution-one" style="border-color:#D93600;color:#D93600">
-                    <big>
-                        <p class="a">2</p>
-                    </big>
-                    <small>
-                        <p class="a">Two</p>
-                    </small>
-                </div>
-            </div>
-            <div class="solutionbox fleft">
-                <div class="sol solution-two" style="border-color:#85B200;color:#85B200">
-                    <big>
-                        <p class="c">1</p>
-                    </big>
-                    <small>
-                        <p class="c">One</p>
-                    </small>
-                </div>
-            </div>
-            <div class="solutionbox fleft">
-                <div class="sol solution-three" style="border-color:#FF7272;color:#FF7272">
-                    <big>
-                        <p class="e">3</p>
-                    </big>
-                    <small>
-                        <p class="e">Three</p>
-                    </small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- end  -->
+    </section> 
     <div class="row">
         <form id="defaultForm" method="post" class="form-horizontal" action="target.php">
             <div class="col-xs-6">
@@ -163,81 +74,8 @@
         </form>
     </div>
 </div><!--end container-->
-
-
-<!-- Binita -->
-<script src="assets/js/jquery.runloop.1.0.3.js"></script>
-
-<script>
+<script type="text/javascript">
     $(document).ready(function () {
-        $("#play").click(function () {
-            myRunloop.play(2000, optionalCallback);
-            $("#play").hide();
-            $("#return").show();
-        });
-        $("#return").click(function(){
-            window.location.href='http://localhost/mathMOOC/activities/dopractice/11';
-        });
-
-        // JavaScript enabled; initiate some of the CSS for this
-        $("#intro h1").css({
-            bottom: '-1.5em',
-            opacity: 1
-        });
-        $("#box").css({
-            background: '#22346F',
-            'border-color': '#333',
-            height: 0,
-            width: 0
-        });
-        $("p").css({
-            opacity: 0,
-            position: 'relative',
-            left: '-3em'
-        });
-        $("p.b, p.copyright").css({
-            left: '3em'
-        });
-
-
-        // Make a new runloop. Probably best not to attach it to the window object, but it's useful for this demo
-        // as it allows you to inspect the myRunloop object using Firebug/Web Inspector.
-        window.myRunloop = jQuery.runloop();
-
-        // You add keyframes with addKey(); the first parameter is the percentage into the overall runloop duration,
-        // the second is the function to execute at that keyframe point.
-        myRunloop.addKey('10%', function () {
-            $("#box").animate({width: '35.6em', paddingLeft: '2em', paddingRight: '2em'}, {duration: 1000, queue: false})
-        });
-
-        // But you don't have to do individual addKey() calls; use addMap() to add multiple keyframes at once:
-        myRunloop.addMap({
-            '55%': function () {
-                $("p.a").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-            },
-            '65%': function () {
-                $("p.b").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-            },
-            '75%': function () {
-                $("p.c").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-            },
-            '85%': function () {
-                $("p.d").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-            },
-            '95%': function () {
-                $("p.e").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-            }
-            // '100%': function(){ $("p.copyright").animate( { opacity:1, left:0 }, { duration:650, queue:false } ); }
-        });
-
-        // You can add a callback to the end of the runloop, but note: it's the same as this: addKey('100%', func);
-        function optionalCallback() {
-        }
-        ;
-
-        // Start playing the runloop, in this case with a duration of 10s.
-        // If the duration is omitted and no runloop was playing, it'll default to 500ms.
-        // myRunloop.play(10000, optionalCallback);
         function randomNumber(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
@@ -335,7 +173,4 @@
         g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         s.parentNode.insertBefore(g, s);
     })(document, 'script');
-
-
 </script> 
-<!-- end -->
