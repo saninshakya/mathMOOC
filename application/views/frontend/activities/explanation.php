@@ -33,11 +33,11 @@ if ($explanations == NULL) {
                                             <div class="exam_content_area">
                                                 <div class="topic-header"><h2 id="exam-name">Explanation</h2></div>
                                                 <div class="explanation_for_question">
-                                                    <?php
-                                                    echo ($questions->question) . '=' . '?';
-                                                    ?>
+                                                <?php
+                                                    echo ($questions->question).'='.'?';
+                                                ?>
                                                 </div>
-
+                                                
                                                 <div class="row">
                                                     <div class="col-md-6 col-md-offset-3" style="margin-top:50px;"><input type="submit" name="play" id="play" value="CLICK HERE TO START EXPLANATION" class="btn btn-primary btn-lg"></div>
                                                 </div>

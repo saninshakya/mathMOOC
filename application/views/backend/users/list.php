@@ -11,9 +11,9 @@
                 <th style="width: 2%"></th>
                 <th style="width: 10%">First Name</th>
                 <th style="width: 10%">Last Name</th>
-                <th style="width: 10%">Email</th>
-                <th style="width: 10%">Phone</th>
-                <th style="width: 10%">User Type</th>
+                <th style="width: 10%">Username</th>
+                <th style="width: 10%">Parent Name</th>
+                <th style="width: 10%">Grade</th>
                 <th style="width: 5%">Status</th>
                 <th style="width: 25%">Action</th>
             </tr>
@@ -23,26 +23,21 @@
                     $count = 1;
                     $loggeduser = $this->ion_auth->user()->row();
             	foreach ($users as $user) {
-                    if($loggeduser->id != $user->id){
+                    if($loggeduser->id != $user['id']){
                 ?>
                 	<tr>
                     <td><?php echo $count; ?>.</td>
-                    <td><?php echo $user->first_name; ?></td>
-                    <td><?php echo $user->last_name; ?></td>
-                    <td><?php echo $user->email; ?></td>
-                    <td><?php echo $user->phone; ?></td>
-                    <td><?php $groups = $this->ion_auth->get_users_groups($user->id)->result(); 
-                         foreach ($groups as $row){
-                            echo $row->name.' <br/>';
-                            }
-                    ?>
-                    </td>
-                    <td><?php echo status_label($user->active); ?></td>
+                    <td><?php echo $user['first_name']; ?></td>
+                    <td><?php echo $user['last_name']; ?></td>
+                    <td><?php echo $user['username']; ?></td>
+                    <td><?php echo $user['parent_name']; ?></td>
+                    <td><?php echo $user['company']; ?></td>
+                    <td><?php echo status_label($user['active']); ?></td>
                     <td>
-                        <?php echo view_btn('admin/users/view/'.$user->id); ?>
-                        <?php echo edit_btn('admin/users/edit/'.$user->id); ?>
-                        <?php echo ($user->active == 1)  ? deactivate_btn('admin/users/deactivate/'.$user->id) : activate_btn('admin/users/activate/'.$user->id); ?>
-                        <?php echo delete_btn('admin/users/delete/'.$user->id); ?>
+                        <?php echo view_btn('admin/users/view/'.$user['id']); ?>
+                        <?php echo edit_btn('admin/users/edit/'.$user['id']); ?>
+                        <?php echo ($user['active']== 1)  ? deactivate_btn('admin/users/deactivate/'.$user['id']) : activate_btn('admin/users/activate/'.$user['id']); ?>
+                        <?php echo delete_btn('admin/users/delete/'.$user['id']); ?>
                     </td>
                 	</tr>
             <?php		$count++;	# code...

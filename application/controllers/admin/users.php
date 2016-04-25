@@ -14,7 +14,29 @@ class Users extends Backend_Controller {
     }
 
     public function index() {
-        $data['users'] = User::find('all', array('order' => 'id DESC'));
+//        $data['users'] = User::find('all', array('order' => 'id DESC'));
+        $sql = "SELECT u.active, u.company, u.id, u.username, u.first_name, u.last_name, ug.user_id, ug.group_id,
+	ps.parent_id,
+	( SELECT CONCAT(u1.first_name,' ', u1.last_name)FROM users AS u1
+		WHERE
+			u1.id = ps.parent_id
+	)AS parent_name
+FROM
+	users_groups AS ug
+INNER JOIN users AS u ON(
+	ug.user_id = u.id
+)
+LEFT JOIN parents_students AS ps ON(
+	ps.student_id = ug.user_id
+)
+WHERE
+	ug.group_id = 2";
+        $query = $this->db->query($sql);
+        $query->result_array();
+        $data = get_object_vars($query);
+        
+        $data['users'] = $data['result_array'];
+        unset($data['result_array']);
         $this->template->title('Administrator Panel : manage users')
                 ->set_layout($this->admin_tpl)
                 ->set('page_title', 'Users')
