@@ -65,7 +65,7 @@ if ($explanations == NULL) {
                                                                         <div class="part1 tableBased">
                                                                             <div class="imgHolder-img1">
                                                                                 <?php for ($i = 1; $i <= $firstno; $i++) { ?>
-                                                                                    <p class="a">
+                                                                                    <p class="a<?php echo $i; ?>">
                                                                                         <span><?php echo $i; ?></span>
                                                                                         <img src="<?php echo("/mathmooc/" . $questions->image); ?>">
                                                                                     </p>
@@ -230,8 +230,11 @@ if ($explanations == NULL) {
 
             // But you don't have to do individual addKey() calls; use addMap() to add multiple keyframes at once:
             myRunloop.addMap({
-                '55%': function () {
-                    $("p.a").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
+                '10%': function () {
+                    $("p.a1").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
+                },
+                '20%': function () {
+                    $("p.a2").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
                 },
                 '65%': function () {
                     $("p.b").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
