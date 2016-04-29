@@ -42,21 +42,21 @@ if ($explanations == NULL) {
                                                     <div class="col-md-6 col-md-offset-3" style="margin-top:50px;"><input type="submit" name="play" id="play" value="CLICK HERE TO START EXPLANATION" class="btn btn-primary btn-lg"></div>
                                                 </div>
                                                 <?php
-                                                $counter = 1;
-                                                foreach ($explanations as $explanation) {
+
+                                                    $explanation = $explanations[0];
                                                     $no = explode("+", $explanation->explanation);
                                                     $firstno = $no[0];
                                                     $secondno = $no[1];
                                                     $description = $explanation->description;
                                                     $conclusion = $explanation->conclusion;
-                                                    ?>
+                                                ?>
                                                     <div class="main-part">
                                                         <div class="row">
-                                                            <div class="col-md-8" id="exp-counter"><?php echo('Explanation: ' . $counter); ?></div>
+                                                            <div class="col-md-8" id="exp-counter"><?php //echo('Explanation: ' . $counter); ?></div>
                                                         </div>
-                                                        <div class="row">
+                                                        <!-- <div class="row">
                                                             <div class="col-md-8" id="description" style="margin-top:10px; font-size:16px;"><?php echo($description); ?></div>
-                                                        </div>
+                                                        </div> -->
                                                         <fieldset id="exam-question">
                                                             <div id="question-text"></div>
                                                             <div class="bigWrapper">
@@ -84,7 +84,7 @@ if ($explanations == NULL) {
                                                                         <div class="part2 tableBased">
                                                                             <div class="imgHolder-img2">
                                                                                 <?php for ($j = 1; $j <= $secondno; $j++) { ?>
-                                                                                    <p class="c">
+                                                                                    <p class="c<?php echo $j; ?>">
                                                                                         <span><?php echo $i - 1 + $j; ?></span>
                                                                                         <img src="<?php echo("/mathmooc/" . $questions->image1); ?>">
                                                                                     <?php } ?>
@@ -103,7 +103,10 @@ if ($explanations == NULL) {
                                                                         <div class="part2 tableBased">
                                                                             <div class="imgHolder-img2">
                                                                                 <?php for ($i = 1; $i <= ($firstno + $secondno); $i++) { ?>
-                                                                                    <p class="e"><img src="<?php echo("/mathmooc/" . $questions->image1); ?>"></p>
+                                                                                    <p class="e<?php echo $i; ?>">
+                                                                                        <span><?php echo $i; ?></span>
+                                                                                        <img src="<?php echo("/mathmooc/" . $questions->image1); ?>">
+                                                                                    </p>
                                                                                 <?php } ?>
                                                                             </div>
                                                                         </div>
@@ -156,10 +159,7 @@ if ($explanations == NULL) {
                                                         <input id="question-id" name="question_id" value="" type="hidden" />
                                                     </div><!--end main-part div -->
                                                 </div>
-                                                <?php
-                                                $counter++;
-                                            }
-                                            ?>
+                                        
                                             <div class="row">
                                                 <div class="col-md-6 col-md-offset-5">
                                                     <div id="return-question"><input type="button" value="GO BACK" id="return" class="btn btn-primary" /></div>
@@ -217,6 +217,23 @@ if ($explanations == NULL) {
                 left: '3em'
             });
 
+            for (var x = 1; x <=<?php echo $firstno; ?>; x++) { 
+                $("p.a"+x).css({
+                   float: 'left'
+                });
+            }
+
+            for (var x = 1; x <=<?php echo $secondno; ?>; x++) { 
+                $("p.c"+x).css({
+                   float: 'left'
+                });
+            }
+
+             for (var x = 1; x <=<?php echo $secondno; ?>; x++) { 
+                $("p.e"+x).css({
+                   float: 'left'
+                });
+            }
 
             // Make a new runloop. Probably best not to attach it to the window object, but it's useful for this demo
             // as it allows you to inspect the myRunloop object using Firebug/Web Inspector.
@@ -228,33 +245,71 @@ if ($explanations == NULL) {
                 $("#box").animate({width: '35.6em', paddingLeft: '2em', paddingRight: '2em'}, {duration: 1000, queue: false})
             });
 
+            var delay = 1000;
+            var delayinc = 1000;
+                myRunloop.addKey('20%', function () {
+                     for (var z = 1; z <=<?php echo $firstno; ?>; z++) { 
+                    // console.log("hello", z);
+                    $("p.a"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
+                    delay += delayinc;
+                    }
+                    $("p.a").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
+                    delay += delayinc;
+                    $("p.b").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
+                    delay += delayinc;
+                });
+
+                myRunloop.addKey('20%', function () {
+                     for (var z = 1; z <=<?php echo $secondno; ?>; z++) { 
+                    // console.log("hello", z);
+                    $("p.c"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
+                    delay += delayinc;
+                    }
+                    $("p.c").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
+                    delay += delayinc;
+                    $("p.d").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
+                    delay += delayinc;
+                });
+
+                myRunloop.addKey('20%', function () {
+                     for (var z = 1; z <=<?php echo $firstno+$secondno; ?>; z++) { 
+                    // console.log("hello", z);
+                    $("p.e"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
+                    delay += delayinc;
+                    }
+                    $("p.e").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
+                    delay += delayinc;
+                });
+                
+ 
+
             // But you don't have to do individual addKey() calls; use addMap() to add multiple keyframes at once:
-            myRunloop.addMap({
-                '10%': function () {
-                    $("p.a1").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-                },
-                '20%': function () {
-                    $("p.a2").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-                },
-                '65%': function () {
-                    $("p.b").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-                },
-                '75%': function () {
-                    $("p.c").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-                },
-                '85%': function () {
-                    $("p.d").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-                },
-                '95%': function () {
-                    $("p.e").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-                }
-                // '100%': function(){ $("p.copyright").animate( { opacity:1, left:0 }, { duration:650, queue:false } ); }
-            });
+            // myRunloop.addMap({
+            //     '10%': function () {
+            //         $("p.a").delay(1000).animate({opacity: 1, left: 0}, {duration: 500, easing: 'easeOutElastic',
+            //             complete: function () {
+
+            //             }
+            //         });
+            //     },
+            //     '65%': function () {
+            //         $("p.b").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
+            //     },
+            //     '75%': function () {
+            //         $("p.c").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
+            //     },
+            //     '85%': function () {
+            //         $("p.d").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
+            //     },
+            //     '95%': function () {
+            //         $("p.e").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
+            //     }
+            //     '100%': function(){ $("p.copyright").animate( { opacity:1, left:0 }, { duration:650, queue:false } ); }
+            // });
 
             // You can add a callback to the end of the runloop, but note: it's the same as this: addKey('100%', func);
             function optionalCallback() {
-            }
-            ;
+            };
 
         });
 

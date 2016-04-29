@@ -1,5 +1,6 @@
 <header class="header">
     <script src="<?php echo base_url(); ?>assets/js/jquery-2.1.1.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/favicon.png"/>
     <script src="<?php echo base_url(); ?>assets/dist/js/formValidation.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/dist/js/bootstrap.js" type="text/javascript"></script>

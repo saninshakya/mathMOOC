@@ -551,11 +551,12 @@ small{
 }
 
 .imgHolder-img1, .imgHolder-img2 {
-    float:left;
+    /*float:left;*/
     padding:10px;
 }
 .imgHolder-img1 img, .imgHolder-img2 img{
     width:50px;
+    float:left;
 }
 p.a, p.c , p.e, p.numberigin{
     float:left;
