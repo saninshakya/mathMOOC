@@ -104,7 +104,7 @@ if ($explanations == NULL) {
                                                                             <div class="imgHolder-img2">
                                                                                 <?php for ($i = 1; $i <= ($firstno + $secondno); $i++) { ?>
                                                                                     <p class="e<?php echo $i; ?>">
-                                                                                        <span><?php echo $i; ?></span>
+                                                                                        <span><?php //echo $i; ?></span>
                                                                                         <img src="<?php echo("/mathmooc/" . $questions->image1); ?>">
                                                                                     </p>
                                                                                 <?php } ?>
