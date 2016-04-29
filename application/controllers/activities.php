@@ -155,13 +155,14 @@ class Activities extends Frontend_Controller {
     public function certificate($id) {
         if ($this->ion_auth->logged_in()) {
             $user = $this->ion_auth->user()->row();
-            $data['exam'] = Exam::find($id);
+            $data['exam'] = Activity::find($id);
             $data['performance'] = $this->performance($id, $user->id);
-            $data['user_exam'] = Userexam::find_by_user_id_and_exam_id($user->id, $id);
+            $data['user_exam'] = UserActivity::find_by_user_id_and_activity_id($user->id, $id);
+            
 
             //$html = $this->load->view($this->user_folder.'/exams/exam_certificate_pdf', $data);
             $data['settings'] = $settings = Setting::first();
-            $html = $this->load->view($this->user_folder . '/exams/exam_certificate_pdf', $data, true);
+            $html = $this->load->view($this->user_folder . '/activities/exam_certificate_pdf', $data, true);
 
 
             include(FCPATH . "mpdf60/mpdf.php");

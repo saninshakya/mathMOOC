@@ -10,7 +10,6 @@ $pieces = explode("/", $performance['questions_answered_correct']);
                 <div class="hline"></div>
                 <br>
             </div>
-            <div class="col-lg-2"><a class="btn btn-warning" href="<?php echo site_url('users/exams'); ?>"> My Exams History</a></div>
         </div>
         <div class="panel panel-primary">
             <div class="panel-heading">Activity Information</div>
@@ -54,8 +53,8 @@ $pieces = explode("/", $performance['questions_answered_correct']);
                 </div>
 
                 <label>Results Status</label>
-                <p><span class="btn <?php echo ($pieces[0] >= (1 / 3) * $pieces[1]) ? 'btn-success' : 'btn-danger'; ?>">
-                        <?php echo ($pieces[0] >= (1 / 3) * $pieces[1]) ? 'Passed' : 'Failed'; ?></span></p>
+                <span class="btn <?php echo ($pieces[0] >= (1 / 3) * $pieces[1]) ? 'btn-success' : 'btn-danger'; ?>">
+                        <?php echo ($pieces[0] >= (1 / 3) * $pieces[1]) ? 'Passed' : 'Failed'; ?></span>
             </div>
         </div>
         <div class="panel panel-primary">

@@ -82,10 +82,16 @@ class Main extends Frontend_Controller {
     }
 
     public function home_parent() {
-        $this->template->title('Parent Panel')
-                ->set_layout($this->modal_tpl)
-                ->set('page_title', 'home')
-                ->build($this->user_folder . '/home_parent');
+        $parent_id = $this->ion_auth->user()->row()->id;
+        $student_id = ParentStudent::find_by_parent_id($parent_id);
+        $user = User::find($student_id->student_id);
+
+        $data['menu'] = 'myexams';
+        $data['userexams']  = Userexam::find_all_by_user_id($user->id, array('order' => 'id desc'));
+        $this->template->title('Result')
+        ->set_layout($this->front_tpl)
+        ->set('page_title', 'Home')
+        ->build($this->user_folder.'/home_parent', $data);
     }
 
     public function register() {

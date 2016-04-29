@@ -63,8 +63,9 @@ class Users extends Frontend_Controller {
 	}
 	public function exams(){
 		$user = $this->ion_auth->user()->row();
-		$data['menu'] = 'myexams';
+		$data['menu'] = 'Summary';
 		$data['userexams']  = Userexam::find_all_by_user_id($user->id, array('order' => 'id desc'));
+		$data['useractivities']  = UserActivity::find_all_by_user_id($user->id, array('order' => 'id desc'));
 		$this->template->title('My Exams')
         ->set_layout($this->front_tpl)
         ->set('page_title', 'My Exams')

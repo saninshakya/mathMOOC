@@ -24,7 +24,7 @@
        <div style="font-size:25px;margin-bottom:20px"><i>This is to certify that</i></div>
        <div style="font-size:25px;margin:0 auto; width:40%; border-bottom:1px solid #000"><b><?php echo $user->first_name.' '.$user->last_name;?>.</b></div>
        <div style="font-size:25px;margin:20px"><i>has completed the exam</i></div> 
-       <div style="font-size:25px;margin:0 auto; width:50%; border-bottom:1px solid #000"><b><?php echo $exam->name;?></b></div> <br/><br/>
+       <div style="font-size:25px;margin:0 auto; width:50%; border-bottom:1px solid #000"><b><?php echo $exam->activity_name;?></b></div> <br/><br/>
        <div style="font-size:20px;">with score of <b><u>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $performance['correct_percent']; ?>%&nbsp;&nbsp;&nbsp;&nbsp;</u></b> from our online academy.</div> <br/><br/>
        <div style="font-size:20px;width:40%;float:left"><i>Dated</i> <b><u>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo format_date($user_exam->start); ?>&nbsp;&nbsp;&nbsp;&nbsp;</u></b></div>
        <div style="font-size:20px;float:right;text-align:right">
