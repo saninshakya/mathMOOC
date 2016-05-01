@@ -32,24 +32,24 @@ if ($explanations == NULL) {
                                         <div id="explanation-ui" class="col-xs-12">
                                             <div class="exam_content_area">
                                                 <div class="topic-header"><h2 id="exam-name">Explanation</h2></div>
-                                                <div class="explanation_for_question">
+                                                <!-- <div class="explanation_for_question">
                                                 <?php
                                                     echo ($questions->question).'='.'?';
                                                 ?>
-                                                </div>
+                                                </div> -->
                                                 
                                                 <div class="row">
                                                     <div class="col-md-6 col-md-offset-3" style="margin-top:50px;"><input type="submit" name="play" id="play" value="CLICK HERE TO START EXPLANATION" class="btn btn-primary btn-lg"></div>
                                                 </div>
                                                 <?php
-
-                                                    $explanation = $explanations[0];
+                                                    $explanation = $explanations[0]; 
                                                     $no = explode("+", $explanation->explanation);
                                                     $firstno = $no[0];
                                                     $secondno = $no[1];
                                                     $description = $explanation->description;
                                                     $conclusion = $explanation->conclusion;
                                                 ?>
+
                                                     <div class="main-part">
                                                         <div class="row">
                                                             <div class="col-md-8" id="exp-counter"><?php //echo('Explanation: ' . $counter); ?></div>
@@ -65,10 +65,12 @@ if ($explanations == NULL) {
                                                                         <div class="part1 tableBased">
                                                                             <div class="imgHolder-img1">
                                                                                 <?php for ($i = 1; $i <= $firstno; $i++) { ?>
+                                                                                <div class="holder">
                                                                                     <p class="a<?php echo $i; ?>">
-                                                                                        <span><?php echo $i; ?></span>
                                                                                         <img src="<?php echo("/mathmooc/" . $questions->image); ?>">
                                                                                     </p>
+                                                                                    <p class="count<?php echo $i; ?>"><?php echo $i; ?></p>
+                                                                                </div>
                                                                                 <?php } ?>
                                                                             </div>
                                                                         </div>
@@ -84,11 +86,13 @@ if ($explanations == NULL) {
                                                                         <div class="part2 tableBased">
                                                                             <div class="imgHolder-img2">
                                                                                 <?php for ($j = 1; $j <= $secondno; $j++) { ?>
-                                                                                    <p class="c<?php echo $j; ?>">
-                                                                                        <span><?php echo $i - 1 + $j; ?></span>
-                                                                                        <img src="<?php echo("/mathmooc/" . $questions->image1); ?>">
+                                                                                    <div class="holder">
+                                                                                        <p class="c<?php echo $j; ?>">
+                                                                                            <img src="<?php echo("/mathmooc/" . $questions->image1); ?>">
+                                                                                        </p>
+                                                                                        <p class="count<?php echo $i - 1 + $j; ?>"><?php echo $i - 1 + $j; ?></p>
+                                                                                    </div>
                                                                                     <?php } ?>
-                                                                                </p>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -103,10 +107,11 @@ if ($explanations == NULL) {
                                                                         <div class="part2 tableBased">
                                                                             <div class="imgHolder-img2">
                                                                                 <?php for ($i = 1; $i <= ($firstno + $secondno); $i++) { ?>
+                                                                                <div class="holder">
                                                                                     <p class="e<?php echo $i; ?>">
-                                                                                        <span><?php //echo $i; ?></span>
                                                                                         <img src="<?php echo("/mathmooc/" . $questions->image1); ?>">
                                                                                     </p>
+                                                                                </div>
                                                                                 <?php } ?>
                                                                             </div>
                                                                         </div>
@@ -150,9 +155,9 @@ if ($explanations == NULL) {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="row">
+                                                               <!--  <div class="row">
                                                                     <div class="col-md-6" id="description" style="margin-top:10px; font-size:16px;"><?php echo($conclusion); ?></div>
-                                                                </div>
+                                                                </div> -->
                                                             </div>
                                                         </fieldset>
 
@@ -163,7 +168,7 @@ if ($explanations == NULL) {
                                             <div class="row">
                                                 <div class="col-md-6 col-md-offset-5">
                                                     <div id="return-question"><input type="button" value="GO BACK" id="return" class="btn btn-primary" /></div>
-                                                    <!-- <div id="next"><input type="button" value="NEXT" id="next" class="btn btn-primary" /></div> -->
+                                                    <div id="next"><input type="button" value="NEXT" id="next" class="btn btn-primary" /></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -184,15 +189,24 @@ if ($explanations == NULL) {
             $("#return").hide();
             $("#next").hide();
             $(".main-part").hide();
-            $('#description').hide();
+            // $('#description').hide();
 
             $("#play").click(function () {
                 myRunloop.play(2000, optionalCallback);
                 $("#play").hide();
                 $("#return").show();
+                $("#next").show();
                 $(".main-part").show();
-                $('#description').fadeIn(4500);
+                // $('#description').fadeIn(4500);
             });
+
+            $("#next").click(function () {
+                myRunloop.play(2000, optionalCallback);
+                $("#return").show();
+                $("#next").hide();
+                // $('#description').fadeIn(4500);
+            });
+
             $("#return").click(function () {
                 window.location.href = 'http://localhost/mathMOOC/activities/dopractice/' + <?php echo($questions->activity_id); ?>
             });
@@ -217,22 +231,12 @@ if ($explanations == NULL) {
                 left: '3em'
             });
 
-            for (var x = 1; x <=<?php echo $firstno; ?>; x++) { 
-                $("p.a"+x).css({
-                   float: 'left'
+             for (var x = 1; x <=<?php echo $firstno+$secondno; ?>; x++) { 
+                $("p.count"+x).css({
+                    'font-size': '15px',
+                    'font-weight': 'bold'
                 });
-            }
-
-            for (var x = 1; x <=<?php echo $secondno; ?>; x++) { 
-                $("p.c"+x).css({
-                   float: 'left'
-                });
-            }
-
-             for (var x = 1; x <=<?php echo $secondno; ?>; x++) { 
-                $("p.e"+x).css({
-                   float: 'left'
-                });
+               
             }
 
             // Make a new runloop. Probably best not to attach it to the window object, but it's useful for this demo
@@ -272,7 +276,16 @@ if ($explanations == NULL) {
                 });
 
                 myRunloop.addKey('20%', function () {
-                     for (var z = 1; z <=<?php echo $firstno+$secondno; ?>; z++) { 
+                    for (var z = 1; z <=<?php echo $firstno+$secondno; ?>; z++) { 
+                    // console.log("hello", z);
+                    $("p.count"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
+                    delay += delayinc;
+                    }
+                    
+                });
+
+                myRunloop.addKey('20%', function () {
+                    for (var z = 1; z <=<?php echo $firstno+$secondno; ?>; z++) { 
                     // console.log("hello", z);
                     $("p.e"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
                     delay += delayinc;
@@ -282,31 +295,6 @@ if ($explanations == NULL) {
                 });
                 
  
-
-            // But you don't have to do individual addKey() calls; use addMap() to add multiple keyframes at once:
-            // myRunloop.addMap({
-            //     '10%': function () {
-            //         $("p.a").delay(1000).animate({opacity: 1, left: 0}, {duration: 500, easing: 'easeOutElastic',
-            //             complete: function () {
-
-            //             }
-            //         });
-            //     },
-            //     '65%': function () {
-            //         $("p.b").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-            //     },
-            //     '75%': function () {
-            //         $("p.c").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-            //     },
-            //     '85%': function () {
-            //         $("p.d").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-            //     },
-            //     '95%': function () {
-            //         $("p.e").animate({opacity: 1, left: 0}, {duration: 500, queue: false});
-            //     }
-            //     '100%': function(){ $("p.copyright").animate( { opacity:1, left:0 }, { duration:650, queue:false } ); }
-            // });
-
             // You can add a callback to the end of the runloop, but note: it's the same as this: addKey('100%', func);
             function optionalCallback() {
             };

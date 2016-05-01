@@ -229,9 +229,32 @@ class Activities extends Frontend_Controller {
         $data['questions'] = ActivitiesQuestion::find($questionid);
         $data['question_list'] = _getQuestionNumbers($data['questions']->question);
         $data['menu'] = 'activities';
-        $this->template->title('Activity Explanantion')
+        $operator = _getQuestions($data['questions']->question);
+        switch ($operator) {
+            case '+':
+                 $this->template->title('Activity Explanantion')
                 ->set_layout($this->front_tpl)
                 ->set('page_title', 'Activity Explanantion')
                 ->build($this->user_folder . '/activities/explanation', $data);
+                break;
+
+            case 'x':
+                 $this->template->title('Activity Explanantion')
+                ->set_layout($this->front_tpl)
+                ->set('page_title', 'Activity Explanantion')
+                ->build($this->user_folder . '/activities/explanation', $data);
+                break;
+
+            default:
+                $this->template->title('Activity Explanantion')
+                ->set_layout($this->front_tpl)
+                ->set('page_title', 'Activity Explanantion')
+                ->build($this->user_folder . '/activities/explanation', $data);
+                break;
+        }
+        
+       
+        
     }
+
 }

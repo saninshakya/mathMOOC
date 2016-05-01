@@ -611,3 +611,8 @@ p span{
     text-align: left;
     font-size: -webkit-xxx-large;
 }
+
+.holder{
+    float:left;
+    text-align: center;
+}
