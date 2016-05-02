@@ -544,7 +544,6 @@ small{
 .plussign img, .sum img, .equalto img{
     max-width: 30px;
 }
-
 .part1, .part2, .sum{
     /*background: #CCC;*/
     border:1px solid #FF9A55;

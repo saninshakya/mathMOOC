@@ -230,7 +230,8 @@ class Activities extends Frontend_Controller {
         $data['question_list'] = _getQuestionNumbers($data['questions']->question);
         $data['menu'] = 'activities';
         $operator = _getQuestions($data['questions']->question);
-        switch ($operator) {
+        // pretty($operator[0]); return;
+        switch ($operator[0]) {
             case '+':
                  $this->template->title('Activity Explanantion')
                 ->set_layout($this->front_tpl)
@@ -238,11 +239,11 @@ class Activities extends Frontend_Controller {
                 ->build($this->user_folder . '/activities/explanation', $data);
                 break;
 
-            case 'x':
+            case '*':
                  $this->template->title('Activity Explanantion')
                 ->set_layout($this->front_tpl)
                 ->set('page_title', 'Activity Explanantion')
-                ->build($this->user_folder . '/activities/explanation', $data);
+                ->build($this->user_folder . '/activities/multiplication', $data);
                 break;
 
             default:

@@ -44,10 +44,7 @@ if ($explanations == NULL) {
                                                 <?php
                                                     $explanation = $explanations[0]; 
                                                     $no = explode("+", $explanation->explanation);
-                                                    $firstno = $no[0];
-                                                    $secondno = $no[1];
-                                                    $description = $explanation->description;
-                                                    $conclusion = $explanation->conclusion;
+                                                    $count = count($no);
                                                 ?>
 
                                                     <div class="main-part">
@@ -61,71 +58,87 @@ if ($explanations == NULL) {
                                                             <div id="question-text"></div>
                                                             <div class="bigWrapper">
                                                                 <div class="problem">
-                                                                    <div class="fleft part1wrapper">
-                                                                        <div class="part1 tableBased">
-                                                                            <div class="imgHolder-img1">
-                                                                                <?php for ($i = 1; $i <= $firstno; $i++) { ?>
+                                                                <?php
+                                                                    $sum = 0;
+                                                                    foreach($no as $key =>$value) {
+                                                                        $sum = $sum + $value;
+                                                                        // echo $key.' '.$value .'</br>'; return;
+                                                                ?>
+                                                                    <div class="fleft part<?php echo($key+1); ?>wrapper">
+                                                                        <div class="part<?php echo($key+1); ?> tableBased">
+                                                                            <div class="imgHolder-img<?php echo($key+1); ?>">
+                                                                                
                                                                                 <div class="holder">
-                                                                                    <p class="a<?php echo $i; ?>">
+                                                                                    <p class="<?php echo $key; ?>">
+                                                                                    <?php for ($i = 1; $i <= $value; $i++) { ?>
                                                                                         <img src="<?php echo("/mathmooc/" . $questions->image); ?>">
-                                                                                    </p>
-                                                                                    <p class="count<?php echo $i; ?>"><?php echo $i; ?></p>
-                                                                                </div>
-                                                                                <?php } ?>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="plussign fleft">
-                                                                        <div class="tableBased">
-                                                                            <div class="imgHolder tableCelled">
-                                                                                <p class="b"><img src="/mathmooc/assets/img/plus-sign.png" alt=""></p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="fleft part2wrapper">
-                                                                        <div class="part2 tableBased">
-                                                                            <div class="imgHolder-img2">
-                                                                                <?php for ($j = 1; $j <= $secondno; $j++) { ?>
-                                                                                    <div class="holder">
-                                                                                        <p class="c<?php echo $j; ?>">
-                                                                                            <img src="<?php echo("/mathmooc/" . $questions->image1); ?>">
-                                                                                        </p>
-                                                                                        <p class="count<?php echo $i - 1 + $j; ?>"><?php echo $i - 1 + $j; ?></p>
-                                                                                    </div>
                                                                                     <?php } ?>
+                                                                                    </p>
+                                                                                    <!-- <p class="count<?php echo $i; ?>"><?php echo $i; ?></p> -->
+                                                                                </div>
+                                                                                
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="equalto fleft">
-                                                                        <div class="tableBased">
-                                                                            <div class="imgHolder tableCelled">
-                                                                                <p class="d"><img src="/mathmooc/assets/img/equal-to.png" alt=""></p>
+
+                                                                    <?php
+                                                                    // echo(next($no));
+                                                                    // return;
+                                                                    if (isset($no[$key+1])!=null) {
+                                                                        ?>
+                                                                        <div class="plussign fleft">
+                                                                            <div class="tableBased">
+                                                                                <div class="imgHolder tableCelled">
+                                                                                    <p class="b"><img src="/mathmooc/assets/img/plus-sign.png" alt=""></p>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                        <?php
+
+                                                                    } else { ?>
+                                                                        <div class="equalto fleft">
+                                                                            <div class="tableBased">
+                                                                                <div class="imgHolder tableCelled">
+                                                                                    <p class="d"><img src="/mathmooc/assets/img/equal-to.png" alt=""></p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                <?php
+                                                                        }
+                                                                    }
+                                                                ?>
                                                                     <div class="fleft part2wrapper">
                                                                         <div class="part2 tableBased">
                                                                             <div class="imgHolder-img2">
-                                                                                <?php for ($i = 1; $i <= ($firstno + $secondno); $i++) { ?>
                                                                                 <div class="holder">
-                                                                                    <p class="e<?php echo $i; ?>">
+                                                                                    <p class="e">
+                                                                                        <?php for ($i = 1; $i <= ($sum); $i++) { ?>
                                                                                         <img src="<?php echo("/mathmooc/" . $questions->image1); ?>">
+                                                                                         <?php } ?>
                                                                                     </p>
                                                                                 </div>
-                                                                                <?php } ?>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="solutions">
+                                                                    <?php
+                                                                     foreach($no as $key =>$value) {
+
+                                                                    ?>
                                                                     <div class="solutionbox fleft">
                                                                         <div class="sol solution-one">
                                                                             <big>
-                                                                                <div class="digit1"><p class="a"><?php echo($firstno); ?></p></div>
+                                                                                <div class="digit<?php echo($key+1); ?>"><p class="<?php echo $key; ?>"><?php echo($value); ?></p></div>
                                                                             </big>
                                                                         </div>
                                                                     </div>
+                                                                    <?php
+                                                                    // echo(next($no));
+                                                                    // return;
+                                                                    if (isset($no[$key+1])!=null) {
+                                                                        ?>
                                                                     <div class="plussign fleft">
                                                                         <div class="tableBased">
                                                                             <div class="imgHolder tableCelled">
@@ -133,24 +146,24 @@ if ($explanations == NULL) {
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="solutionbox fleft">
-                                                                        <div class="sol solution-two">
-                                                                            <big>
-                                                                                <div class="digit2"><p class="c"><?php echo($secondno); ?></p></div>
-                                                                            </big>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="equalto fleft">
-                                                                        <div class="tableBased">
-                                                                            <div class="imgHolder tableCelled">
-                                                                                <p class="d"><img src="/mathmooc/assets/img/equal-to.png" alt=""></p>
+
+                                                                    <?php
+                                                                        }else{ ?>
+                                                                            <div class="equalto fleft">
+                                                                                <div class="tableBased">
+                                                                                    <div class="imgHolder tableCelled">
+                                                                                        <p class="d"><img src="/mathmooc/assets/img/equal-to.png" alt=""></p>
+                                                                                    </div>
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
+                                                                       <?php }
+
+                                                                    }
+                                                                    ?>
                                                                     <div class="equalto fleft">
                                                                         <div class="tableBased">
                                                                             <big>
-                                                                                <p class="e"><?php echo($firstno + $secondno); ?></p>
+                                                                                <p class="e"><?php echo($sum); ?></p>
                                                                             </big>
                                                                         </div>
                                                                     </div>
@@ -192,7 +205,7 @@ if ($explanations == NULL) {
             // $('#description').hide();
 
             $("#play").click(function () {
-                // myRunloop.play(2000, optionalCallback);
+                myRunloop.play(2000, optionalCallback);
                 $("#play").hide();
                 $("#return").show();
                 $("#next").show();
@@ -230,8 +243,22 @@ if ($explanations == NULL) {
             $("p.b, p.copyright").css({
                 left: '3em'
             });
+         
+            for (var x = 1; x <=<?php echo $count; ?>; x++) { 
+               $(".part"+x).css({
+                    'border': '1px solid #FF9A55'
+                });
+                $(".imgHolder-img"+x).css({
+                    'padding': '10px'
+                });
+                $(".imgHolder-img"+x+" img").css({
+                    'width': '35px',
+                    // 'float': 'left'
+                });
+            }
 
-            for (var x = 1; x <=<?php echo $firstno+$secondno; ?>; x++) { 
+
+            for (var x = 1; x <=<?php echo $sum; ?>; x++) { 
                 $("p.count"+x).css({
                     'font-size': '15px',
                     'font-weight': 'bold'
@@ -252,40 +279,18 @@ if ($explanations == NULL) {
             var delay = 1000;
             var delayinc = 1000;
             myRunloop.addKey('20%', function () {
-                for (var z = 1; z <=<?php echo $firstno; ?>; z++) { 
-                // console.log("hello", z);
-                $("p.a"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
-                delay += delayinc;
-                }
-                $("p.a").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
-                delay += delayinc;
                 $("p.b").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
-                delay += delayinc;
-                for (var z = 1; z <=<?php echo $secondno; ?>; z++) { 
-                // console.log("hello", z);
-                $("p.c"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
-                delay += delayinc;
-                }
-                $("p.c").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
-                delay += delayinc;
                 $("p.d").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
-                delay += delayinc;
-                for (var z = 1; z <=<?php echo $firstno+$secondno; ?>; z++) { 
-                // console.log("hello", z);
-                $("p.count"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
-                delay += delayinc;
-                }
-                for (var z = 1; z <=<?php echo $firstno+$secondno; ?>; z++) { 
-                // console.log("hello", z);
-                $("p.e"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
-                delay += delayinc;
-                }
-                $("p.e").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
-                delay += delayinc;
+                delay += delayinc;   
+                for (var z = 0; z <=<?php echo $count-1; ?>; z++) { 
+                    $("p."+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
+                    delay += delayinc; 
+                }  
+                $("p.e").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});            
             });
 
+
                 
- 
             // You can add a callback to the end of the runloop, but note: it's the same as this: addKey('100%', func);
             function optionalCallback() {
             };
