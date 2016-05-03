@@ -181,7 +181,7 @@ if ($explanations == NULL) {
                                             <div class="row">
                                                 <div class="col-md-6 col-md-offset-5">
                                                     <div id="return-question"><input type="button" value="GO BACK" id="return" class="btn btn-primary" /></div>
-                                                    <div id="next"><input type="button" value="NEXT" id="next" class="btn btn-primary" /></div>
+                                                    <!-- <div id="next"><input type="button" value="NEXT" id="next" class="btn btn-primary" /></div> -->
                                                 </div>
                                             </div>
                                         </div>

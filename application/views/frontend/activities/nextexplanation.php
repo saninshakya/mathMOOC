@@ -42,7 +42,7 @@ if ($explanations == NULL) {
                                                     <div class="col-md-6 col-md-offset-3" style="margin-top:50px;"><input type="submit" name="play" id="play" value="CLICK HERE TO START EXPLANATION" class="btn btn-primary btn-lg"></div>
                                                 </div>
                                                 <?php
-                                                    $explanation = $explanations[0]; 
+                                                    $explanation = $explanations[1]; 
                                                     $no = explode("+", $explanation->explanation);
                                                     $firstno = $no[0];
                                                     $secondno = $no[1];
@@ -168,13 +168,7 @@ if ($explanations == NULL) {
                                             <div class="row">
                                                 <div class="col-md-6 col-md-offset-5">
                                                     <div id="return-question"><input type="button" value="GO BACK" id="return" class="btn btn-primary" /></div>
-                                                    <?php
-                                                        if (isset($explanations[1])){
-                                                    ?>
-                                                    <div id="next"><input type="button" value="NEXT" id="next" class="btn btn-primary" /></div>
-                                                    <?php
-                                                    }
-                                                    ?>
+                                                    <!-- <div id="next"><input type="button" value="NEXT" id="next" class="btn btn-primary" /></div> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -206,9 +200,9 @@ if ($explanations == NULL) {
                 // $('#description').fadeIn(4500);
             });
 
-            $("#next").click(function () {
-                window.location.href = 'http://localhost/mathMOOC/activities/nextexplanation/' + <?php echo($questions->id); ?>
-            });
+            // $("#next").click(function () {
+            //     window.location.href = 'http://localhost/mathMOOC/activities/nextexplanation/' + <?php echo($questions->id); ?>
+            // });
 
             $("#return").click(function () {
                 window.location.href = 'http://localhost/mathMOOC/activities/dopractice/' + <?php echo($questions->activity_id); ?>

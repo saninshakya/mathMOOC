@@ -258,4 +258,39 @@ class Activities extends Frontend_Controller {
         
     }
 
+    public function nextexplanation($questionid) {
+        $data['explanations'] = ActivitiesExplanation::find_all_by_activities_questions_id($questionid);
+        // to get image from the question
+        $data['questions'] = ActivitiesQuestion::find($questionid);
+        $data['question_list'] = _getQuestionNumbers($data['questions']->question);
+        $data['menu'] = 'activities';
+        $operator = _getQuestions($data['questions']->question);
+        // pretty($operator[0]); return;
+        switch ($operator[0]) {
+            case '+':
+                 $this->template->title('Activity Explanantion')
+                ->set_layout($this->front_tpl)
+                ->set('page_title', 'Activity Explanantion')
+                ->build($this->user_folder . '/activities/nextexplanation', $data);
+                break;
+
+            case '*':
+                 $this->template->title('Activity Explanantion')
+                ->set_layout($this->front_tpl)
+                ->set('page_title', 'Activity Explanantion')
+                ->build($this->user_folder . '/activities/nextmultiplication', $data);
+                break;
+
+            default:
+                $this->template->title('Activity Explanantion')
+                ->set_layout($this->front_tpl)
+                ->set('page_title', 'Activity Explanantion')
+                ->build($this->user_folder . '/activities/nextexplanation', $data);
+                break;
+        }
+        
+       
+        
+    }
+
 }
