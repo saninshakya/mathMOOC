@@ -57,7 +57,7 @@ if ($operator[0] == '+') {
                                             </div> -->
 
                                             <form>
-                                                <fieldset id="exam-question">
+                                                <fieldset id="exam-question" class="practice">
                                                     <div id="question-text"></div>
                                                     <div class="bigWrapper">
                                                         <div class="problem">

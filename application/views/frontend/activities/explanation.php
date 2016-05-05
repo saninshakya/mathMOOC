@@ -279,7 +279,6 @@ if ($explanations == NULL) {
                 delay += delayinc;
                 }
                 for (var z = 1; z <=<?php echo $firstno+$secondno; ?>; z++) { 
-                // console.log("hello", z);
                 $("p.e"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
                 delay += delayinc;
                 }
