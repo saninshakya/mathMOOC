@@ -77,5 +77,6 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('.c1').addClass('active');
+        
     })
 </script>

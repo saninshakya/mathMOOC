@@ -3,8 +3,7 @@ $(function () {
     <?php
         $groupId = $this->ion_auth->get_users_groups()->row()->id;
     if($groupId='3'){
-        echo '$(".c1").hide(); $(".c2").hide(); $(".c3").hide(); $(".c4").hide(); $(".c10").hide();';
-
+        echo '$(".c1").hide(); $(".c2").hide(); $(".c3").hide(); $(".c10").hide(); $(".c6").hide();';
     }
     ?>
 });
