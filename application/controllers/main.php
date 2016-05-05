@@ -52,18 +52,7 @@ class Main extends Frontend_Controller {
                 if ($contact->is_invalid()) {
                     $this->session->set_flashdata('error', 'There where errors saving the message');
                     redirect('main/contact');
-                } else {
-                    $this->load->library("email");
-                    $name = $_POST['name'];
-                    $email = $_POST['email'];
-                    $subject = $_POST['subject'];
-                    $message = $_POST['message'];
-                    $settings = Setting::first();
-                    $to = $settings->email;
-                    $this->email->send_email($subject, $to, $message);
-                    $this->session->set_flashdata('success', 'Message sent successfuly');
-                    redirect('main/contact');
-                }
+                } 
             }
         }
         $data['menu'] = 'contact';

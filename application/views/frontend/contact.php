@@ -4,9 +4,7 @@
 	</div>
 	<div class="row">
 		<div class="col-lg-8">
-			<h4>  <strong>Just Get In Touch!</strong></h4>
 			<hr/>
-				<p>We will be glad to hear from you</p>
 				<?php
 				if($this->session->flashdata('success')) { ?>
 				<div class="alert alert-success alert-dismissable">
@@ -50,14 +48,10 @@
 		<h4><strong>Our Address</strong></h4>
 		<hr>
 			<p>
-				<?php echo  $settings->address; ?><br/>
-				<?php echo  $settings->city; ?><br/>
+				<b>Email: </b><a href="#"><?php echo  $settings->email; ?></a><br/>
+				<b>Tel: </b> <?php echo  $settings->phone; ?><br/>
 			</p>
-			<p>
-				Email: <?php echo  $settings->email; ?><br/>
-				Tel: <?php echo  $settings->phone; ?><br/>
-			</p>
-			<p><?php echo  $settings->description; ?>.</p>
+			<p><b>Name: </b><?php echo  $settings->description; ?>.</p>
 	</div>
 </div><!--/row -->
 </div><!--/container -->

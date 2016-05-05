@@ -11,7 +11,10 @@ $(function () {
 </script>
 <div id="service">
     <div class="container middlecontent">
-        <h4 class="page-header">My Exams</h4>
+    <div class="row">
+        <div class="col-xs-12"><div class="topic-header"><h2>Parent Panel</h2></div></div>
+    </div>
+        <h4 class="page-header">List of Activities</h4>
         <div class="row">
             <?php
             if ($useractivities) {
