@@ -66,18 +66,6 @@
 			                <label>Pass Mark (%) </label>
 			                <input type="text" class="form-control required digits" maxlength="3" name="pass_mark" value="<?php echo (isset($exam)) ? $exam->pass_mark : ''; ?>" />
 			            </div>
-			            <div class="form-group col-xs-12">
-			                <label>Type</label>
-			                <select class="form-control required" name="type">
-			                	<option value="">Select</option>
-			                	<option value="free" <?php echo (isset($exam) && $exam->type == "free") ? 'selected' : ''; ?>>Free</option>
-			                	<option value="paid" <?php echo (isset($exam) && $exam->type == "paid") ? 'selected' : ''; ?>>Paid</option>
-			                </select>
-			            </div>
-			             <div class="form-group col-xs-12">
-			                <label>Cost</label>
-			                <input type="text" class="form-control required digits" name="cost" value="<?php echo (isset($exam)) ? $exam->cost : '0'; ?>" />
-			            </div>
 
 			            <div class="form-group col-xs-12">
 			                <label>Status</label>

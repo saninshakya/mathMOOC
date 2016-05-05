@@ -77,6 +77,7 @@ class Main extends Frontend_Controller {
 
         $data['menu'] = 'myexams';
         $data['useractivities']  = UserActivity::find_all_by_user_id($user->id, array('order' => 'id desc'));
+        $data['userexams']  = UserExam::find_all_by_user_id($user->id, array('order' => 'id desc'));
         $this->template->title('Result')
         ->set_layout($this->front_tpl)
         ->set('page_title', 'Home')

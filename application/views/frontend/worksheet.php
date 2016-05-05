@@ -1,20 +1,6 @@
 <div class="container middlecontent">
-    <section class="content">
-
-        <div id="lfx_intro" class="section container">
-            <div class="jumbotron">
-                <p class="tagline">A jQuery plugin to apply animated, visual effects to letters, words or other text patterns.</p>
-                <p class="visible-lg visible-md">
-                    <code class="source-code">Demo:</code>
-                </p>
-                <button class="btn btn-default" data-letterfx="custom[0]">1</button>
-                <button class="btn btn-default" data-letterfx="custom[2]">3</button>
-            </div>
-            <a class="btn btn-primary btn-large pull-right" href="http://tuxsudo.com/code/project/letterfx">Learn More</a>
-        </div>
-    </section> 
     <div class="row">
-        <form id="defaultForm" method="post" class="form-horizontal" action="target.php">
+        <form id="defaultForm" method="post" class="form-horizontal" action="">
             <div class="col-xs-6">
                 <div class="form-group">
                     <label class="col-sm-6 control-label" id="captchaOperation"></label>
@@ -63,19 +49,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-6"></div>
-            <div class="col-xs-6">
-                <div class="form-group">
-                    <div class="col-sm-9 col-sm-offset-3">
-                        <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Submit</button>
-                    </div>
-                </div>
-            </div>
         </form>
     </div>
 </div><!--end container-->
 <script type="text/javascript">
     $(document).ready(function () {
+        $('.c10').addClass('active');
         function randomNumber(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
         }

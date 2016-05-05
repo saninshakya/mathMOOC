@@ -11,8 +11,6 @@
             <div class="panel panel-default" style="background:#f2f8fb;min-height: 500px;">
                 <div class="panel-body">
 
-
-
                     <!-- OLD DATA -->
                     <table cellspacing="20" cellpadding="10" style="width:100%">
                         <tr>

@@ -55,8 +55,8 @@
 				</div>
 
 				<label>Results Status</label>
-				<p><span class="btn <?php echo ($performance['performance']  >= $exam->pass_mark) ? 'btn-success' : 'btn-danger'; ?>">
-				<?php echo ($performance['performance']  >= $exam->pass_mark) ? 'Passed' : 'Failed'; ?></span></p>
+				<span class="btn <?php echo ($performance['performance']  >= $exam->pass_mark) ? 'btn-success' : 'btn-danger'; ?>">
+				<?php echo ($performance['performance']  >= $exam->pass_mark) ? 'Passed' : 'Failed'; ?></span>
     		</div>
     	</div>
     	<div class="panel panel-primary">
