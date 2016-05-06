@@ -62,7 +62,6 @@ class Auth extends MY_Controller {
             $remember = (bool) $this->input->post('remember');
 
             if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
-                //binita
                 if ($this->ion_auth->in_group('parent')) {
                     $this->data['is_parent'] = true;
                 } else {
