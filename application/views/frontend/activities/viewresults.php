@@ -72,7 +72,7 @@ $pieces = explode("/", $performance['questions_answered_correct']);
                         foreach ($questions as $question) {
                             if (!in_array($question->id, $performance['attempted_correct'])) {
                                 ?>
-                                <tr><td><?php echo $count; ?>.</td><td><?php echo $question->question; ?></td><td><?php $correct_ans = explode("+", $question->question); echo $correct_ans[0]+$correct_ans[1]; ?></td></tr>
+                                <tr><td><?php echo $count; ?>.</td><td><?php echo $question->question; ?></td><td><?php $correct_ans = explode($checkNumberSense[0], $question->question); echo $correct_ans[0]+$correct_ans[1]; ?></td></tr>
                             <?php $count++;
                         }
                     } ?>

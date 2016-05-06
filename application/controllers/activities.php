@@ -146,6 +146,7 @@ class Activities extends Frontend_Controller {
         $data['menu'] = 'myactivities';
         $data['activity'] = Activity::find($id);
         $data['questions'] = ActivitiesQuestion::find_all_by_activity_id($id);
+        $data['checkNumberSense'] = _getQuestions($data['questions'][0]->question);
         $this->template->title('My Activities')
                 ->set_layout($this->front_tpl)
                 ->set('page_title', 'My Activities')
