@@ -35,7 +35,7 @@ if ($explanations == NULL) {
                                                     <div class="col-md-6 col-md-offset-3" style="margin-top:50px;"><input type="submit" name="play" id="play" value="CLICK HERE TO START EXPLANATION" class="btn btn-primary btn-lg"></div>
                                                 </div>
                                                 <?php
-                                                    $explanation = $explanations[1]; 
+                                                    $explanation = $explanations[2]; 
                                                     $no = explode("+", $explanation->explanation);
                                                     $firstno = $no[0];
                                                     $secondno = $no[1];
@@ -150,13 +150,6 @@ if ($explanations == NULL) {
                                             <div class="row">
                                                 <div class="col-md-6 col-md-offset-5">
                                                     <div id="return-question"><input type="button" value="GO BACK" id="return" class="btn btn-primary" /></div>
-                                                    <?php
-                                                        if (isset($explanations[2])){
-                                                    ?>
-                                                    <div id="next"><input type="button" value="NEXT" id="next" class="btn btn-primary" /></div>
-                                                    <?php
-                                                    }
-                                                    ?>
                                                 </div>
                                             </div>
                                         </div>
