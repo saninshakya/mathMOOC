@@ -2,7 +2,11 @@
     <?php echo ($this->session->flashdata('error')) ? error_msg($this->session->flashdata('error')) : ''; ?>
     <?php echo ($error) ? error_msg($error) : ''; ?>
     <?php echo ($this->session->flashdata('success')) ? success_msg($this->session->flashdata('success')) : ''; ?>
-    <div class="header">Administrator Panel</div>
+
+    <div class="header">
+    <img src="<?php echo base_url(); ?>assets/img/lock.png" width="50">
+    <p>Administrator Panel</p>
+    </div>
     <form action="<?php echo site_url('admin/auth/'); ?>" method="post">
         <div class="body bg-gray">
             <div class="form-group">
@@ -13,7 +17,7 @@
             </div>          
         </div>
         <div class="footer">                                                               
-            <button type="submit" class="btn bg-olive btn-block">Sign me in</button>  
+            <button type="submit" class="btn bg-olive btn-block">Sign In</button>  
         </div>
     </form>
 </div>
