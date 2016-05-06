@@ -207,15 +207,6 @@ function loadQuestion(index) {
             imgContainer1.append(newImage1);
         }
     }
-
-//    if (question.image != '') {
-//        jQuery('#sanin div').html('');
-//        for (var i = 0; i < res[0]; i++) {
-//            jQuery('#question-image' + "" + i).html(question.image);
-//        }
-//    } else {
-//        jQuery('#question-image').html('');
-//    }
     jQuery('#question-id').val(question.question_id);
 
     // Add the questions
