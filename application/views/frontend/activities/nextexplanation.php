@@ -24,7 +24,6 @@ if ($explanations == NULL) {
             <div class="row">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <!-- OLD DATA -->
                         <table cellspacing="20" cellpadding="10" style="width:100%; min-height:600px;" >
                             <tr>
                                 <td valign="top">
@@ -32,12 +31,6 @@ if ($explanations == NULL) {
                                         <div id="explanation-ui" class="col-xs-12">
                                             <div class="exam_content_area">
                                                 <div class="topic-header"><h2 id="exam-name">Explanation</h2></div>
-                                                <!-- <div class="explanation_for_question">
-                                                <?php
-                                                    echo ($questions->question).'='.'?';
-                                                ?>
-                                                </div> -->
-                                                
                                                 <div class="row">
                                                     <div class="col-md-6 col-md-offset-3" style="margin-top:50px;"><input type="submit" name="play" id="play" value="CLICK HERE TO START EXPLANATION" class="btn btn-primary btn-lg"></div>
                                                 </div>
@@ -51,12 +44,6 @@ if ($explanations == NULL) {
                                                 ?>
 
                                                     <div class="main-part">
-                                                        <div class="row">
-                                                            <div class="col-md-8" id="exp-counter"><?php //echo('Explanation: ' . $counter); ?></div>
-                                                        </div>
-                                                        <!-- <div class="row">
-                                                            <div class="col-md-8" id="description" style="margin-top:10px; font-size:16px;"><?php echo($description); ?></div>
-                                                        </div> -->
                                                         <fieldset id="exam-question">
                                                             <div id="question-text"></div>
                                                             <div class="bigWrapper">
@@ -116,7 +103,6 @@ if ($explanations == NULL) {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
                                                                 <div class="solutions">
                                                                     <div class="solutionbox fleft">
                                                                         <div class="sol solution-one">
@@ -154,9 +140,6 @@ if ($explanations == NULL) {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                               <!--  <div class="row">
-                                                                    <div class="col-md-6" id="description" style="margin-top:10px; font-size:16px;"><?php echo($conclusion); ?></div>
-                                                                </div> -->
                                                             </div>
                                                         </fieldset>
 
@@ -188,7 +171,6 @@ if ($explanations == NULL) {
             $("#return").hide();
             $("#next").hide();
             $(".main-part").hide();
-            // $('#description').hide();
 
             $("#play").click(function () {
                 myRunloop.play(2000, optionalCallback);
@@ -196,12 +178,7 @@ if ($explanations == NULL) {
                 $("#return").show();
                 $("#next").show();
                 $(".main-part").show();
-                // $('#description').fadeIn(4500);
             });
-
-            // $("#next").click(function () {
-            //     window.location.href = 'http://localhost/mathMOOC/activities/nextexplanation/' + <?php echo($questions->id); ?>
-            // });
 
             $("#return").click(function () {
                 window.location.href = 'http://localhost/mathMOOC/activities/dopractice/' + <?php echo($questions->activity_id); ?>
@@ -242,15 +219,11 @@ if ($explanations == NULL) {
 
             // You add keyframes with addKey(); the first parameter is the percentage into the overall runloop duration,
             // the second is the function to execute at that keyframe point.
-            // myRunloop.addKey('10%', function () {
-            //     $("#box").animate({width: '35.6em', paddingLeft: '2em', paddingRight: '2em'}, {duration: 1000, queue: false})
-            // });
 
             var delay = 1000;
             var delayinc = 1000;
             myRunloop.addKey('10%', function () {
                 for (var z = 1; z <=<?php echo $firstno; ?>; z++) { 
-                // console.log("hello", z);
                 $("p.a"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
                 delay += delayinc;
                 }
@@ -259,7 +232,6 @@ if ($explanations == NULL) {
                 $("p.b").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
                 delay += delayinc;
                 for (var z = 1; z <=<?php echo $secondno; ?>; z++) { 
-                // console.log("hello", z);
                 $("p.c"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
                 delay += delayinc;
                 }
@@ -267,11 +239,6 @@ if ($explanations == NULL) {
                 delay += delayinc;
                 $("p.d").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
                 delay += delayinc;
-                // for (var z = 1; z <=<?php echo $firstno+$secondno; ?>; z++) { 
-                // // console.log("hello", z);
-                // $("p.count"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
-                // delay += delayinc;
-                // }
                 for (var z = 1; z <=<?php echo $firstno; ?>; z++) { 
                     var current = $("p.a"+z);
                     var prependToDiv = $("p.e"+z);
@@ -309,16 +276,13 @@ if ($explanations == NULL) {
                     })
                     delay += delayinc;
                 }
-                
                 delay += <?php echo ($firstno+$secondno)*1500; ?>;
                 for (var z = 1; z <=<?php echo ($firstno+$secondno); ?>; z++) { 
                     $("p.count"+z).delay(delay).animate({opacity: 1, top: '+=10px'}, {duration: 2500}, "linear")
                     delay += delayinc;
                 }
                 $("p.e").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
-                // delay += delayinc;
             });
-                
  
             // You can add a callback to the end of the runloop, but note: it's the same as this: addKey('100%', func);
             function optionalCallback() {

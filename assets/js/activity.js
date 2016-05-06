@@ -304,11 +304,13 @@ function recordAnswer(len) {
     var ques = imgQues[0].input,
             split = imgQues[0][0],
             arr = ques.split(split);
+
     if(split=='+'){
         var sum = parseInt(arr[0]) + parseInt(arr[1]);
     }if(split=='*'){
         var sum = parseInt(arr[0]) * parseInt(arr[1]);
     }
+
     // Find the checked element
     var checkedElement = jQuery("#answers input[type='radio']:checked");
 
@@ -321,11 +323,8 @@ function recordAnswer(len) {
             answerId =1;
         } else {
             JSalert('You made a mistake', sum);
-            // var msg = 'Incorrect';
             answerId =0;
-            // activityExplanation(msg);
         }
-//        var answerId = checkedElement.val();
         currentAnswers[currentQuestionIndex] = answerId;
         jQuery.ajax({
             type: 'POST',
@@ -490,10 +489,7 @@ function activityExplanation(){
             async: false,
             data: {id: activityId, q: jQuery('#question-id').val()},
             success: function (data) {
-                // console.log("return",data);
-                // if (data == 'success') {
                     document.location.href = "../explanation/" + question_id;
-                // }
             }
         });
 }

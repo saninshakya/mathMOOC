@@ -24,7 +24,6 @@ if ($explanations == NULL) {
             <div class="row">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <!-- OLD DATA -->
                         <table cellspacing="20" cellpadding="10" style="width:100%; min-height:600px;" >
                             <tr>
                                 <td valign="top">
@@ -32,12 +31,6 @@ if ($explanations == NULL) {
                                         <div id="explanation-ui" class="col-xs-12">
                                             <div class="exam_content_area">
                                                 <div class="topic-header"><h2 id="exam-name">Explanation</h2></div>
-                                                <!-- <div class="explanation_for_question">
-                                                <?php
-                                                    echo ($questions->question).'='.'?';
-                                                ?>
-                                                </div> -->
-                                                
                                                 <div class="row">
                                                     <div class="col-md-6 col-md-offset-3" style="margin-top:50px;"><input type="submit" name="play" id="play" value="CLICK HERE TO START EXPLANATION" class="btn btn-primary btn-lg"></div>
                                                 </div>
@@ -46,14 +39,7 @@ if ($explanations == NULL) {
                                                     $no = explode("+", $explanation->explanation);
                                                     $count = count($no);
                                                 ?>
-
                                                     <div class="main-part">
-                                                        <div class="row">
-                                                            <div class="col-md-8" id="exp-counter"><?php //echo('Explanation: ' . $counter); ?></div>
-                                                        </div>
-                                                        <!-- <div class="row">
-                                                            <div class="col-md-8" id="description" style="margin-top:10px; font-size:16px;"><?php echo($description); ?></div>
-                                                        </div> -->
                                                         <fieldset id="exam-question">
                                                             <div id="question-text"></div>
                                                             <div class="bigWrapper">
@@ -62,7 +48,6 @@ if ($explanations == NULL) {
                                                                     $sum = 0;
                                                                     foreach($no as $key =>$value) {
                                                                         $sum = $sum + $value;
-                                                                        // echo $key.' '.$value .'</br>'; return;
                                                                 ?>
                                                                     <div class="fleft part<?php echo($key+1); ?>wrapper">
                                                                         <div class="part<?php echo($key+1); ?> tableBased">
@@ -74,7 +59,6 @@ if ($explanations == NULL) {
                                                                                         <img src="<?php echo("/mathmooc/" . $questions->image); ?>">
                                                                                     <?php } ?>
                                                                                     </p>
-                                                                                    <!-- <p class="count<?php echo $i; ?>"><?php echo $i; ?></p> -->
                                                                                 </div>
                                                                                 
                                                                             </div>
@@ -82,8 +66,6 @@ if ($explanations == NULL) {
                                                                     </div>
 
                                                                     <?php
-                                                                    // echo(next($no));
-                                                                    // return;
                                                                     if (isset($no[$key+1])!=null) {
                                                                         ?>
                                                                         <div class="plussign fleft">
@@ -135,8 +117,6 @@ if ($explanations == NULL) {
                                                                         </div>
                                                                     </div>
                                                                     <?php
-                                                                    // echo(next($no));
-                                                                    // return;
                                                                     if (isset($no[$key+1])!=null) {
                                                                         ?>
                                                                     <div class="plussign fleft">
@@ -168,9 +148,6 @@ if ($explanations == NULL) {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                               <!--  <div class="row">
-                                                                    <div class="col-md-6" id="description" style="margin-top:10px; font-size:16px;"><?php echo($conclusion); ?></div>
-                                                                </div> -->
                                                             </div>
                                                         </fieldset>
 
@@ -181,7 +158,6 @@ if ($explanations == NULL) {
                                             <div class="row">
                                                 <div class="col-md-6 col-md-offset-5">
                                                     <div id="return-question"><input type="button" value="GO BACK" id="return" class="btn btn-primary" /></div>
-                                                    <!-- <div id="next"><input type="button" value="NEXT" id="next" class="btn btn-primary" /></div> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -202,7 +178,6 @@ if ($explanations == NULL) {
             $("#return").hide();
             $("#next").hide();
             $(".main-part").hide();
-            // $('#description').hide();
 
             $("#play").click(function () {
                 myRunloop.play(2000, optionalCallback);
@@ -210,14 +185,12 @@ if ($explanations == NULL) {
                 $("#return").show();
                 $("#next").show();
                 $(".main-part").show();
-                // $('#description').fadeIn(4500);
             });
 
             $("#next").click(function () {
                 myRunloop.play(2000, optionalCallback);
                 $("#return").show();
                 $("#next").hide();
-                // $('#description').fadeIn(4500);
             });
 
             $("#return").click(function () {
@@ -245,25 +218,25 @@ if ($explanations == NULL) {
             });
          
             for (var x = 1; x <=<?php echo $count; ?>; x++) { 
-               $(".part"+x).css({
-                    'border': '1px solid #FF9A55'
+                $(".part"+x+"wrapper").css({
+                    'border': '3px solid #FF9A55',
+                    'border-top': '0px',
+                    'border-radius': '25px',
+                    'background': 'rgb(221, 221, 221)'
                 });
                 $(".imgHolder-img"+x).css({
                     'padding': '10px'
                 });
                 $(".imgHolder-img"+x+" img").css({
                     'width': '35px',
-                    // 'float': 'left'
                 });
             }
-
 
             for (var x = 1; x <=<?php echo $sum; ?>; x++) { 
                 $("p.count"+x).css({
                     'font-size': '15px',
                     'font-weight': 'bold'
                 });
-               
             }
 
             // Make a new runloop. Probably best not to attach it to the window object, but it's useful for this demo
@@ -288,13 +261,10 @@ if ($explanations == NULL) {
                 }  
                 $("p.e").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});            
             });
-
-
                 
             // You can add a callback to the end of the runloop, but note: it's the same as this: addKey('100%', func);
             function optionalCallback() {
             };
-
         });
 
         var _gaq = [['_setAccount', 'UA-3764464-3'], ['_setDomainName', '.farukat.es'], ['_trackPageview']];
