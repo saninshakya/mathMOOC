@@ -303,9 +303,12 @@ function recordAnswer(len) {
     var imgQues = question.regex_question(/[^\w\s]/gi);
     var ques = imgQues[0].input,
             split = imgQues[0][0],
-            arr = ques.split(split),
-            sum = parseInt(arr[0]) + parseInt(arr[1]);
-    
+            arr = ques.split(split);
+    if(split=='+'){
+        var sum = parseInt(arr[0]) + parseInt(arr[1]);
+    }if(split=='*'){
+        var sum = parseInt(arr[0]) * parseInt(arr[1]);
+    }
     // Find the checked element
     var checkedElement = jQuery("#answers input[type='radio']:checked");
 
