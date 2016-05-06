@@ -546,6 +546,10 @@ small{
     width: auto;
     /*border: 1px solid #FF9A55;
     padding: 0 10px;*/
+    border: 3px solid #FF9A55;
+    border-top: 0px;
+    border-radius: 25px;
+    background: rgb(221, 221, 221);
 }
 .plussign, .equalto{
     width: 9.5%;
@@ -558,7 +562,7 @@ small{
 }
 .part1, .part2, .sum{
     /*background: #CCC;*/
-    border:1px solid #FF9A55;
+    /*border:1px solid #FF9A55;*/
 }
 
 .imgHolder-img1, .imgHolder-img2 {
@@ -627,3 +631,4 @@ p span{
     float:left;
     text-align: center;
 }
+

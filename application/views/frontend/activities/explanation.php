@@ -69,7 +69,7 @@ if ($explanations == NULL) {
                                                                                     <p class="a<?php echo $i; ?>">
                                                                                         <img src="<?php echo("/mathmooc/" . $questions->image); ?>">
                                                                                     </p>
-                                                                                    <p class="count<?php echo $i; ?>"><?php echo $i; ?></p>
+                                                                                    <!-- <p class="count<?php echo $i; ?>"><?php echo $i; ?></p> -->
                                                                                 </div>
                                                                                 <?php } ?>
                                                                             </div>
@@ -90,7 +90,7 @@ if ($explanations == NULL) {
                                                                                         <p class="c<?php echo $j; ?>">
                                                                                             <img src="<?php echo("/mathmooc/" . $questions->image1); ?>">
                                                                                         </p>
-                                                                                        <p class="count<?php echo $i - 1 + $j; ?>"><?php echo $i - 1 + $j; ?></p>
+                                                                                        <!-- <p class="count<?php echo $i - 1 + $j; ?>"><?php echo $i - 1 + $j; ?></p> -->
                                                                                     </div>
                                                                                     <?php } ?>
                                                                             </div>
@@ -111,6 +111,7 @@ if ($explanations == NULL) {
                                                                                     <p class="e<?php echo $i; ?>">
                                                                                         <img src="<?php echo("/mathmooc/" . $questions->image1); ?>">
                                                                                     </p>
+                                                                                    <p class="count<?php echo $i; ?>"><?php echo $i; ?></p>
                                                                                 </div>
                                                                                 <?php } ?>
                                                                             </div>
@@ -237,7 +238,8 @@ if ($explanations == NULL) {
             for (var x = 1; x <=<?php echo $firstno+$secondno; ?>; x++) { 
                 $("p.count"+x).css({
                     'font-size': '15px',
-                    'font-weight': 'bold'
+                    'font-weight': 'bold',
+                    'left' : '0px'
                 });
                
             }
@@ -254,7 +256,7 @@ if ($explanations == NULL) {
 
             var delay = 1000;
             var delayinc = 1000;
-            myRunloop.addKey('20%', function () {
+            myRunloop.addKey('10%', function () {
                 for (var z = 1; z <=<?php echo $firstno; ?>; z++) { 
                 // console.log("hello", z);
                 $("p.a"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
@@ -273,18 +275,67 @@ if ($explanations == NULL) {
                 delay += delayinc;
                 $("p.d").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
                 delay += delayinc;
-                for (var z = 1; z <=<?php echo $firstno+$secondno; ?>; z++) { 
-                // console.log("hello", z);
-                $("p.count"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
-                delay += delayinc;
+                // for (var z = 1; z <=<?php echo $firstno+$secondno; ?>; z++) { 
+                // // console.log("hello", z);
+                // $("p.count"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
+                // delay += delayinc;
+                // }
+                for (var z = 1; z <=<?php echo $firstno; ?>; z++) { 
+                    var current = $("p.a"+z);
+                    var prependToDiv = $("p.e"+z);
+                    var aOffset = current.offset();
+                    var eOffset = prependToDiv.offset();
+                    var newOffset = eOffset.left-aOffset.left;
+
+                    current.delay(delay).animate({
+                        top: 0,
+                        left: newOffset     
+                    }, {duration: 800}, function() {
+                    current.prependTo(prependToDiv).css({
+                        top: 'auto',
+                        left: 'auto'
+                    }); 
+                    })
+                    delay += delayinc;
                 }
-                for (var z = 1; z <=<?php echo $firstno+$secondno; ?>; z++) { 
-                $("p.e"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 500})
-                delay += delayinc;
+                
+                for (var z = 1; z <=<?php echo ($secondno); ?>; z++) { 
+                    var index = z+<?php echo $firstno; ?>;
+                    var current = $("p.c"+z);
+                    var prependToDiv = $("p.e"+index);
+                    var cOffset = current.offset();
+                    var eOffset = prependToDiv.offset();
+                    var newOffset = eOffset.left-cOffset.left;
+                    current.delay(delay).animate({
+                        top: 0,
+                        left: newOffset     
+                    }, {duration: 800}, function() {
+                    current.prependTo(prependToDiv).css({
+                        top: 'auto',
+                        left: 'auto'
+                    }); 
+                    })
+                    delay += delayinc;
+                }
+                
+                delay += <?php echo ($firstno+$secondno)*1500; ?>;
+                for (var z = 1; z <=<?php echo ($firstno+$secondno); ?>; z++) { 
+                    $("p.count"+z).delay(delay).animate({opacity: 1, top: '+=10px'}, {duration: 2500}, "linear")
+                    delay += delayinc;
                 }
                 $("p.e").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
-                delay += delayinc;
+                // delay += delayinc;
             });
+
+            // myRunloop.addKey('30%', function () {
+                // for (var z = 1; z <=<?php echo ($firstno+$secondno); ?>; z++) { 
+                //  $("p.count"+z).delay(delay).animate({opacity: 1, left: 0}, {duration: 2500})
+                // }
+                // delay += delayinc;
+            //     $("p.e").delay(delay).animate({opacity: 1, left: 0}, {duration: 500});
+            //     delay += delayinc;
+
+            // });
 
                 
  
