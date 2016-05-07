@@ -47,14 +47,8 @@ if ($operator[0] == '+') {
 
                                                 <div class="col-xs-6 col-md-4" style="text-align:right">
                                                     <h2> Question  <span id="question-index"></span> / <span id="question-count"></span></h2>
-                                                    <!-- <p><b>Navigation of questions:</b></p> -->
-                                                   <!--  <div id="navigation-area"></div> -->
                                                 </div>
                                             </div>
-
-                                           <!--  <div class="row">
-                                                <div class="col-md-6 col-md-offset-3"><input type="submit" name="play" id="play" value="CLICK HERE TO START" class="btn btn-primary btn-lg"></div>
-                                            </div> -->
 
                                             <form>
                                                 <fieldset id="exam-question" class="practice">

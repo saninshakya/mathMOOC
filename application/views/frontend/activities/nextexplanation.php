@@ -30,7 +30,7 @@ if ($explanations == NULL) {
                                     <div class="row">
                                         <div id="explanation-ui" class="col-xs-12">
                                             <div class="exam_content_area">
-                                                <div class="topic-header"><h2 id="exam-name">Explanation</h2></div>
+                                                <div class="topic-header"><h2 id="exam-name">Counting Based Explanation</h2></div>
                                                 <div class="row">
                                                     <div class="col-md-6 col-md-offset-3" style="margin-top:50px;"><input type="submit" name="play" id="play" value="CLICK HERE TO START EXPLANATION" class="btn btn-primary btn-lg"></div>
                                                 </div>

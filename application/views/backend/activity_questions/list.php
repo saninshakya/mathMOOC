@@ -1,3 +1,4 @@
+<script src="<?php echo base_url(); ?>assets/js/jquery-2.1.1.js" type="text/javascript"></script>
 <div class="row">
     <!-- left column -->
     <div class="col-md-12">
@@ -35,7 +36,7 @@
                                                     <td><?php echo $count; ?>.</td>
                                                     <td><?php echo $question->question; ?></td>
                                                     <td><?php echo $question->marks; ?></td>
-                                                    <td><?php echo date ("Y-m-d h:ia",strtotime( $question->updated_datetime)); ?></td>
+                                                    <td><?php echo date("Y-m-d h:ia", strtotime($question->updated_datetime)); ?></td>
                                                     <td>
                                                         <?php echo edit_btn('admin/activity_questions/edit/' . $question->id); ?>
                                                         <?php echo delete_btn('admin/activity_questions/delete/' . $question->id); ?>
@@ -61,15 +62,11 @@
                                         </div>
                                         <div class="form-group col-xs-6">
                                             <label>Marks</label>
-                                            <input type="text" class="form-control required digits" name="marks" value="" />
+                                            <input type="text" class="form-control required digits" id="q-marks" name="marks" value="" />
                                         </div>
                                         <div class="form-group col-xs-6">
-                                            <label>First Image</label>
+                                            <label>Image</label>
                                             <input type="file" class="form-control" name="que_img" />
-                                        </div>
-                                        <div class="form-group col-xs-6">
-                                            <label>Second Image</label>
-                                            <input type="file" class="form-control" name="que_img_1" />
                                         </div>
                                     </div>
                                     <h4>Answers</h4><hr>
@@ -80,7 +77,7 @@
                                         </div>
                                         <div class="form-group col-xs-3" style="padding-top: 80px;"> 
                                             <label>Correct</label>
-                                            <select class="form-control required" name="correct-1" >
+                                            <select class="form-control required correct-1" name="correct-1" >
                                                 <option value="1">Yes</option>
                                                 <option value="0">No</option>
                                             </select>
@@ -93,7 +90,7 @@
                                         </div>
                                         <div class="form-group col-xs-3" style="padding-top: 80px;"> 
                                             <label>Correct</label>
-                                            <select class="form-control required" name="correct-2">
+                                            <select class="form-control required correct-2" name="correct-2">
                                                 <option value="1">Yes</option>
                                                 <option value="0">No</option>
                                             </select>
@@ -106,7 +103,7 @@
                                         </div>
                                         <div class="form-group col-xs-3" style="padding-top: 80px;"> 
                                             <label>Correct</label>
-                                            <select class="form-control required" name="correct-3">
+                                            <select class="form-control required correct-3" name="correct-3">
                                                 <option value="1">Yes</option>
                                                 <option value="0">No</option>
                                             </select>
@@ -119,7 +116,7 @@
                                         </div>
                                         <div class="form-group col-xs-3" style="padding-top: 80px;"> 
                                             <label>Correct</label>
-                                            <select class="form-control required" name="correct-4">
+                                            <select class="form-control required correct-4" name="correct-4">
                                                 <option value="1">Yes</option>
                                                 <option value="0">No</option>
                                             </select>
@@ -145,19 +142,28 @@
 
 <!-- Modal -->
 <div class="modal fade" id="explanation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Explanation</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Explanation</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.correct-1').val(1);
+        $('.correct-2').val(0);
+        $('.correct-3').val(0);
+        $('.correct-4').val(0);
+        $('#q-marks').val('10');
+    });
+</script>
