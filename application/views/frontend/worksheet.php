@@ -3,48 +3,48 @@
         <form id="defaultForm" method="post" class="form-horizontal" action="">
             <div class="col-xs-6">
                 <div class="form-group">
-                    <label class="col-sm-6 control-label" id="captchaOperation"></label>
-                    <div class="col-sm-2">
+                    <label class="col-sm-3 control-label" id="captchaOperation"></label>
+                    <div class="col-sm-5">
                         <input type="text" class="form-control" name="captcha" />
                     </div>
                 </div>
             </div>
             <div class="col-xs-6">
                 <div class="form-group">
-                    <label class="col-sm-6 control-label" id="captchaOperation1"></label>
-                    <div class="col-sm-2">
+                    <label class="col-sm-3 control-label" id="captchaOperation1"></label>
+                    <div class="col-sm-5">
                         <input type="text" class="form-control" name="captcha1" />
                     </div>
                 </div>
             </div>
             <div class="col-xs-6">
                 <div class="form-group">
-                    <label class="col-sm-6 control-label" id="captchaOperation2"></label>
-                    <div class="col-sm-2">
+                    <label class="col-sm-3 control-label" id="captchaOperation2"></label>
+                    <div class="col-sm-5">
                         <input type="text" class="form-control" name="captcha2" />
                     </div>
                 </div>
             </div>
             <div class="col-xs-6">
                 <div class="form-group">
-                    <label class="col-sm-6 control-label" id="captchaOperation3"></label>
-                    <div class="col-sm-2">
+                    <label class="col-sm-3 control-label" id="captchaOperation3"></label>
+                    <div class="col-sm-5">
                         <input type="text" class="form-control" name="captcha3" />
                     </div>
                 </div>
             </div>
             <div class="col-xs-6">
                 <div class="form-group">
-                    <label class="col-sm-6 control-label" id="captchaOperation4"></label>
-                    <div class="col-sm-2">
+                    <label class="col-sm-3 control-label" id="captchaOperation4"></label>
+                    <div class="col-sm-5">
                         <input type="text" class="form-control" name="captcha4" />
                     </div>
                 </div>
             </div>
             <div class="col-xs-6">
                 <div class="form-group">
-                    <label class="col-sm-6 control-label" id="captchaOperation5"></label>
-                    <div class="col-sm-2">
+                    <label class="col-sm-3 control-label" id="captchaOperation5"></label>
+                    <div class="col-sm-5">
                         <input type="text" class="form-control" name="captcha5" />
                     </div>
                 </div>
