@@ -10,6 +10,9 @@ class Exams extends Frontend_Controller {
 
     public function index() {
         $data['categories'] = Category::find('all', array('include' => 'exam'));
+        $user = $this->ion_auth->user()->row();
+        $data['examStatus'] = Userexam::find_by_user_id($user->id);
+        
         $data['menu'] = 'exams';
         $this->template->title('Available Exams')
                 ->set_layout($this->front_tpl)

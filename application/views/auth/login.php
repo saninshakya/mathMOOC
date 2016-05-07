@@ -5,7 +5,7 @@
 
     <div class="header">
     <img src="<?php echo base_url(); ?>assets/img/lock.png" width="50">
-    <p>Administrator Panel</p>
+    <p>Teacher Panel</p>
     </div>
     <form action="<?php echo site_url('admin/auth/'); ?>" method="post">
         <div class="body bg-gray">
