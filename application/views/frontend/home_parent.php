@@ -51,7 +51,7 @@ if ($groupId = '3') {
 
                                 <div class="row">
                                     <div class="col-lg-12 ">
-                                        <label>Your Score  <?php //echo $perfomance;    ?></label>
+                                        <label>Achieved Score  <?php //echo $perfomance;    ?></label>
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-success" style="width: <?php echo $perfomance; ?>;">
                                                 <span class="sr-only"><?php echo $perfomance; ?></span>
@@ -68,11 +68,6 @@ if ($groupId = '3') {
                                         </div>
                                     </div>
                                 </div><!--/row -->
-
-                                <div class="row">
-                                    <div class="col-lg-4"><p><a class="btn btn-warning" href="<?php echo site_url('activities/viewresults/' . $useractivity->activity->id); ?>">View Results</a></p></div>
-                                    <div class="col-lg-4"><p><a class="btn btn-info" target="_blank"  href="<?php echo site_url('activities/certificate/' . $useractivity->activity->id); ?>">Certificate</a></p></div>
-                                </div>
 
                             </div>
                         </div>
@@ -128,7 +123,7 @@ if ($groupId = '3') {
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12 ">
-                                        <label>Your Score  <?php echo $perfomance; ?></label>
+                                        <label>Achieved Score  <?php echo $perfomance; ?></label>
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-success" style="width: <?php echo $perfomance; ?>;">
                                                 <span class="sr-only"><?php echo $perfomance; ?></span>
@@ -151,15 +146,12 @@ if ($groupId = '3') {
                                     if($perfomance >= $userexam->exam->pass_mark.'%'){
                                     ?>
                                         <div class="row">
-                                            <div class="col-lg-4"><p><a class="btn btn-warning" href="<?php echo site_url('exams/viewresults/' . $userexam->exam->id); ?>">View Results</a></p></div>
-                                            <div class="col-lg-4"><p><a class="btn btn-info" target="_blank"  href="<?php echo site_url('exams/certificate/' . $userexam->exam->id); ?>">Certificate</a></p></div>
                                             <div class="col-lg-4"><p><a class="btn btn-success" target="_blank"  href="#">Passed</a></p></div>
                                         </div>
                                         <?php
                                     } else {
                                         ?>
                                         <div class="row">
-                                            <div class="col-lg-4"><p><a class="btn btn-warning" href="<?php echo site_url('exams/viewresults/' . $userexam->exam->id); ?>">View Results</a></p></div>
                                             <div class="col-lg-4"><p><a class="btn btn-danger" target="_blank"  href="#">Failed</a></p></div>
                                         </div>
                                         <?php }
