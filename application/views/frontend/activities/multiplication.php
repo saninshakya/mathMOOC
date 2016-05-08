@@ -95,7 +95,7 @@ if ($explanations == NULL) {
                                                                                 <div class="holder">
                                                                                     <p class="e">
                                                                                         <?php for ($i = 1; $i <= ($sum); $i++) { ?>
-                                                                                        <img src="<?php echo("/mathmooc/" . $questions->image1); ?>">
+                                                                                        <img src="<?php echo("/mathmooc/" . $questions->image); ?>">
                                                                                          <?php } ?>
                                                                                     </p>
                                                                                 </div>

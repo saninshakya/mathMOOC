@@ -161,4 +161,8 @@ if ($operator[0] == '+') {
 
         </div></div>
 </div>
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.c3').addClass('active');
+    });
+</script>

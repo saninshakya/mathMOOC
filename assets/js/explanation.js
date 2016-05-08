@@ -96,7 +96,7 @@ function loadExplanation(index) {
         }
         for (var j = 0; j < res[1]; j++) {
             var newImage1 = jQuery("<p class=\"c\"></p>");
-            newImage1.html(question.image1);
+            newImage1.html(question.image);
             imgContainer1.append(newImage1);
         }
     }

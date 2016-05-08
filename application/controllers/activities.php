@@ -76,7 +76,6 @@ class Activities extends Frontend_Controller {
                     $activity['questions'][$count]['question_id'] = $question->id;
                     $activity['questions'][$count]['text'] = $question->question;
                     $activity['questions'][$count]['image'] = ($question->image != '') ? '<img src="' . base_url() . $question->image . '" />' : '';
-                    $activity['questions'][$count]['image1'] = ($question->image1 != '') ? '<img src="' . base_url() . $question->image1 . '" />' : '';
                     $answers = array();
                     foreach ($question->activities_answer as $answer_count => $answer) {
                         $answer_data = array('id' => $answer->id, 'text' => trim($answer->answer));
