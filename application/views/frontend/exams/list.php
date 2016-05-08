@@ -27,21 +27,8 @@
                                     <?php foreach ($category->exam as $exam) { ?>
                                         <tr>
                                             <td><?php echo $exam->name; ?></td>
-                                            <?php
-                                            if(@($examStatus->status)=='completed'){
-                                                ?>
-                                                <td>Completed</td>
                                                 <td>-</td>
-                                            <?php
-
-                                            }
-                                            else{
-                                                ?>
-                                                <td>???</td>
                                                 <td><a class="btn btn-success <?php echo (!$this->ion_auth->logged_in()) ? 'toggle-modal' : ''; ?>" href="<?php echo site_url('exams/takeexam/' . $exam->id); ?>">Take Exam</a></td>
-                                            <?php
-                                            }     
-                                            ?>
                                             <td></td>
                                         </tr>
                                     <?php } ?>
